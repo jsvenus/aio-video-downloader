@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/ic_popup_background">
+
+
+    <!-- A Linear view group will guide us -->
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+        <!-- Video Option -->
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/video"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+                    android:minHeight="20dp"
+                    android:drawableLeft="@drawable/ic_video_play"
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"/>
+        </LinearLayout>
+
+        <!-- Border -->
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/transparent"
+                android:orientation="vertical">
+        </LinearLayout>
+
+        <!-- Music -->
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/music"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+
+                    android:drawableLeft="@drawable/ic_music_play"
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:minHeight="20dp"/>
+        </LinearLayout>
+
+
+        <!-- Border -->
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/transparent"
+                android:orientation="vertical">
+        </LinearLayout>
+
+        <!-- 18+ Videos -->
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/google_search"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:drawableLeft="@drawable/ic_google_search"
+                    android:background="@drawable/all_image_button_press"
+                    android:textColor="@color/text_black"
+                    android:padding="@dimen/element_padding"
+                    android:minHeight="20dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/activity_bg_theme"
+              android:id="@+id/content_bar_list_activity"
+        >
+
+    <!-- Top title view group. -->
+    <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <!-- title bar. -->
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/about_us"
+                android:textStyle="bold"
+                android:textColor="@color/text_black"
+                android:padding="@dimen/element_padding"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_centerInParent="true"
+                />
+
+        <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/element_padding"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@drawable/all_image_button_press"
+                android:layout_alignParentLeft="true"
+                tools:ignore="ContentDescription,RtlHardcoded"
+                />
+
+    </RelativeLayout>
+
+
+    <!-- Scroll view -->
+    <ScrollView
+            android:id="@+id/scroll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            >
+
+        <!-- Layout -->
+        <LinearLayout
+                android:id="@+id/li"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+            <TextView
+                    android:id="@+id/about_app"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:layout_margin="@dimen/element_padding"
+                    android:textColor="@color/text_black"
+                    android:drawableLeft="@drawable/abs_about_app_icon"
+                    android:gravity="center"
+                    android:textAppearance="?android:textAppearance"
+                    tools:ignore="RtlHardcoded"/>
+
+            <!-- Authors -->
+            <TextView
+                    android:id="@+id/authors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/slide_label_bg"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:text="@string/author_developers"
+                    android:textColor="@color/text_white"
+                    />
+
+            <TextView
+                    android:id="@+id/shiba"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:text="@string/shiba"
+                    android:textColor="@color/text_black"
+                    />
+
+            <TextView
+                    android:id="@+id/manoj"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textStyle="normal"
+                    android:text="@string/manoj"
+                    android:textColor="@color/text_black"
+                    />
+
+            <TextView
+                    android:id="@+id/priti"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textStyle="normal"
+                    android:text="@string/priti"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- Authors -->
+            <TextView
+                    android:id="@+id/thanks"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/slide_label_bg"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textAllCaps="true"
+                    android:textStyle="bold"
+                    android:text="@string/special_thanks"
+                    android:textColor="@color/text_white"
+                    />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textStyle="normal"
+                    android:text="@string/tarif"
+                    android:textColor="@color/text_black"
+                    />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textStyle="normal"
+                    android:text="@string/soumik"
+                    android:textColor="@color/text_black"
+                    />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textStyle="normal"
+                    android:text="@string/suman"
+                    android:textColor="@color/text_black"
+                    />
+
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textStyle="normal"
+                    android:text="@string/sanchit"
+                    android:textColor="@color/text_black"
+                    />
+
+            <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textAppearance="?android:textAppearance"
+                    android:textStyle="normal"
+                    android:text="@string/amio"
+                    android:textColor="@color/text_black"
+                    />
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>
+

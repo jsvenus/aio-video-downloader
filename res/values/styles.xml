@@ -1,0 +1,23 @@
+<resources>
+
+
+    <style name="ic_running_download_progress" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/ic_running_download_progress_bar</item>
+        <item name="android:minHeight">4dip</item>
+        <item name="android:maxHeight">5dip</item>
+    </style>
+
+    <style name="ic_pause_download_progress" parent="android:Widget.ProgressBar.Horizontal">
+        <item name="android:indeterminateOnly">false</item>
+        <item name="android:progressDrawable">@drawable/ic_paused_download_progress_bar</item>
+        <item name="android:minHeight">4dip</item>
+        <item name="android:maxHeight">5dip</item>
+    </style>
+
+
+    <style name="AppTheme" parent="">
+
+    </style>
+
+</resources>

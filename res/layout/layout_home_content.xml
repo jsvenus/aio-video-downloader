@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/activity_bg_theme"
+        android:id="@+id/content_bar_list_activity">
+
+    <!-- Top title view group. -->
+    <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <!-- title bar. -->
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                android:textStyle="bold"
+                android:textColor="@color/text_black"
+                android:padding="@dimen/element_padding"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_centerInParent="true"/>
+
+        <!-- left button for options. -->
+        <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/element_padding"
+                android:src="@drawable/ic_option_overflow"
+                android:background="@drawable/all_image_button_press"
+                android:layout_alignParentLeft="true"
+                tools:ignore="ContentDescription"/>
+
+
+        <!-- right button for add new download task. -->
+        <ImageButton
+                android:id="@+id/bnt_add_new_download"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/element_padding"
+                android:src="@drawable/ic_add_new_download"
+                android:background="@drawable/all_image_button_press"
+                android:layout_alignParentRight="true"
+                tools:ignore="ContentDescription"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/search_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:paddingTop="8dp"
+            android:orientation="horizontal">
+
+        <!-- user input box. -->
+        <EditText
+                android:id="@+id/edit_search"
+                android:layout_height="wrap_content"
+                android:layout_width="fill_parent"
+                android:layout_marginRight="@dimen/element_padding"
+                android:layout_toLeftOf="@+id/bnt_search"
+                android:textColor="@color/text_black"
+                android:padding="@dimen/element_padding"
+                android:singleLine="true"
+                android:background="@drawable/ic_edit_background"
+                android:inputType="none"/>
+
+        <!-- search button -->
+        <ImageButton
+                android:id="@+id/bnt_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/ic_search"
+                android:padding="@dimen/element_padding"
+                android:background="@drawable/all_image_button_press"
+                tools:ignore="ContentDescription"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+            android:id="@+id/relativeLayout_list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <!-- list view -->
+        <ListView
+                android:id="@+id/listView_siteList"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:divider="#593e3e3e"
+                android:listSelector="@drawable/all_image_button_press"
+                android:dividerHeight="1dp"
+                android:fastScrollEnabled="true"
+                android:smoothScrollbar="true">
+        </ListView>
+    </RelativeLayout>
+
+
+</LinearLayout>
+

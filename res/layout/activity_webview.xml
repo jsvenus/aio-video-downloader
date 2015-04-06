@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="@color/activity_bg_theme"
+        android:id="@+id/mainLayout"
+        >
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <ImageButton
+                android:id="@+id/menu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:padding="@dimen/element_padding"
+                android:src="@drawable/ic_option_overflow"
+
+                android:background="@drawable/all_image_button_press"
+                android:layout_alignParentLeft="true"
+                android:contentDescription="@string/menu_button"
+                />
+
+        <EditText
+                android:id="@+id/input_url"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="true"
+                android:textColor="@color/text_black"
+                android:background="@drawable/ic_edit_background"
+                android:hint="@string/http_hint"
+                android:textColorHint="@color/text_black_light"
+                android:padding="@dimen/element_padding"
+                android:layout_toRightOf="@+id/menu"
+                android:layout_toLeftOf="@+id/go"
+                android:layout_centerVertical="true"
+                android:inputType="none"
+                tools:ignore="TextFields"
+                />
+
+        <ImageButton
+                android:id="@+id/go"
+                android:background="@drawable/all_image_button_press"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_go"
+                android:padding="@dimen/element_padding"
+                android:layout_centerVertical="true"
+                android:layout_alignParentRight="true"
+                android:contentDescription="@string/go_button"
+                />
+
+    </RelativeLayout>
+
+
+    <!-- Web view progress bar -->
+    <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/ic_running_download_progress"
+            android:layout_width="fill_parent"
+            android:layout_height="3dp"
+            />
+
+
+    <WebView
+            android:id="@+id/web"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            />
+
+
+</LinearLayout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/element_padding_small"
+        android:padding="@dimen/element_padding"
+        android:background="@drawable/ic_popup_background"
+        >
+
+    <ScrollView
+            android:id="@+id/scrollView"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            tools:ignore="UselessParent"
+            >
+
+        <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+            <TextView
+                    android:id="@+id/title"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding_large"
+                    android:textStyle="bold"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    >
+            </TextView>
+
+            <TextView
+                    android:id="@+id/open"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_open_file"
+                    android:textColor="@color/text_black"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:background="@drawable/all_image_button_press"
+                    >
+            </TextView>
+
+            <TextView
+                    android:id="@+id/rename"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_select_file"
+                    android:padding="@dimen/element_padding"
+                    android:textColor="@color/text_black"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:background="@drawable/all_image_button_press"
+                    >
+            </TextView>
+
+
+            <TextView
+                    android:id="@+id/create"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_create_file"
+                    android:textColor="@color/text_black"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:background="@drawable/all_image_button_press"
+                    >
+            </TextView>
+
+            <TextView
+                    android:id="@+id/select"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_rename_file"
+                    android:textColor="@color/text_black"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:background="@drawable/all_image_button_press"
+                    />
+
+            <TextView
+                    android:id="@+id/delete"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:drawableLeft="@drawable/ic_delete"
+                    android:padding="@dimen/element_padding"
+                    android:textColor="@color/text_black"
+                    android:gravity="center_vertical"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:background="@drawable/all_image_button_press"
+                    >
+            </TextView>
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
+	

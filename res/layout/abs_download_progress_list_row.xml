@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/main_layout"
+        >
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="@dimen/element_padding"
+            android:padding="@dimen/element_padding"
+            android:background="@drawable/ic_tab_background"
+            >
+
+        <TextView
+                android:id="@+id/file_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+
+                android:padding="@dimen/element_padding"
+
+                android:text="@string/default_file_string"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold"
+                android:textColor="@color/text_black"
+                android:singleLine="true"
+
+                />
+
+        <!-- progress layout. -->
+        <RelativeLayout
+                android:id="@+id/progress_layout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/file_name"
+                android:orientation="horizontal"
+                >
+
+            <ImageView
+                    android:id="@+id/sign_of_pause"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    android:contentDescription="@string/sign_of_pause"
+                    />
+
+            <ProgressBar
+                    android:id="@+id/progressBar"
+                    style="@style/ic_pause_download_progress"
+                    android:layout_width="fill_parent"
+                    android:layout_height="3dp"
+                    android:layout_toRightOf="@+id/sign_of_pause"
+                    android:layout_toLeftOf="@+id/pause"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    tools:ignore="RtlHardcoded"/>
+
+            <ImageView
+                    android:id="@+id/pause"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:layout_marginLeft="2dp"
+                    />
+        </RelativeLayout>
+
+        <LinearLayout
+                android:id="@+id/detail"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/progress_layout"
+                android:orientation="horizontal"
+                >
+
+            <TextView
+                    android:id="@+id/totalSize"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:singleLine="true"
+                    android:text="@string/default_downloaded"
+                    android:textColor="@color/text_black"
+                    />
+
+            <TextView
+                    android:id="@+id/percentage"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="3dp"
+                    android:paddingRight="3dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:singleLine="true"
+                    android:text="@string/default_percentage"
+                    android:gravity="center"
+                    android:textColor="@color/text_black"
+                    />
+
+
+            <TextView
+                    android:id="@+id/traffic_size"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="5dp"
+                    android:paddingRight="5dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:singleLine="true"
+                    android:gravity="right"
+                    android:text="@string/default_speed"
+                    android:textColor="@color/text_black"
+                    />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+</RelativeLayout>

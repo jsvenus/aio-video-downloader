@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="#000000"
+        android:id="@+id/slide_bar_list_activity"
+        >
+
+    <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/activity_bg_theme"
+            android:padding="@dimen/element_padding"
+            android:layout_marginRight="1dp"
+            android:orientation="horizontal"
+            >
+
+        <!-- Title -->
+        <TextView
+                android:id="@+id/tv_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:textStyle="bold"
+                android:text="@string/fast_access_room_string"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_centerInParent="true"
+                />
+
+    </RelativeLayout>
+
+    <ScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_marginRight="1dp"
+            android:padding="@dimen/element_padding"
+            android:background="@color/activity_bg_theme"
+            >
+
+
+        <LinearLayout
+                android:id="@+id/sliding_vg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+            <!-- LABEL : Download manager. -->
+            <TextView
+                    android:id="@+id/download_manager_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:text="@string/download_manager_string"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAllCaps="true"
+                    />
+
+            <!--  Download manager. -->
+            <TextView
+                    android:id="@+id/download_manager"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_download_manager"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+
+            <!-- LABEL : web site list. -->
+            <TextView
+                    android:id="@+id/website_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:text="@string/website_catalog"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAllCaps="true"
+                    />
+
+            <!-- Youtube video downloader. -->
+            <TextView
+                    android:id="@+id/youtube_video_downloader"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_youtube_video_download"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- video website. -->
+            <TextView
+                    android:id="@+id/video_websites"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_video_site"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- music website. -->
+            <TextView
+                    android:id="@+id/music_websites"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_music_ste"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- hot website. -->
+            <TextView
+                    android:id="@+id/hot_websites"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_hot"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+
+            <!-- share label. -->
+            <TextView
+                    android:id="@+id/share_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:text="@string/share_string"
+                    android:orientation="horizontal"
+                    android:textStyle="bold"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAllCaps="true"
+                    />
+
+            <!-- share with friends. -->
+            <TextView
+                    android:id="@+id/share"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_share_with_friend"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!--update label. -->
+            <TextView
+                    android:id="@+id/update_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:textStyle="bold"
+                    android:text="@string/update_string"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAllCaps="true"
+                    />
+
+            <!-- update application. -->
+            <TextView
+                    android:id="@+id/update"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_update_aio"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- setting label. -->
+            <TextView
+                    android:id="@+id/setting_lable"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:textStyle="bold"
+                    android:text="@string/setting_lable"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAllCaps="true"
+                    />
+
+            <!-- update application. -->
+            <TextView
+                    android:id="@+id/setting"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_setting"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- report label. -->
+            <TextView
+                    android:id="@+id/report_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:textStyle="bold"
+                    android:text="@string/report_bugs"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAllCaps="true"
+                    />
+
+            <!-- report bug submit. -->
+            <TextView
+                    android:id="@+id/report_bug"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_report_bug"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- like label. -->
+            <TextView
+                    android:id="@+id/like_label"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:textStyle="bold"
+                    android:text="@string/like_facebook"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAllCaps="true"
+                    />
+
+            <!-- facebook like. -->
+            <TextView
+                    android:id="@+id/facebook_like"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_facebook_like"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- twitter follow. -->
+            <TextView
+                    android:id="@+id/twitter_follow"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_twitter_follow"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- about and legal label. -->
+            <TextView
+                    android:id="@+id/about_legal"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:orientation="horizontal"
+                    android:textStyle="bold"
+                    android:text="@string/about_legal"
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:textAllCaps="true"
+                    />
+
+            <!-- about us. -->
+            <TextView
+                    android:id="@+id/about_us"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_about_us"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+
+            <!-- Legal info. -->
+            <TextView
+                    android:id="@+id/legal_info"
+                    android:clickable="true"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    android:drawableLeft="@drawable/ic_legal_info"
+
+                    android:gravity="center_vertical"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    />
+        </LinearLayout>
+
+    </ScrollView>
+</LinearLayout>
+

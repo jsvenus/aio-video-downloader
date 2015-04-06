@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/element_padding_small"
+            android:padding="@dimen/element_padding"
+            android:background="@drawable/ic_popup_background"
+            >
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:gravity="center_vertical"
+                android:drawableLeft="@drawable/ic_download_buffer"
+                android:drawablePadding="@dimen/element_padding"
+                android:padding="@dimen/element_padding"
+                android:textStyle="bold"
+                />
+
+
+        <TextView
+                android:id="@+id/buffer_2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_2"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+
+        <TextView
+                android:id="@+id/buffer_4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_4"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+        <TextView
+                android:id="@+id/buffer_8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_8"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+
+        <TextView
+                android:id="@+id/buffer_16"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_16"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+
+        <TextView
+                android:id="@+id/buffer_32"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_32"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+
+        <TextView
+                android:id="@+id/buffer_64"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_64"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+        <TextView
+                android:id="@+id/buffer_128"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_128"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+        <TextView
+                android:id="@+id/buffer_256"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_256"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+        <TextView
+                android:id="@+id/buffer_512"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_size_512"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+        <TextView
+                android:id="@+id/buffer_MAX"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/buffer_max"
+                android:clickable="true"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/all_image_button_press"
+                />
+
+    </LinearLayout>
+</ScrollView>

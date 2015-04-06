@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@drawable/ic_popup_background"
+        >
+
+    <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal"
+                >
+
+            <TextView
+                    android:id="@+id/refresh_download_system"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:text="@string/refresh_system"
+                    android:gravity="center_vertical"
+                    android:minHeight="20dp"
+                    android:drawableLeft="@drawable/ic_refresh"
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/transparent"
+                android:orientation="vertical"
+                />
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal"
+                >
+
+            <TextView
+                    android:id="@+id/stop_service"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:text="@string/stop_service"
+                    android:gravity="center_vertical"
+                    android:minHeight="20dp"
+                    android:drawableLeft="@drawable/ic_refresh"
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    />
+        </LinearLayout>
+
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/transparent"
+                android:orientation="vertical"
+                />
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal"
+                >
+
+            <TextView
+                    android:id="@+id/download_buffer_change"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:text="@string/download_buffer_size"
+                    android:gravity="center_vertical"
+                    android:minHeight="20dp"
+                    android:drawableLeft="@drawable/ic_download_buffer"
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    />
+
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:background="@color/transparent"
+                android:orientation="vertical"
+                />
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal"
+                >
+
+            <TextView
+                    android:id="@+id/ui_update_loop"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:text="@string/ui_update"
+                    android:gravity="center_vertical"
+                    android:minHeight="20dp"
+                    android:drawableLeft="@drawable/ic_screen_ui"
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    />
+        </LinearLayout>
+
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal"
+                >
+
+            <TextView
+                    android:id="@+id/more_setting"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+                    android:text="@string/more_setting"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:gravity="center_vertical"
+                    android:minHeight="20dp"
+                    android:drawableLeft="@drawable/ic_setting"
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    />
+        </LinearLayout>
+
+
+    </LinearLayout>
+</ScrollView>

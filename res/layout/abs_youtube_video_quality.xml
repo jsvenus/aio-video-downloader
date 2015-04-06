@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="@dimen/element_padding_small"
+              android:padding="@dimen/element_padding"
+              android:id="@+id/main"
+              android:background="@drawable/ic_popup_background"
+        >
+
+    <!-- Title text -->
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:text="@string/qualities"
+            android:textColor="@color/text_black"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:gravity="center"
+            android:textStyle="bold"
+
+            android:padding="@dimen/element_padding"
+            android:singleLine="true"
+            />
+
+    <ListView
+            android:id="@+id/quality_list"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:fastScrollEnabled="true"
+            android:divider="@color/transparent"
+            android:listSelector="@drawable/all_image_button_press"
+            android:dividerHeight="1dp"
+            android:smoothScrollbar="true"
+            >
+    </ListView>
+
+</LinearLayout>
+

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="text_white">#ffffff</color>
+    <color name="label_border">#FF0E1220</color>
+    <color name="slide_label_bg">#FF37436A</color>
+    <color name="text_black">#ff494949</color>
+</resources>
+ 

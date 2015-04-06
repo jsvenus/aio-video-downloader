@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+
+    <color name="black">#000000</color>
+    <color name="white">#eeeeee</color>
+    <color name="blue">#FF719FD8</color>
+    <color name="blue1">#72167499</color>
+
+
+    <color name="desable">#ff747474</color>
+
+
+    <color name="red">#FFC51A1B</color>
+    <color name="deep_blue">#FF262C5B</color>
+    <color name="gray">#535353</color>
+    <color name="l">#5CE4E6E7</color>
+    <color name="shadow_Name">#939393</color>
+    <color name="shadow_Sci">#939393</color>
+    <color name="green">#FF1C3A27</color>
+
+
+    <!-- Text Colors -->
+    <color name="t_black">#FF343434</color>
+    <color name="t_title_blue">#336699</color>
+    <color name="p_white">#ffffff</color>
+
+
+    <!-- Theme color for application. -->
+    <color name="activity_bg_theme">#ffdddddd</color>
+    <color name="border">#6E7E94</color>
+    <color name="dialog_bg">#004050</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="button_press">#ad737373</color>
+    <color name="text_black_light">#ff8f8f8f</color>
+
+</resources>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/element_padding_small"
+        android:padding="@dimen/element_padding"
+        android:background="@drawable/ic_popup_background"
+        >
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <!-- Title text -->
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+
+                android:text="@string/default_text_string"
+                android:textColor="@color/text_black"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:gravity="center"
+                android:textStyle="bold"
+
+                android:padding="@dimen/element_padding"
+                android:singleLine="true"
+                android:layout_weight="1"/>
+
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:text="@string/name_text"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/name"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:singleLine="true"
+                android:text="@string/name_text"
+                android:textAppearance="?android:textAppearance"
+                android:textColor="@color/text_black_light"
+                android:padding="@dimen/element_padding"
+                android:layout_weight="1"/>
+
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:text="@string/path_text"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/path"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:singleLine="false"
+                android:text="@string/path_text"
+                android:textAppearance="?android:textAppearance"
+                android:textColor="@color/text_black_light"
+                android:padding="@dimen/element_padding"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/web_page_title"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:text="@string/web_page_title"
+                android:textStyle="bold"
+                android:textAllCaps="true"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/web_page"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:singleLine="false"
+                android:text="@string/web_page"
+                android:textIsSelectable="true"
+                android:textAppearance="?android:textAppearance"
+                android:textColor="@color/text_black_light"
+                android:padding="@dimen/element_padding"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:text="@string/url_text"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/url"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:singleLine="false"
+                android:text="@string/url_text"
+                android:textIsSelectable="true"
+                android:textAppearance="?android:textAppearance"
+                android:textColor="@color/text_black_light"
+                android:padding="@dimen/element_padding"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:text="@string/file_size"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/file_size"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:singleLine="false"
+                android:text="@string/file_size_example"
+                android:textAppearance="?android:textAppearance"
+                android:textColor="@color/text_black_light"
+                android:padding="@dimen/element_padding"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:text="@string/file_extension"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/file_extension"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:singleLine="false"
+                android:text="@string/file_extension_example"
+                android:textAppearance="?android:textAppearance"
+                android:textColor="@color/text_black_light"
+                android:padding="@dimen/element_padding"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:text="@string/file_modification"
+                android:textStyle="bold"
+                android:layout_weight="1"/>
+
+        <TextView
+                android:id="@+id/creation_date"
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:singleLine="false"
+                android:text="@string/date_example"
+                android:textAppearance="?android:textAppearance"
+                android:textColor="@color/text_black_light"
+                android:padding="@dimen/element_padding"
+                android:layout_weight="1"/>
+
+
+    </LinearLayout>
+</ScrollView>

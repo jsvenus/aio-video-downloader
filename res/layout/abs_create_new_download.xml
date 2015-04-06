@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content">
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/element_padding_small"
+            android:padding="@dimen/element_padding"
+            android:background="@drawable/ic_popup_background"
+            android:orientation="vertical">
+
+        <RelativeLayout
+                android:id="@+id/top_title"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:orientation="horizontal"
+                android:layout_weight="1">
+
+            <TextView
+                    android:id="@+id/title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    android:text="@string/add_download_title"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:padding="@dimen/element_padding"
+                    android:layout_gravity="bottom|left"
+                    tools:ignore="RtlHardcoded"/>
+
+            <ImageButton
+                    android:id="@+id/play_video_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:padding="@dimen/element_padding"
+                    android:background="@drawable/all_image_button_press"
+                    android:src="@drawable/ic_open_other_application"
+                    android:contentDescription="@string/share_with_app_string"
+                    tools:ignore="RtlHardcoded"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            <TextView
+                    android:id="@+id/n0"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textColor="@color/text_black"
+                    android:text="@string/url_text"
+                    android:textStyle="bold"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    />
+
+            <EditText
+                    android:id="@+id/url_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:background="@drawable/ic_edit_background"
+                    android:padding="@dimen/element_padding"
+                    tools:ignore="RtlSymmetry"
+                    android:layout_below="@+id/n0"
+                    android:inputType="textUri"
+                    />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            <TextView
+                    android:id="@+id/n"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textColor="@color/text_black"
+                    android:text="@string/name_text"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    />
+
+            <EditText
+                    android:id="@+id/name_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:background="@drawable/ic_edit_background"
+                    android:padding="@dimen/element_padding"
+                    tools:ignore="RtlSymmetry"
+                    android:layout_below="@+id/n"
+                    android:inputType="text"
+                    />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            <TextView
+                    android:id="@+id/j"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textColor="@color/text_black"
+                    android:text="@string/connection_text"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    />
+
+            <EditText
+                    android:id="@+id/connection_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:singleLine="true"
+                    android:text="@string/_1_string"
+                    android:textColor="@color/text_black"
+                    android:background="@drawable/ic_edit_background"
+                    android:padding="@dimen/element_padding"
+                    tools:ignore="RtlSymmetry"
+                    android:layout_below="@+id/j"
+                    android:inputType="number"
+                    />
+        </RelativeLayout>
+
+        <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+            <TextView
+                    android:id="@+id/n1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="@dimen/element_padding"
+                    android:textColor="@color/text_black"
+                    android:text="@string/path_text"
+                    android:textStyle="bold"
+                    android:layout_alignParentTop="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    />
+
+            <TextView
+                    android:id="@+id/path_edit"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:singleLine="true"
+                    android:textColor="@color/text_black"
+                    android:background="@drawable/all_image_button_press"
+                    android:text="@string/sdcard_string"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:padding="@dimen/element_padding"
+                    tools:ignore="RtlSymmetry"
+                    android:layout_below="@+id/n1"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    />
+        </RelativeLayout>
+
+        <TextView
+                android:id="@+id/download"
+                android:clickable="true"
+                android:layout_width="fill_parent"
+                android:text="@string/download"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:textColor="@color/text_black"
+                android:textStyle="bold"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:background="@drawable/all_image_button_press"
+                android:layout_margin="@dimen/element_padding"
+                android:padding="@dimen/element_padding_large"
+                android:layout_weight="1"/>
+
+    </LinearLayout>
+
+</ScrollView>
+
+
+
+
+

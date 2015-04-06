@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:background="@color/activity_bg_theme"
+              android:id="@+id/content_bar_list_activity"
+        >
+
+    <!-- Top title view group. -->
+    <RelativeLayout
+            android:id="@+id/title_bar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <!-- title bar. -->
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/setting"
+                android:textStyle="bold"
+                android:textColor="@color/text_black"
+                android:padding="@dimen/element_padding"
+                android:gravity="center"
+                android:singleLine="true"
+                android:layout_centerInParent="true"
+                />
+
+        <ImageButton
+                android:id="@+id/back_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/element_padding"
+                android:onClick="backPress"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@drawable/all_image_button_press"
+                android:layout_alignParentLeft="true"
+                tools:ignore="ContentDescription"
+                />
+
+    </RelativeLayout>
+
+
+    <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/element_padding"
+            android:layout_margin="@dimen/element_padding"
+            >
+
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                >
+
+            <LinearLayout
+                    android:id="@+id/clear_setting"
+                    android:clickable="true"
+                    android:onClick="clearAllSetting"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding"
+                    >
+
+                <TextView
+                        android:id="@+id/reset_setting_title"
+                        android:clickable="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clear_all_setting"
+                        android:singleLine="false"
+                        android:textAppearance="?android:textAppearance"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_black"
+                        android:gravity="center_vertical"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/clear_all_setting_detail"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:textColor="@color/text_black"
+                        />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:id="@+id/auto_resume"
+                    android:clickable="true"
+                    android:onClick="toggleAutoResume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding"
+                    >
+
+                <CheckBox
+                        android:id="@+id/auto_resume_title"
+                        android:clickable="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/auto_resume_title"
+                        android:textAppearance="?android:textAppearance"
+                        android:textStyle="bold"
+                        android:button="@drawable/ic_checkbox_selector"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_black"
+                        android:gravity="center_vertical"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/auto_resume_decrip"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:textColor="@color/text_black"
+                        />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/any_resume"
+                    android:clickable="true"
+                    android:onClick="toggleAutoResumeOnAnyResume"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding"
+                    >
+
+                <CheckBox
+                        android:id="@+id/any_resume_title"
+                        android:clickable="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/any_resume"
+                        android:textAppearance="?android:textAppearance"
+                        android:textStyle="bold"
+                        android:button="@drawable/ic_checkbox_selector"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_black"
+                        android:gravity="center_vertical"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/any_resume_des"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:textColor="@color/text_black"
+                        />
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:id="@+id/max_download"
+                    android:clickable="true"
+                    android:onClick="toggleMaxDownload"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding"
+                    >
+
+                <TextView
+                        android:id="@+id/max_download_title"
+                        android:clickable="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/max_download"
+                        android:singleLine="false"
+                        android:textAppearance="?android:textAppearance"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_black"
+                        android:gravity="center_vertical"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/max_download_dis"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:textColor="@color/text_black"
+                        />
+
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/max_speed"
+                    android:clickable="true"
+                    android:onClick="toggleMaxSpeed"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding"
+                    >
+
+                <TextView
+                        android:id="@+id/max_speed_title"
+                        android:clickable="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/max_speed"
+                        android:singleLine="false"
+                        android:textAppearance="?android:textAppearance"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_black"
+                        android:gravity="center_vertical"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/max_speed_des"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:textColor="@color/text_black"
+                        />
+            </LinearLayout>
+
+
+            <LinearLayout
+                    android:id="@+id/multi_thread"
+                    android:clickable="true"
+                    android:onClick="toggleMultiThread"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding"
+                    >
+
+                <TextView
+                        android:id="@+id/multi_thread_title"
+                        android:clickable="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/multi_thread"
+                        android:singleLine="false"
+                        android:textAppearance="?android:textAppearance"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_black"
+                        android:gravity="center_vertical"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/multi_thread_des"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:textColor="@color/text_black"
+                        />
+            </LinearLayout>
+
+            <LinearLayout
+                    android:id="@+id/download_complete_notifi"
+                    android:clickable="true"
+                    android:onClick="toggleDownloadCompleteNotify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/element_padding"
+                    >
+
+                <CheckBox
+                        android:id="@+id/download_complete_notifi_title"
+                        android:clickable="false"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/download_complete_notifi"
+                        android:singleLine="false"
+                        android:textAppearance="?android:textAppearance"
+                        android:button="@drawable/ic_checkbox_selector"
+                        android:textStyle="bold"
+                        android:textAllCaps="true"
+                        android:textColor="@color/text_black"
+                        android:gravity="center_vertical"
+                        />
+
+                <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/download_complete_notifi_dec"
+                        android:textAppearance="?android:textAppearanceSmall"
+                        android:textStyle="normal"
+                        android:textColor="@color/text_black"
+                        />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="@dimen/element_padding_small"
+              android:padding="@dimen/element_padding"
+              android:background="@drawable/ic_popup_background"
+              android:layout_marginBottom="@dimen/element_padding_large">
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:textAppearance="?android:textAppearanceMedium"
+            android:text="@string/pic_a_choice_string"
+            android:textStyle="bold"
+            android:textColor="@color/text_black"
+            android:gravity="center"
+            android:padding="@dimen/element_padding"
+            android:layout_marginBottom="@dimen/element_padding"
+            />
+
+    <TextView
+            android:id="@+id/add_site_bookmark"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/text_black"
+            android:textStyle="normal"
+            android:text="@string/add_new_bookmark_string"
+
+            android:gravity="center_vertical"
+            android:padding="@dimen/element_padding"
+            android:background="@drawable/all_image_button_press"
+            android:drawableLeft="@drawable/ic_bookmark"
+            android:drawablePadding="@dimen/element_padding"
+            android:clickable="true"
+
+            tools:ignore="RtlHardcoded"/>
+
+    <TextView
+            android:id="@+id/add_new_download"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/text_black"
+            android:textStyle="normal"
+            android:text="@string/add_new_download_string"
+
+            android:gravity="center_vertical"
+            android:padding="@dimen/element_padding"
+            android:background="@drawable/all_image_button_press"
+            android:drawableLeft="@drawable/ic_add_download"
+            android:drawablePadding="@dimen/element_padding"
+
+            android:clickable="true"
+
+            tools:ignore="RtlHardcoded"/>
+
+
+</LinearLayout>

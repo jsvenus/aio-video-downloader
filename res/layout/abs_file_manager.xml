@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_alignParentBottom="true"
+        android:orientation="vertical"
+        android:layout_margin="@dimen/element_padding_small"
+        android:padding="@dimen/element_padding"
+        android:background="@drawable/ic_popup_background"
+        >
+
+
+    <!-- Table Row -->
+    <RelativeLayout
+            android:id="@+id/title__view_group"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            >
+
+        <!-- Back Button -->
+        <ImageButton
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/all_image_button_press"
+                android:src="@drawable/ic_arrow_back"
+                android:padding="@dimen/element_padding"
+                android:layout_alignParentLeft="true"
+                android:contentDescription="@string/back_button_string"
+                />
+
+        <TextView
+                android:id="@+id/path_name"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/sdcard_root"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:background="@drawable/all_image_button_press"
+                android:textStyle="bold"
+                android:padding="@dimen/element_padding"
+                android:maxLines="3"
+                android:textColor="@color/text_black"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:layout_toRightOf="@id/back"
+                />
+
+    </RelativeLayout>
+
+    <!-- File List  -->
+    <RelativeLayout
+            android:id="@+id/relativeLayout_list_view"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            >
+
+        <!-- List row -->
+        <ListView
+                android:id="@+id/quality_list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:divider="@color/transparent"
+                android:dividerHeight="0dp"
+                android:listSelector="@drawable/all_image_button_press"
+                android:fastScrollEnabled="true"
+                android:smoothScrollbar="true"
+                >
+        </ListView>
+
+    </RelativeLayout>
+
+
+</LinearLayout>
+

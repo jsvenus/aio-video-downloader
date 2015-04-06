@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:id="@+id/main"
+        android:padding="@dimen/element_padding"
+        android:background="@drawable/ic_slash_walpaper"
+        >
+
+    <!-- title of application -->
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+
+            android:textColor="@color/text_black"
+            android:text="@string/slash_title"
+            android:textAppearance="?android:textAppearanceLarge"
+            android:textStyle="bold"
+            android:padding="@dimen/element_padding"
+            android:layout_margin="@dimen/element_padding"
+            />
+
+
+    <!-- version name. -->
+    <TextView
+            android:id="@+id/version"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:textColor="@color/text_black"
+            android:padding="@dimen/element_padding"
+            android:layout_margin="@dimen/element_padding"
+            />
+
+
+</RelativeLayout>

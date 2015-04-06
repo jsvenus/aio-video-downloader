@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:orientation="vertical"
+        android:background="@color/activity_bg_theme"
+        android:id="@+id/content_bar_list_activity">
+
+
+    <RelativeLayout
+            android:id="@+id/titleLayout"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/download_manager_title"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textStyle="bold"
+                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_black"
+                android:gravity="center"
+                android:layout_centerInParent="true"/>
+
+        <ImageButton
+                android:id="@+id/option"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:paddingRight="8dp"
+                android:paddingLeft="8dp"
+                android:src="@drawable/ic_arrow_back"
+                android:background="@drawable/all_image_button_press"
+                android:layout_alignParentLeft="true"/>
+
+        <ImageButton
+                android:id="@+id/refresh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="@dimen/element_padding"
+                android:src="@drawable/ic_option_overflow"
+                android:background="@drawable/all_image_button_press"
+                android:layout_alignParentRight="true"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+            android:id="@+id/layout_download_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="5dp"
+            android:layout_below="@+id/titleLayout">
+
+        <TextView
+                android:id="@+id/download"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:clickable="true"
+                android:onClick="onClickRunningButton"
+                android:textStyle="bold"
+                android:text="@string/running_task"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:textColor="@color/text_black"
+                android:singleLine="true"
+                android:padding="@dimen/element_padding_large"
+                android:background="@drawable/ic_toggle_background_selector"/>
+
+
+        <TextView
+                android:id="@+id/downloaded"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:clickable="true"
+                android:onClick="onClickCompletedButton"
+                android:textStyle="bold"
+                android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/complete_task"
+                android:textColor="@color/text_black"
+                android:background="@drawable/ic_toggle_background_selector"
+                android:singleLine="true"
+                android:padding="@dimen/element_padding_large"/>
+    </LinearLayout>
+
+
+    <RelativeLayout
+            android:id="@+id/list"
+            android:layout_below="@+id/layout_download_status"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        <ListView
+                android:id="@+id/downloading_list"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:divider="@color/transparent"
+                android:dividerHeight="0dp"
+                android:fastScrollEnabled="true"
+                android:listSelector="@drawable/all_image_button_press"
+                android:smoothScrollbar="true">
+
+        </ListView>
+    </RelativeLayout>
+
+</RelativeLayout>

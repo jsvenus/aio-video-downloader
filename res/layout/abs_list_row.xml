@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding ="utf-8" ?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:id="@+id/listLayout"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/element_padding">
+
+    <TextView
+            android:id="@+id/thump_photo"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
+            android:padding="0dp"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:textStyle="bold"
+            android:background="@drawable/ic_thumb_background"
+            android:layout_centerVertical="true"
+            tools:ignore="ContentDescription"
+            />
+
+    <TextView
+            android:id="@+id/snakeName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/element_padding"
+            android:gravity="left"
+            android:layout_toRightOf="@id/thump_photo"
+            android:layout_toLeftOf="@+id/thump_next"
+            android:layout_centerVertical="true"
+            android:textColor="@color/text_black"
+            android:textSize="20dip"
+            android:singleLine="true"
+            tools:ignore="SpUsage"/>
+
+
+    <ImageView
+            android:id="@+id/thump_next"
+            android:layout_width="wrap_content"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_height="wrap_content"
+            android:maxWidth="32dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:src="@drawable/ic_arrow_right"
+            tools:ignore="ContentDescription"
+            />
+
+
+</RelativeLayout>

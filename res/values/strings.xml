@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AIO</string>
+    <string name="title">Free Download Manager</string>
+    <string name="slash_title">AIO Download Manager</string>
+
+    <string name="ad_unit_id">ca-app-pub-1600872992217933/7703303208</string>
+    <string name="gmail">janas00666@gmail.com</string>
+
+    <string name="aboutUsTitle">About us</string>
+    <string name="download_manager_title"> Download Manager </string>
+    <string name="running_task">Running</string>
+    <string name="complete_task">Downloaded</string>
+    <string name="search_button"> Search </string>
+    <string name="sdcard_root">/mnt/sdcard/</string>
+
+    <string name="buffer_size_2">1024 x 2</string>
+    <string name="buffer_size_64">1024 x 64</string>
+    <string name="buffer_size_32">1024 x 32</string>
+    <string name="buffer_size_16">1024 x 16</string>
+    <string name="buffer_size_8">1024 x 8</string>
+    <string name="buffer_size_4">1024 x 4</string>
+    <string name="default_speed">20Kb/s</string>
+
+    <string name="default_percentage">30/100</string>
+    <string name="default_downloaded">34Mb/145Mb</string>
+    <string name="web_title">Web Browser</string>
+    <string name="http_hint">http://</string>
+    <string name="go_bnt">  Go  </string>
+    <string name="ad_default">Ads : google Admob</string>
+    <string name="add_download_title"> Download notice</string>
+    <string name="url_text">URL : </string>
+    <string name="name_text">NAME : </string>
+    <string name="path_text">PATH : </string>
+    <string name="author_developers">Authors</string>
+    <string name="third_party_licence">Third party licence</string>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <string name="json_licence">Copyright © 2009 – 2013 Jonathan Hedley (jonathan@hedley.net)\n\n
+        Permission is hereby granted, free of charge, to any person obtaining a copy of this software and
+        associated documentation files (the "Software"), to deal in the Software without restriction, including
+        without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+        sell copies of the Software, and to permit persons to whom the Software
+        is furnished to do so, subject to the following conditions:
+        \n\n
+        The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+        \n\n
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED
+        TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL
+        THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF
+        CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+        IN THE SOFTWARE.</string>
+    <string name="third_party_licence_jsoup">Jsoup</string>
+    <string name="download">Download</string>
+    <string name="sdcard_string">/sdcard/aio</string>
+    <string name="share_with_app_string">Share with other application</string>
+    <string name="pic_a_choice_string">Pick a choice</string>
+    <string name="add_new_bookmark_string">New bookmark</string>
+    <string name="add_new_download_string">New download</string>
+    <string name="message_body_string">Message body</string>
+    <string name="connection_text">CONNECTION :  1 TO 6 </string>
+    <string name="_1_string">1</string>
+    <string name="back_button_string">Back button</string>
+    <string name="thumb_string">Thumb</string>
+    <string name="default_text_string">DEFAULT TEXT</string>
+    <string name="default_message_body_string">Default message body</string>
+    <string name="ok_string">OK</string>
+    <string name="file_name_text">FILE NAME :</string>
+    <string name="fast_access_room_string">FAST ACCESS ROOM</string>
+    <string name="legal_string">Legal Info</string>
+    <string name="copyright_holder_string">copyright_holder</string>
+    <string name="open_source_string">AIO downloader is made with some open source projects.</string>
+    <string name="download_manager_string">Download Manager</string>
+    <string name="website_catalog">Website Catalog</string>
+    <string name="share_string">Share</string>
+    <string name="update_string">Update</string>
+    <string name="report_bugs">Report bugs</string>
+    <string name="like_facebook">Like &amp; Follow</string>
+    <string name="about_legal"><![CDATA[About & Legal]]></string>
+    <string name="thumb_photo">Thumb Photo</string>
+    <string name="ui_update_string">LOOP NUMBER</string>
+    <string name="type_loop_number_string">Type Loop Number</string>
+    <string name="open_file_string">Open</string>
+    <string name="rename_file_string">Rename </string>
+    <string name="remove_file_string">Remove from list</string>
+    <string name="clear_all_string">Clear the list</string>
+    <string name="delete_string">Delete from sdcard</string>
+    <string name="property_string">Properties</string>
+    <string name="default_file_string">Default file.mvo</string>
+    <string name="sign_of_pause">Sign of pause </string>
+    <string name="pause">Pause</string>
+    <string name="resume">Resume</string>
+    <string name="restart">Restart</string>
+    <string name="delete_task">Delete</string>
+    <string name="edit">Force resume</string>
+    <string name="about_us">About us</string>
+    <string name="shiba">Shiba Prasad Jana\nFounder of SoftC Software | Main Programmer</string>
+    <string name="manoj">Manoj Kumar Jana\nProduct manager | CEO of SoftC Software</string>
+    <string name="priti">Priti bandhu Roy\nProduct Engineer | Software Designer</string>
+    <string name="special_thanks">Special thanks to..</string>
+    <string name="tarif">Mohammad Tarif</string>
+    <string name="suman">Suman</string>
+    <string name="sanchit">Sanchit Chokrobarty</string>
+    <string name="amio">Biswas Amiyo</string>
+    <string name="soumik">Soumik Dey</string>
+    <string name="remove_task">Remove </string>
+    <string name="setting">App settings</string>
+    <string name="auto_resume_title">Auto resume</string>
+    <string name="auto_resume_decrip">- after errors and connection break of running downloads.</string>
+    <string name="setting_lable">Settings</string>
+    <string name="max_download">Max no of downloads</string>
+    <string name="max_download_dis">- the maximum number of running download task in the system.</string>
+    <string name="max_speed">Max speed of download</string>
+    <string name="max_speed_des">- the download speed of a running task.</string>
+    <string name="buffer_size_128">1024 x 128</string>
+    <string name="buffer_size_256">1024 x 256</string>
+    <string name="buffer_size_512">1024 x 512</string>
+    <string name="download_suffix">Download TEMP SUFFIX</string>
+    <string name="download_suffix_des">- the tmp suffix file extension of a download task.</string>
+    <string name="multi_thread">Multi-Thread</string>
+    <string name="multi_thread_des">- the multi-thread type of the download system.</string>
+    <string name="download_complete_notifi">Download complete notify</string>
+    <string name="download_complete_notifi_dec">- notify that download task has completed by text-to-speech system.</string>
+    <string name="any_resume_des">- auto resume after any kind of download error.</string>
+    <string name="any_resume">Auto resume on Any Error</string>
+    <string name="refresh_system">Refresh Download System</string>
+    <string name="download_buffer_size">Download Buffer Size</string>
+    <string name="ui_update">UI Update Loop</string>
+    <string name="more_setting">More settings</string>
+    <string name="file_size">FILE SIZE : </string>
+    <string name="file_size_example">23MB</string>
+    <string name="file_extension">FILE EXTENSION : </string>
+    <string name="file_modification">LAST MODIFICATION DATE :</string>
+    <string name="file_extension_example">\'.mp4\'</string>
+    <string name="date_example">12/02/15</string>
+    <string name="stop_service">Stop Download System</string>
+    <string name="menu_button">Menu button</string>
+    <string name="go_button">Go button</string>
+    <string name="manual_download">Manual Download</string>
+    <string name="copy_url">Copy url</string>
+    <string name="open_browser">Open browser</string>
+    <string name="download_youtube_video">Download Youtube Video</string>
+    <string name="video_quality">Video Quality Formats : </string>
+    <string name="qualities">QUALITIES</string>
+    <string name="web_setting">WEB SETTINGS</string>
+    <string name="user_agent">User agent</string>
+    <string name="user_agent_des">User agnet of the web.</string>
+    <string name="javascript">Javascript</string>
+    <string name="javascript_des">Javascript of the web.</string>
+    <string name="zoom">ZOOM</string>
+    <string name="zoom_des">Set the zoom of web pages.</string>
+    <string name="text_size">Text SIZE</string>
+    <string name="text_size_des">Set the text size of web pages.</string>
+    <string name="clear_des">Clear all the cache, history, password etc.</string>
+    <string name="clear_all">Clear all history and caches</string>
+    <string name="buffer_max">MAX : see settings</string>
+    <string name="web_page_title">Web page --></string>
+    <string name="web_page">Web page</string>
+    <string name="add_new_bookmark">New Bookmark</string>
+    <string name="create">Create</string>
+    <string name="category">Category : </string>
+    <string name="video">Video</string>
+    <string name="clear_all_setting">Clear all setting</string>
+    <string name="clear_all_setting_detail">- reset all the application settings.</string>
+</resources>

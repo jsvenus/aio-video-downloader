@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="slash_title">23dp</dimen>
+    <dimen name="drawable_text">5dp</dimen>
+    <dimen name="title_size">18dip</dimen>
+    <dimen name="search_input">17.44dp</dimen>
+    <dimen name="default_size">18dp</dimen>
+    <dimen name="element_padding">8dp</dimen>
+    <dimen name="element_padding_small">6dp</dimen>
+    <dimen name="element_padding_large">15dp</dimen>
+</resources>

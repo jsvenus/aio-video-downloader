@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="fill_parent"
+              android:layout_height="wrap_content"
+              android:orientation="vertical"
+              android:layout_margin="@dimen/element_padding_small"
+              android:padding="@dimen/element_padding"
+              android:background="@drawable/ic_popup_background"
+        >
+
+    <TextView
+            android:id="@+id/title"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/default_text_string"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textStyle="bold"
+            android:textColor="@color/text_black"
+
+            android:gravity="center"
+            android:padding="@dimen/element_padding"
+            />
+
+    <TextView
+            android:id="@+id/n0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:padding="@dimen/element_padding"
+
+            android:textColor="@color/text_black"
+            android:text="@string/file_name_text"
+            android:textStyle="bold"
+            />
+
+    <EditText
+            android:id="@+id/name_edit"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+
+            android:singleLine="true"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@color/text_black"
+
+            android:background="@drawable/ic_edit_background"
+            android:padding="@dimen/element_padding"
+            android:inputType="text"
+            />
+
+    <TextView
+            android:id="@+id/download"
+            android:clickable="true"
+            android:layout_width="fill_parent"
+            android:text="@string/default_text_string"
+            android:layout_height="wrap_content"
+
+            android:gravity="center"
+            android:textColor="@color/text_black"
+            android:textStyle="bold"
+            android:textAppearance="?android:textAppearanceMedium"
+
+            android:background="@drawable/all_image_button_press"
+            android:layout_margin="@dimen/element_padding"
+            android:padding="@dimen/element_padding_large"
+            />
+</LinearLayout>
+
