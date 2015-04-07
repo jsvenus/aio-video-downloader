@@ -59,7 +59,6 @@
                 android:name="activity.ASlash"
                 android:configChanges=
                         "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
-                android:launchMode="singleTop"
                 android:noHistory="false"
                 android:theme="@android:style/Theme.NoTitleBar">
             <intent-filter>

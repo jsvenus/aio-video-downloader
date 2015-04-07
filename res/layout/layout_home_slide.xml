@@ -311,7 +311,7 @@
 
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"
-                    android:drawableLeft="@drawable/ic_facebook_like"
+                    android:drawableLeft="@drawable/ic_facebook"
 
                     android:gravity="center_vertical"
                     android:singleLine="true"
