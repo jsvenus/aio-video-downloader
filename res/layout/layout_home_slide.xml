@@ -327,7 +327,7 @@
 
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"
-                    android:drawableLeft="@drawable/ic_twitter_follow"
+                    android:drawableLeft="@drawable/ic_twitter"
 
                     android:gravity="center_vertical"
                     android:singleLine="true"
