@@ -13,6 +13,7 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
+import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
@@ -579,8 +580,8 @@ public class AHome extends ABase {
                     @Override
                     public void onClick(View v) {
                         String message = "This feature is password protected. " +
-                                "To get the password of this feature please email at shiba.spj@hotmail.com" +
-                                " and ask for the password. We will give you the password with in 24h.";
+                                "To unlock the feature email us at shiba.spj@hotmail.com" +
+                                " & ask for the password. We will send you the secret key.";
                         MessageDialog messageDialog = new MessageDialog(context, null, message);
                         messageDialog.hideTitle(true);
                         messageDialog.show();
@@ -588,6 +589,7 @@ public class AHome extends ABase {
                 });
 
                 final EditText editText = (EditText) passwordDialog.findViewById(R.id.name_edit);
+                editText.setInputType(InputType.TYPE_NUMBER_VARIATION_PASSWORD);
                 TextView submit = (TextView) passwordDialog.findViewById(R.id.download);
                 submit.setText("Submit");
 

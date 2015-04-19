@@ -13,7 +13,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/default_text_string"
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
             android:textStyle="bold"
             android:textColor="@color/text_black"
 
@@ -57,7 +57,7 @@
             android:gravity="center"
             android:textColor="@color/text_black"
             android:textStyle="bold"
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
 
             android:background="@drawable/all_image_button_press"
             android:layout_margin="@dimen/element_padding"
