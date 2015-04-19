@@ -251,7 +251,7 @@ public class DownloadTaskOption implements View.OnClickListener {
                         @Override
                         public void onClick(View view) {
                             if (inputUrl.getText().toString().length() < 1) {
-                                make_toast(context, true, "Give the file url.");
+                                makeToast(context, true, "Give the file url.");
                             } else {
                                 try {
                                     //check the url if it is valid or not.
@@ -283,7 +283,7 @@ public class DownloadTaskOption implements View.OnClickListener {
                                     }
                                 } catch (MalformedURLException e) {
                                     e.printStackTrace();
-                                    make_toast(context, true, "Invalid URL.");
+                                    makeToast(context, true, "Invalid URL.");
                                 }
                             }
                         }

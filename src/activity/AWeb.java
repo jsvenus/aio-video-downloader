@@ -859,7 +859,7 @@ public class AWeb extends ABase {
                             if (id != null)
                                 new ParseVideo().execute(id);
                             else
-                                make_toast("This is not a current Video URL.");
+                                makeToast("This is not a current Video URL.");
                         } catch (Exception error) {
                             error.printStackTrace();
                         }
@@ -1242,7 +1242,7 @@ public class AWeb extends ABase {
                     startActivity(intent);
                 } catch (Exception error) {
                     error.printStackTrace();
-                    make_toast("No application can handle this request.");
+                    makeToast("No application can handle this request.");
                 }
             }
         });
@@ -1996,7 +1996,7 @@ public class AWeb extends ABase {
 
         @Override
         public void onReceivedError(WebView view, int errorCode, String description, String url) {
-            make_toast(description);
+            makeToast(description);
         }
     }
 

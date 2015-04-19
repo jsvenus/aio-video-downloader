@@ -14,7 +14,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.*;
+import android.view.Menu;
+import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
@@ -62,38 +63,37 @@ public class AHome extends ABase {
     private static final int MUSIC_ADAPTER = 5443, VIDEO_ADAPTER = 4434, HOT_ADAPTER = 57443;
     //constant field for search edit text.
     private static final int WEBSITE = 0, SEARCH = 1;
-    private final static String BEEMP3_URL = "http://m.beemp3s.org/index.php?q=shiba&st=all&x=7&y=7";
-    private final static String YOUTUBE_URL =
-            "http://m.youtube.com/results?gl=IN&hl=en&client=mv-google&q=shiba&submit=Search";
-    //all the text view.
-    private TextView activity_title, share_with_friend,
-            update, setting, report, like_facebook,
-            twitterFollow, about_us, legal, slider_title, youtube_downloader,
-            download_manager, video_site, music_site, hot_site;
+
+
+    private TextView activity_title, shareWithFriend,
+            checkNewUpdate, openWebsite, setting, report, like_facebook,
+            twitterFollow, about_us, legal, slider_title, youtubeDownloader,
+            downloadManager, videoSite, musicSite, hotSite;
+
+
     //list view.
     private ListView list_view;
     //search edit text.
-    private EditText search_input;
+    private EditText searchInput;
     //image buttons.
     private ImageButton add_new_button, menu_button, search_button;
-    private SlidingView sliding_view;
+    private SlidingView slidingView;
     //application & activity context.
     private Context context;
     private App application;
     private int DEFAULT_ADAPTER = VIDEO_ADAPTER;
-    private WebsiteAdapter video_list_adapter, music_list_adapter, hot_list_adapter;
+    private WebsiteAdapter videoListAdapter, musicListAdapter, hotListAdapter;
     private Dialog passwordDialog;
 
+    private ArrayList<Website> videoSiteArray;
+    private ArrayList<Website> musicSiteArray;
+    private ArrayList<Website> hotSiteArray;
 
-    //-------------------------- System call back methods ----------------------------------------------------------//
-    private ArrayList<Website> video_site_array;
-    private ArrayList<Website> music_site_array;
-    private ArrayList<Website> hot_site_array;
     private int searchStatus = SEARCH;
-    //----------- FUNCTION --------------------------------------------------------------------------------//
-    private View popup_view;
-    private PopupWindow popup_window;
+
+
     private boolean download_running = false;
+    private SearchPopupMenu searchPopupMenu;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -104,116 +104,83 @@ public class AHome extends ABase {
 
         setContentView(R.layout.home_activity);
 
-        init_title();
-        init_content_view();
-        init_sliding_view();
-        init_site_array();
-        init_list_adapter();
-        init_list_view();
-        //reset the list adapter.
-        reset_list_adapter(DEFAULT_ADAPTER);
+        initViews();
+        initBookmarkArray();
+        initListAdapter();
+        updateListAdapter(DEFAULT_ADAPTER);
         init_make_up_views();
         init_click_call_back();
-        init_activity_intent_check();
+        checkActivityIntent();
         init_rate_check();
         init_submit_name();
         init_check_message();
     }
 
-    //------------------------- Init methods ----------------------------------------------------------------------//
-    private void init_title() {
+    //init the navigation views.
+    private void initViews() {
         activity_title = (TextView) findViewById(R.id.title);
         slider_title = (TextView) findViewById(R.id.tv_title);
-    }
-
-    private void init_content_view() {
         menu_button = (ImageButton) findViewById(R.id.back_button);
         add_new_button = (ImageButton) findViewById(R.id.bnt_add_new_download);
-        search_input = (EditText) findViewById(R.id.edit_search);
+        searchInput = (EditText) findViewById(R.id.edit_search);
         search_button = (ImageButton) findViewById(R.id.bnt_search);
-    }
 
-    private void init_sliding_view() {
-        sliding_view = (SlidingView) findViewById(R.id.sliding_layout);
-
-        download_manager = (TextView) findViewById(R.id.download_manager);
-
-        youtube_downloader = (TextView) findViewById(R.id.youtube_video_downloader);
-        video_site = (TextView) findViewById(R.id.video_websites);
-        music_site = (TextView) findViewById(R.id.music_websites);
-        hot_site = (TextView) findViewById(R.id.hot_websites);
-
-        share_with_friend = (TextView) findViewById(R.id.share);
-
-        update = (TextView) findViewById(R.id.update);
+        slidingView = (SlidingView) findViewById(R.id.sliding_layout);
+        downloadManager = (TextView) findViewById(R.id.download_manager);
+        youtubeDownloader = (TextView) findViewById(R.id.youtube_video_downloader);
+        videoSite = (TextView) findViewById(R.id.video_websites);
+        musicSite = (TextView) findViewById(R.id.music_websites);
+        hotSite = (TextView) findViewById(R.id.hot_websites);
+        shareWithFriend = (TextView) findViewById(R.id.share);
+        checkNewUpdate = (TextView) findViewById(R.id.update);
+        openWebsite = (TextView) findViewById(R.id.open_website);
         setting = (TextView) findViewById(R.id.setting);
-
         report = (TextView) findViewById(R.id.report_bug);
         like_facebook = (TextView) findViewById(R.id.facebook_like);
         twitterFollow = (TextView) findViewById(R.id.twitter_follow);
         about_us = (TextView) findViewById(R.id.about_us);
         legal = (TextView) findViewById(R.id.legal_info);
 
-    }
-
-    private void init_site_array() {
-        video_site_array = new VideoSites().get_site_data(app);
-        music_site_array = new MusicSites().get_site_data(app);
-        hot_site_array = new HotSites().get_site_data(app);
-    }
-
-    private void init_list_adapter() {
-        video_list_adapter = new WebsiteAdapter(context, video_site_array);
-        music_list_adapter = new WebsiteAdapter(context, music_site_array);
-        hot_list_adapter = new WebsiteAdapter(context, hot_site_array);
-    }
-
-    private void init_list_view() {
         list_view = (ListView) findViewById(R.id.listView_siteList);
     }
 
-    private void reset_list_adapter(final int adapter_id) {
-        if (adapter_id == VIDEO_ADAPTER) {
-            list_view.setAdapter(video_list_adapter);
+    private void initBookmarkArray() {
+        videoSiteArray = new VideoSites().getSiteData(app);
+        musicSiteArray = new MusicSites().getSiteData(app);
+        hotSiteArray = new HotSites().getSiteData(app);
+    }
+
+    private void initListAdapter() {
+        videoListAdapter = new WebsiteAdapter(context, videoSiteArray);
+        musicListAdapter = new WebsiteAdapter(context, musicSiteArray);
+        hotListAdapter = new WebsiteAdapter(context, hotSiteArray);
+    }
+
+    private void updateListAdapter(final int id) {
+        if (id == VIDEO_ADAPTER) {
+            list_view.setAdapter(videoListAdapter);
             DEFAULT_ADAPTER = VIDEO_ADAPTER;
-        } else if (adapter_id == MUSIC_ADAPTER) {
-            list_view.setAdapter(music_list_adapter);
+        } else if (id == MUSIC_ADAPTER) {
+            list_view.setAdapter(musicListAdapter);
             DEFAULT_ADAPTER = MUSIC_ADAPTER;
-        } else if (adapter_id == HOT_ADAPTER) {
-            list_view.setAdapter(hot_list_adapter);
+        } else if (id == HOT_ADAPTER) {
+            list_view.setAdapter(hotListAdapter);
             DEFAULT_ADAPTER = HOT_ADAPTER;
         } else {
-            list_view.setAdapter(video_list_adapter);
+            list_view.setAdapter(videoListAdapter);
             DEFAULT_ADAPTER = VIDEO_ADAPTER;
         }
     }
 
     private void init_make_up_views() {
         Views.setTextView(activity_title, "AIO Manager", TITLE_SIZE);
-        Views.setTextView(slider_title, "Fast Access Room", TITLE_SIZE);
 
-        Views.setTextView(search_input, "", INPUT_SIZE);
-        search_input.setHint(" Search keywords");
+        Views.setTextView(searchInput, "", INPUT_SIZE);
+        searchInput.setHint(" Search keywords");
 
-        Views.setTextView(download_manager, " Download manager", DEFAULT_SIZE);
-        Views.setTextView(share_with_friend, " Share with friends", DEFAULT_SIZE);
-
-        Views.setTextView(youtube_downloader, " Youtube video downloader", DEFAULT_SIZE);
-        Views.setTextView(video_site, " Video sites", DEFAULT_SIZE);
-        Views.setTextView(music_site, " Music sites", DEFAULT_SIZE);
-        Views.setTextView(hot_site, " Hot sites", DEFAULT_SIZE);
-
-        Views.setTextView(update, " Update AIO", DEFAULT_SIZE);
-        Views.setTextView(setting, " Application Settings", DEFAULT_SIZE);
-
-        Views.setTextView(report, "  Report bug / Suggestions", DEFAULT_SIZE);
-        Views.setTextView(like_facebook, " Like facebook page", DEFAULT_SIZE);
-        Views.setTextView(twitterFollow, " Follow on twitter", DEFAULT_SIZE);
-        Views.setTextView(about_us, " About us", DEFAULT_SIZE);
-        Views.setTextView(legal, " Legal info", DEFAULT_SIZE);
     }
 
-    private void init_activity_intent_check() {
+    private void checkActivityIntent() {
         Intent intent = getIntent();
         if (intent.getAction().equals(Intent.ACTION_VIEW)
                 || intent.getAction().equals(Intent.ACTION_SEND)) {
@@ -224,17 +191,15 @@ public class AHome extends ABase {
         }
     }
 
-    private void init_list_item_onclick() {
+    private void initListItemOnclick() {
         list_view.setOnItemClickListener(new ListView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapter, View view, int index, long id) {
                 String url = ((WebsiteAdapter) list_view.getAdapter()).getUrl(index);
                 if (url.equals("open")) {
-                    //todo: Add the hot video parsing activity.
-                    make_toast(true, "Feature is coming soon.");
+                    makeToast(true, "Feature is coming soon.");
                 } else {
-                    //open web site.
-                    open_website(url);
+                    openWebsite(url);
                 }
             }
         });
@@ -255,8 +220,8 @@ public class AHome extends ABase {
                         messageDialog.hideTitle(true);
                         messageDialog.setListener(new OnClickButtonListener() {
                             @Override
-                            public void onClick(Dialog d, View v) {
-                                d.dismiss();
+                            public void onClick(Dialog dialog1, View v) {
+                                dialog1.dismiss();
                                 finish();
                                 System.exit(1);
                             }
@@ -303,7 +268,7 @@ public class AHome extends ABase {
                     ((WebsiteAdapter) list_view.getAdapter()).notifyDataSetChanged();
                     InputMethodManager input_method_manager = (InputMethodManager)
                             getSystemService(Context.INPUT_METHOD_SERVICE);
-                    input_method_manager.hideSoftInputFromWindow(search_input.getWindowToken(), 0);
+                    input_method_manager.hideSoftInputFromWindow(searchInput.getWindowToken(), 0);
                 } else {
                     ((WebsiteAdapter) list_view.getAdapter()).isStarting = false;
                     ((WebsiteAdapter) list_view.getAdapter()).isScrolling = false;
@@ -314,7 +279,7 @@ public class AHome extends ABase {
     }
 
     private void init_search_input_onclick() {
-        search_input.addTextChangedListener(new TextWatcher() {
+        searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
             }
@@ -341,18 +306,18 @@ public class AHome extends ABase {
         search_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                InputMethodManager input_method_manager = (InputMethodManager)
+                InputMethodManager inputMethodManager = (InputMethodManager)
                         getSystemService(Context.INPUT_METHOD_SERVICE);
-                input_method_manager.hideSoftInputFromWindow(search_input.getWindowToken(), 0);
+                inputMethodManager.hideSoftInputFromWindow(searchInput.getWindowToken(), 0);
 
-                String query = search_input.getText().toString();
-                if (query != null && !query.equals("")) {
+                String query = searchInput.getText().toString();
+                if (!query.equals("")) {
                     if (searchStatus == WEBSITE)
-                        open_website(search_input.getText().toString());
+                        openWebsite(searchInput.getText().toString());
                     else if (searchStatus == SEARCH)
                         showSearchPopup(view);
                 } else {
-                    make_toast(true, "Write something.");
+                    makeToast(true, "Write something.");
                 }
             }
         });
@@ -362,7 +327,7 @@ public class AHome extends ABase {
         add_new_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                show_add_new_dialog();
+                showAddNewDialog();
             }
         });
 
@@ -370,7 +335,7 @@ public class AHome extends ABase {
             @Override
             public boolean onLongClick(View view) {
                 vibrator.vibrate(20);
-                make_toast("Add new download");
+                makeToast("Add new download");
                 return true;
             }
         });
@@ -381,17 +346,17 @@ public class AHome extends ABase {
             public void onClick(View view) {
                 try {
                     InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-                    inputMethodManager.hideSoftInputFromWindow(search_input.getWindowToken(), 0);
+                    inputMethodManager.hideSoftInputFromWindow(searchInput.getWindowToken(), 0);
 
                     new Handler().postDelayed(new Runnable() {
                         @Override
                         public void run() {
-                            sliding_view.toggleSidebar();
+                            slidingView.toggleSidebar();
                         }
                     }, 44);
 
                 } catch (Exception error) {
-                    sliding_view.toggleSidebar();
+                    slidingView.toggleSidebar();
                     error.printStackTrace();
                 }
             }
@@ -401,7 +366,7 @@ public class AHome extends ABase {
             @Override
             public boolean onLongClick(View view) {
                 vibrator.vibrate(20);
-                make_toast("Fast Access Room");
+                makeToast("Fast Access Room");
                 return true;
             }
         });
@@ -432,7 +397,7 @@ public class AHome extends ABase {
     }
 
     private void init_share_with_friend_onclick() {
-        share_with_friend.setOnClickListener(new View.OnClickListener() {
+        shareWithFriend.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(Intent.ACTION_SEND);
@@ -445,10 +410,10 @@ public class AHome extends ABase {
             }
         });
 
-        share_with_friend.setOnLongClickListener(new View.OnLongClickListener() {
+        shareWithFriend.setOnLongClickListener(new View.OnLongClickListener() {
             public boolean onLongClick(View view) {
                 vibrator.vibrate(20);
-                make_toast("Share with friends");
+                makeToast("Share with friends");
                 return true;
             }
         });
@@ -458,7 +423,7 @@ public class AHome extends ABase {
      * Init all the view's onclick call back method at here.
      */
     private void init_click_call_back() {
-        sliding_view.setListener(new SlidingView.Listener() {
+        slidingView.setListener(new SlidingView.Listener() {
             @Override
             public void onSidebarOpened() {
             }
@@ -474,7 +439,7 @@ public class AHome extends ABase {
         });
 
         //list on-click and on-scroll listener.
-        init_list_item_onclick();
+        initListItemOnclick();
 
         //search input on-click and text-watcher listener.
         init_search_input_onclick();
@@ -507,7 +472,7 @@ public class AHome extends ABase {
         init_like_facebook_twitter_onclick();
 
         //update on-click listener.
-        update.setOnClickListener(new View.OnClickListener() {
+        checkNewUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (NetworkUtils.isNetworkAvailable(context)) {
@@ -517,7 +482,7 @@ public class AHome extends ABase {
                             "http://www.softcweb.com/2014/10/aio-video-downloader-android.html");
                     startActivity(intent);
                 } else
-                    make_toast(true, "Network is not available.");
+                    makeToast(true, "Network is not available.");
             }
         });
 
@@ -545,13 +510,13 @@ public class AHome extends ABase {
                     startActivity(intent);
                 } catch (Exception error) {
                     error.printStackTrace();
-                    make_toast(true, "Error.");
+                    makeToast(true, "Error.");
                 }
             }
         });
 
         //download manager on-click listener.
-        download_manager.setOnClickListener(new View.OnClickListener() {
+        downloadManager.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 Intent intent = new Intent(context, ADownloadManager.class);
                 intent.setAction(ACTION_OPEN);
@@ -564,7 +529,7 @@ public class AHome extends ABase {
         init_share_with_friend_onclick();
 
         //youtube download on-click listener.
-        youtube_downloader.setOnClickListener(new View.OnClickListener() {
+        youtubeDownloader.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String url = "http://youtube.com";
@@ -583,12 +548,12 @@ public class AHome extends ABase {
         });
 
         //music on-click listener.
-        music_site.setOnClickListener(new View.OnClickListener() {
+        musicSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (DEFAULT_ADAPTER != MUSIC_ADAPTER) {
-                    reset_list_adapter(MUSIC_ADAPTER);
-                    if (sliding_view.isOpening()) sliding_view.toggleSidebar();
+                    updateListAdapter(MUSIC_ADAPTER);
+                    if (slidingView.isOpening()) slidingView.toggleSidebar();
                 } else {
                     vibrator.vibrate(20);
                 }
@@ -596,7 +561,7 @@ public class AHome extends ABase {
         });
 
         //hot on-click listener.
-        hot_site.setOnClickListener(new View.OnClickListener() {
+        hotSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (passwordDialog == null)
@@ -631,14 +596,14 @@ public class AHome extends ABase {
                     public void onClick(View v) {
                         if (editText.getText().toString().equals("8967")) {
                             if (DEFAULT_ADAPTER != HOT_ADAPTER) {
-                                reset_list_adapter(HOT_ADAPTER);
-                                if (sliding_view.isOpening()) sliding_view.toggleSidebar();
+                                updateListAdapter(HOT_ADAPTER);
+                                if (slidingView.isOpening()) slidingView.toggleSidebar();
                             } else {
                                 vibrator.vibrate(20);
                             }
                             passwordDialog.dismiss();
                         } else {
-                            make_toast(true, "Password is wrong.");
+                            makeToast(true, "Password is wrong.");
                         }
                     }
                 });
@@ -649,12 +614,12 @@ public class AHome extends ABase {
 
 
         //video on-click listener.
-        video_site.setOnClickListener(new View.OnClickListener() {
+        videoSite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (DEFAULT_ADAPTER != VIDEO_ADAPTER) {
-                    reset_list_adapter(VIDEO_ADAPTER);
-                    if (sliding_view.isOpening()) sliding_view.toggleSidebar();
+                    updateListAdapter(VIDEO_ADAPTER);
+                    if (slidingView.isOpening()) slidingView.toggleSidebar();
                 } else {
                     vibrator.vibrate(20);
                 }
@@ -663,100 +628,35 @@ public class AHome extends ABase {
 
     }
 
-    /**
-     * Show a search popup window.
-     *
-     * @param view view
-     */
     @SuppressLint("InflateParams")
     private void showSearchPopup(View view) {
-        InputMethodManager input_method_manager = (InputMethodManager)
-                getSystemService(Context.INPUT_METHOD_SERVICE);
-        input_method_manager.hideSoftInputFromWindow(search_input.getWindowToken(), 0);
-
-        if (popup_view == null) {
-            LayoutInflater layout_inflater = LayoutInflater.from(context);
-            popup_view = layout_inflater.inflate(R.layout.abs_popup_search_suggestion, null);
-        }
-
-        //Show the popup window in the search button.
-        TextView video_search = (TextView) popup_view.findViewById(R.id.video);
-        TextView music_search = (TextView) popup_view.findViewById(R.id.music);
-        TextView google_search = (TextView) popup_view.findViewById(R.id.google_search);
-
-        Views.setTextView(video_search, " Video                ", 18.33f);
-        Views.setTextView(music_search, " Music                ", 18.33f);
-        Views.setTextView(google_search, " Google               ", 18.33f);
-
-        video_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popup_window.dismiss();
-                try {
-                    String search_query = YOUTUBE_URL.replace("shiba", //shiba the replacement string.
-                            URLEncoder.encode(search_input.getText().toString(), "UTF-8"));
-                    if (NetworkUtils.isNetworkAvailable(context)) {
-                        open_website(search_query);
-                    } else {
-                        vibrator.vibrate(20);
-                        showNetworkRetry(search_query);
-                    }
-                } catch (Exception error) {
-                    error.printStackTrace();
+        if (searchPopupMenu == null)
+            searchPopupMenu = new SearchPopupMenu(context, searchInput, vibrator) {
+                @Override
+                public void overridePendingTransition(int enter, int out) {
+                    AHome.this.overridePendingTransition(enter, out);
                 }
-            }
-        });
 
-        music_search.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                popup_window.dismiss();
-                try {
-                    String search_query = BEEMP3_URL.replace("shiba", //shiba the replacement string.
-                            URLEncoder.encode(search_input.getText().toString(), "UTF-8"));
-                    if (NetworkUtils.isNetworkAvailable(context)) {
-                        open_website(search_query);
-                    } else {
-                        vibrator.vibrate(20);
-                        showNetworkRetry(search_query);
-                    }
-                } catch (Exception error) {
-                    error.printStackTrace();
+                @Override
+                public void searchGoogle(EditText searchInput, Class<AWeb> webClass) {
+                    searchGoogle(searchInput, webClass);
                 }
-            }
-        });
 
-        google_search.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                popup_window.dismiss();
-                searchGoogle(search_input, AWeb.class);
-                overridePendingTransition(R.anim.enter, R.anim.out);
-            }
-        });
-
-        if (popup_window == null)
-            popup_window = new PopupWindow(context);
-
-        popup_window.setTouchable(true);
-        popup_window.setFocusable(true);
-        popup_window.setOutsideTouchable(true);
-        popup_window.setWidth(WindowManager.LayoutParams.WRAP_CONTENT);
-        popup_window.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
-        popup_window.setOutsideTouchable(false);
-        popup_window.setContentView(popup_view);
-        popup_window.showAsDropDown(view, 2, 3);
-        popup_window.setTouchInterceptor(new View.OnTouchListener() {
-            public boolean onTouch(View view, MotionEvent motion_event) {
-                if (motion_event.getAction() == MotionEvent.ACTION_OUTSIDE) {
-                    popup_window.dismiss();
-                    return true;
+                @Override
+                public void showNetworkRetry(String searchQuery) {
+                    showNetworkRetry(searchQuery);
                 }
-                return false;
-            }
-        });
+
+                @Override
+                public void openWebsite(String searchQuery) {
+                    AHome.this.openWebsite(searchQuery);
+                }
+            };
+
+        searchPopupMenu.show(context, view);
     }
 
-    private void show_add_new_dialog() {
+    private void showAddNewDialog() {
         final Dialog dialog = new Dialog(context);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.abs_add_new_choise_chooser);
@@ -841,7 +741,7 @@ public class AHome extends ABase {
                 @Override
                 public void onClick(View v) {
                     if (inputName.getText().length() < 1) {
-                        make_toast(true, "please give us your name.");
+                        makeToast(true, "please give us your name.");
                     } else {
                         app.getPreference().edit().putString("NAME_USER", inputName.getText().toString())
                                 .commit();
@@ -902,10 +802,10 @@ public class AHome extends ABase {
                 if (NetworkUtils.isNetworkAvailable(context)) {
                     startActivity(intent);
                 } else {
-                    make_toast(true, " network's not available. ");
+                    makeToast(true, " network's not available. ");
                 }
             } else {
-                make_toast(true, " type some keyword. ");
+                makeToast(true, " type some keyword. ");
             }
         } catch (Exception error) {
             error.printStackTrace();
@@ -1073,7 +973,7 @@ public class AHome extends ABase {
      *
      * @param url the url to be opened.
      */
-    private void open_website(String url) {
+    private void openWebsite(String url) {
         if (NetworkUtils.isNetworkAvailable(context)) {
             Intent intent = new Intent();
             if (url.equals("http://youtube.com") || url.startsWith("http://m.youtube.com")) {
@@ -1099,11 +999,11 @@ public class AHome extends ABase {
     public boolean onCreateOptionsMenu(Menu menu) {
         try {
             InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-            imm.hideSoftInputFromWindow(search_input.getWindowToken(), 0);
-            sliding_view.toggleSidebar();
+            imm.hideSoftInputFromWindow(searchInput.getWindowToken(), 0);
+            slidingView.toggleSidebar();
         } catch (Exception error) {
             error.printStackTrace();
-            sliding_view.toggleSidebar();
+            slidingView.toggleSidebar();
         }
         return false;
     }
@@ -1115,8 +1015,8 @@ public class AHome extends ABase {
 
     @Override
     public void onBackPressed() {
-        if (sliding_view.isOpening())
-            sliding_view.toggleSidebar();
+        if (slidingView.isOpening())
+            slidingView.toggleSidebar();
         else
             func_show_exit_dialog();
     }
@@ -1125,23 +1025,23 @@ public class AHome extends ABase {
     public void onResume() {
         super.onResume();
         //reset list adapter.
-        reset_list_adapter(DEFAULT_ADAPTER);
+        updateListAdapter(DEFAULT_ADAPTER);
 
     }
 
     @Override
     public void onDestroy() {
         try {
-            View slide_view = sliding_view.get_slide_view();
-            View content_view = sliding_view.get_content_view();
+            View slide_view = slidingView.get_slide_view();
+            View content_view = slidingView.get_content_view();
             unbindView(slide_view);
             unbindView(content_view);
 
-            if (sliding_view.getBackground() != null)
-                sliding_view.getBackground().setCallback(null);
+            if (slidingView.getBackground() != null)
+                slidingView.getBackground().setCallback(null);
 
-            sliding_view.removeAllViews();
-            sliding_view = null;
+            slidingView.removeAllViews();
+            slidingView = null;
         } catch (Exception error) {
             error.printStackTrace();
         }
@@ -1219,7 +1119,7 @@ public class AHome extends ABase {
                     startActivity(intent);
                 } catch (Exception error) {
                     error.printStackTrace();
-                    make_toast(true, "No application can handle this request.");
+                    makeToast(true, "No application can handle this request.");
                 }
             }
         });

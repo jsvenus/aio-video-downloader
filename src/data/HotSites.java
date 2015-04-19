@@ -9,7 +9,7 @@ import java.util.ArrayList;
 public class HotSites {
 
 
-    public ArrayList<Website> get_site_data(App app) {
+    public ArrayList<Website> getSiteData(App app) {
 
         ArrayList<Website> siteList;
         siteList = new ArrayList<>();

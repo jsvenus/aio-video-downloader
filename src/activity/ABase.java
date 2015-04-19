@@ -67,11 +67,6 @@ public class ABase extends Activity {
     protected String versionName, versionCode; //Version name and code of the application.
     protected Resources resources; //resource object for getting the res resource file.
     protected int LifeCycle;
-
-    {
-        LifeCycle = -1;
-    }
-
     /**
      * <p>{@link update_system.UpdateBroadcastReceiver} for receiving the update information.</p>
      */
@@ -81,6 +76,10 @@ public class ABase extends Activity {
      */
     private String cloudObjectId;
 
+    {
+        LifeCycle = -1;
+    }
+
     /**
      * Show a toast message and vibrate.
      *
@@ -88,7 +87,7 @@ public class ABase extends Activity {
      * @param input        boolean value indicating that the device should vibrate or not.
      * @param toastMessage the text which to be toasted.
      */
-    public static void make_toast(Context context, boolean input, String toastMessage) {
+    public static void makeToast(Context context, boolean input, String toastMessage) {
         Vibrator vibrator = (Vibrator) context.getSystemService(VIBRATOR_SERVICE);
         if (input)
             vibrator.vibrate(20);
@@ -286,7 +285,7 @@ public class ABase extends Activity {
      *
      * @param toastMessage the text which to be toasted.
      */
-    public void make_toast(String toastMessage) {
+    public void makeToast(String toastMessage) {
         Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show();
     }
 
@@ -296,7 +295,7 @@ public class ABase extends Activity {
      * @param input        boolean value indicating that the device should vibrate or not.
      * @param toastMessage the text which to be toasted.
      */
-    public void make_toast(boolean input, String toastMessage) {
+    public void makeToast(boolean input, String toastMessage) {
         if (input)
             vibrator.vibrate(20);
         Toast.makeText(context, toastMessage, Toast.LENGTH_SHORT).show();

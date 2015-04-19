@@ -31,7 +31,9 @@
     <color name="border">#6E7E94</color>
     <color name="dialog_bg">#004050</color>
     <color name="transparent">#00FFFFFF</color>
-    <color name="button_press">#ad737373</color>
+    <color name="button_press">#aee4e4e4</color>
     <color name="text_black_light">#ff8f8f8f</color>
+    <color name="title_bg">#ff64c893</color>
+    <color name="light_black_border">#a9000000</color>
 
 </resources>

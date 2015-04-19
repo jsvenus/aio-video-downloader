@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/activity_bg_theme"
+        android:background="#ffffff"
         android:id="@+id/content_bar_list_activity">
 
     <!-- Top title view group. -->
@@ -13,6 +13,7 @@
             android:id="@+id/title_bar"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:background="@color/title_bg"
             android:orientation="horizontal">
 
         <!-- title bar. -->
@@ -22,22 +23,24 @@
                 android:layout_height="wrap_content"
                 android:text="@string/app_name"
                 android:textStyle="bold"
-                android:textColor="@color/text_black"
-                android:padding="@dimen/element_padding"
+                android:textColor="@color/text_white"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center"
                 android:singleLine="true"
-                android:layout_centerInParent="true"/>
+                android:layout_centerInParent="true"
+                tools:ignore="RelativeOverlap"/>
 
         <!-- left button for options. -->
         <ImageButton
                 android:id="@+id/back_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/element_padding"
-                android:src="@drawable/ic_option_overflow"
+                android:padding="5dp"
+                android:src="@drawable/ic_action_navigation_menu"
                 android:background="@drawable/all_image_button_press"
                 android:layout_alignParentLeft="true"
-                tools:ignore="ContentDescription"/>
+                android:layout_centerVertical="true"
+                tools:ignore="ContentDescription,RtlHardcoded"/>
 
 
         <!-- right button for add new download task. -->
@@ -45,10 +48,11 @@
                 android:id="@+id/bnt_add_new_download"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="@dimen/element_padding"
-                android:src="@drawable/ic_add_new_download"
+                android:padding="5dp"
+                android:src="@drawable/ic_add_new_content"
                 android:background="@drawable/all_image_button_press"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 tools:ignore="ContentDescription"/>
     </RelativeLayout>
 
@@ -71,7 +75,8 @@
                 android:padding="@dimen/element_padding"
                 android:singleLine="true"
                 android:background="@drawable/ic_edit_background"
-                android:inputType="none"/>
+                android:inputType="none"
+                tools:ignore="RtlHardcoded"/>
 
         <!-- search button -->
         <ImageButton
@@ -82,7 +87,7 @@
                 android:src="@drawable/ic_search"
                 android:padding="@dimen/element_padding"
                 android:background="@drawable/all_image_button_press"
-                tools:ignore="ContentDescription"/>
+                tools:ignore="ContentDescription,RtlHardcoded"/>
 
     </RelativeLayout>
 

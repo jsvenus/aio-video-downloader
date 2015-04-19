@@ -185,7 +185,7 @@ public class CompleteTaskOption implements View.OnClickListener {
                         application.getDataHandler().getCompleteCDM().getDatabase().remove(downloadData);
 
                         adapter.notifyData();
-                        ABase.make_toast(context, true, originalFileName + " - deleted");
+                        ABase.makeToast(context, true, originalFileName + " - deleted");
                         destroy();
 
                         dialog.dismiss();

@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/element_padding_small"
+            android:padding="@dimen/element_padding"
             android:background="@drawable/ic_popup_background">
 
 
@@ -26,7 +28,8 @@
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
                     android:minHeight="20dp"
-                    android:drawableLeft="@drawable/ic_video_play"
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/ic_video_site"
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"/>
         </LinearLayout>
@@ -52,8 +55,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
-
-                    android:drawableLeft="@drawable/ic_music_play"
+                    android:gravity="center_vertical"
+                    android:drawableLeft="@drawable/ic_music_ste"
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"
                     android:minHeight="20dp"/>
@@ -81,7 +84,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
 
-                    android:drawableLeft="@drawable/ic_google_search"
+                    android:drawableLeft="@drawable/ic_google"
+                    android:gravity="center_vertical"
                     android:background="@drawable/all_image_button_press"
                     android:textColor="@color/text_black"
                     android:padding="@dimen/element_padding"

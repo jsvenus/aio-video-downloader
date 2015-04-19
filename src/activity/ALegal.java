@@ -95,7 +95,7 @@ public class ALegal extends ABase {
         this.backButton.setOnLongClickListener(new View.OnLongClickListener() {
             @Override
             public boolean onLongClick(View v) {
-                make_toast(true, "Back to home.");
+                makeToast(true, "Back to home.");
                 return true;
             }
         });

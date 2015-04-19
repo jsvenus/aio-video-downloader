@@ -644,7 +644,7 @@ public class ADownloadManager extends ABase {
                                 String txt = input.getText().toString().replaceAll(" ", "");
                                 int num = (txt.length() > 0) ? Integer.parseInt(txt) : 2;
                                 if (txt.length() < 1) {
-                                    make_toast(true, "Update loop can not be empty.");
+                                    makeToast(true, "Update loop can not be empty.");
                                     application.getDownloadFunctions().setDownloadUpdateLoop(0);
                                     dialog.dismiss();
                                 } else {

@@ -8,7 +8,7 @@ import java.util.ArrayList;
 @SuppressWarnings("UnusedDeclaration")
 public class VideoSites {
 
-    public ArrayList<Website> get_site_data(App app) {
+    public ArrayList<Website> getSiteData(App app) {
 
         ArrayList<Website> array = new ArrayList<Website>();
 
