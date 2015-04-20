@@ -1025,7 +1025,7 @@ public class AWeb extends ABase {
 
     //=============================================================================//
     //Save the resources array at the sdcard.
-    private void saveUriResources() {
+    private synchronized void saveUriResources() {
         String text = "";
         for (String res : resource_array) {
             text = text + res + "\n\n";

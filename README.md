@@ -1,6 +1,8 @@
 # AIO-Video-Downloader
 The AIO App was originaly created for online video saving perpose. It was first available on google play but had been removed after 8 months from its first release. So I have turn the project to an open sourced project.
 
+[![Download AIO Video Download Manager](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/aio-video-download-manager/files/latest/download)
+
 # Why user will love this app ?
 The app was a commercial app and now its free ( ad free ). And it have all the standard features that any video downloader can offers but also has the capability of saving youtube videos too. 
 
