@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:layout_alignParentBottom="true"
         android:orientation="vertical"
-        android:layout_margin="@dimen/element_padding_small"
+        android:layout_margin="@dimen/element_padding"
         android:padding="@dimen/element_padding"
-        android:background="@drawable/ic_popup_background"
+        android:background="@drawable/ic_dialog_bg"
         >
 
 
@@ -25,18 +26,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/all_image_button_press"
-                android:src="@drawable/ic_arrow_back"
+                android:src="@drawable/ic_back"
                 android:padding="@dimen/element_padding"
                 android:layout_alignParentLeft="true"
                 android:contentDescription="@string/back_button_string"
-                />
+                tools:ignore="RtlHardcoded"/>
 
         <TextView
                 android:id="@+id/path_name"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/sdcard_root"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:background="@drawable/all_image_button_press"
                 android:textStyle="bold"
                 android:padding="@dimen/element_padding"
@@ -45,7 +46,7 @@
                 android:layout_centerVertical="true"
                 android:singleLine="true"
                 android:layout_toRightOf="@id/back"
-                />
+                tools:ignore="RtlHardcoded"/>
 
     </RelativeLayout>
 

@@ -66,7 +66,7 @@ public class FileAdapter extends BaseAdapter implements Serializable {
         holder.fileName.setText(name);
 
         if (fileList.get(position).isDirectory()) {
-            holder.fileThumb.setImageResource(R.drawable.abs_folder_icon);
+            holder.fileThumb.setImageResource(R.drawable.ic_file_folder);
         } else {
             holder.fileThumb.setImageResource(R.drawable.abs_file_icon);
         }

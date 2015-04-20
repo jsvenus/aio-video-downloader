@@ -27,7 +27,7 @@
                     android:id="@+id/title"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:padding="@dimen/element_padding_large"
+                    android:padding="@dimen/element_padding"
                     android:textStyle="bold"
                     android:singleLine="true"
                     android:textColor="@color/text_black"
@@ -46,7 +46,7 @@
                     android:gravity="center_vertical"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:background="@drawable/all_image_button_press"
-                    >
+                    tools:ignore="RtlHardcoded">
             </TextView>
 
             <TextView
@@ -75,7 +75,7 @@
                     android:gravity="center_vertical"
                     android:textAppearance="?android:textAppearanceMedium"
                     android:background="@drawable/all_image_button_press"
-                    >
+                    tools:ignore="RtlHardcoded">
             </TextView>
 
             <TextView
@@ -84,7 +84,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:padding="@dimen/element_padding"
-                    android:drawableLeft="@drawable/ic_rename_file"
+                    android:drawableLeft="@drawable/ic_rename"
                     android:textColor="@color/text_black"
                     android:gravity="center_vertical"
                     android:textAppearance="?android:textAppearanceMedium"

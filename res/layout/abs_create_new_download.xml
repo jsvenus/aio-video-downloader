@@ -10,7 +10,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/element_padding_small"
             android:padding="@dimen/element_padding"
-            android:background="@drawable/ic_popup_background"
+            android:background="@drawable/ic_dialog_bg"
             android:orientation="vertical">
 
         <RelativeLayout
@@ -29,7 +29,8 @@
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
                     android:text="@string/add_download_title"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAllCaps="true"
+                    android:textAppearance="?android:textAppearance"
                     android:padding="@dimen/element_padding"
                     android:layout_gravity="bottom|left"
                     tools:ignore="RtlHardcoded"/>
@@ -39,9 +40,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
                     android:padding="@dimen/element_padding"
                     android:background="@drawable/all_image_button_press"
-                    android:src="@drawable/ic_open_other_application"
+                    android:src="@drawable/ic_play"
                     android:contentDescription="@string/share_with_app_string"
                     tools:ignore="RtlHardcoded"/>
 
@@ -59,7 +61,6 @@
                     android:padding="@dimen/element_padding"
                     android:textColor="@color/text_black"
                     android:text="@string/url_text"
-                    android:textStyle="bold"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
@@ -91,7 +92,6 @@
                     android:padding="@dimen/element_padding"
                     android:textColor="@color/text_black"
                     android:text="@string/name_text"
-                    android:textStyle="bold"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
@@ -123,7 +123,6 @@
                     android:padding="@dimen/element_padding"
                     android:textColor="@color/text_black"
                     android:text="@string/connection_text"
-                    android:textStyle="bold"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
@@ -156,7 +155,6 @@
                     android:padding="@dimen/element_padding"
                     android:textColor="@color/text_black"
                     android:text="@string/path_text"
-                    android:textStyle="bold"
                     android:layout_alignParentTop="true"
                     android:layout_alignParentLeft="true"
                     android:layout_alignParentStart="true"
@@ -189,7 +187,8 @@
                 android:gravity="center"
                 android:textColor="@color/text_black"
                 android:textStyle="bold"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
+                android:textAllCaps="true"
                 android:background="@drawable/all_image_button_press"
                 android:layout_margin="@dimen/element_padding"
                 android:padding="@dimen/element_padding_large"

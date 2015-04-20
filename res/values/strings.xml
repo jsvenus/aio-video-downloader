@@ -28,7 +28,7 @@
     <string name="http_hint">http://</string>
     <string name="go_bnt">  Go  </string>
     <string name="ad_default">Ads : google Admob</string>
-    <string name="add_download_title"> Download notice</string>
+    <string name="add_download_title">Configure new download</string>
     <string name="url_text">URL : </string>
     <string name="name_text">NAME : </string>
     <string name="path_text">PATH : </string>

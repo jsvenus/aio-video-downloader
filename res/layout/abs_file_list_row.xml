@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding ="utf-8" ?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:tools="http://schemas.android.com/tools"
                 android:id="@+id/listLayout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
@@ -14,20 +15,21 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:contentDescription="@string/thumb_string"
-            />
+            tools:ignore="RtlHardcoded"/>
 
     <TextView
             android:id="@+id/title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
             android:paddingTop="@dimen/element_padding"
             android:gravity="left"
+            android:text="@string/default_text_string"
             android:layout_toRightOf="@id/thump_photo"
             android:layout_centerVertical="true"
             android:textColor="@color/text_black"
             android:singleLine="true"
-            />
+            tools:ignore="RtlHardcoded"/>
 
 
 </RelativeLayout>
