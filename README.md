@@ -6,7 +6,7 @@ The AIO App was originaly created for online video saving perpose. It was first 
 # Why user will love this app ?
 The app was a commercial app and now its free ( ad free ). And it have all the standard features that any video downloader can offers but also has the capability of saving youtube videos too. 
 
-AIO is not limited to just a few supporting websites but has the capability to save all the flash video whitout any problem. 
+AIO is not limited to just a few supporting websites but has the capability to save all the flash video without any problem.
 
 # Main Features
 1 Web Browser
