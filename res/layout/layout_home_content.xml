@@ -60,8 +60,7 @@
             android:id="@+id/search_layout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:padding="5dp"
-            android:paddingTop="8dp"
+            android:padding="@dimen/element_padding"
             android:orientation="horizontal">
 
         <!-- user input box. -->
@@ -74,6 +73,7 @@
                 android:textColor="@color/text_black"
                 android:padding="@dimen/element_padding"
                 android:singleLine="true"
+                android:hint="@string/search_keyword"
                 android:background="@drawable/ic_edit_background"
                 android:inputType="none"
                 tools:ignore="RtlHardcoded"/>

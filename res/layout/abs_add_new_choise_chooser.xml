@@ -13,14 +13,13 @@
             android:id="@+id/title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-
-            android:textAppearance="?android:textAppearanceMedium"
-            android:text="@string/pic_a_choice_string"
+            android:text="@string/pic_a_choice"
+            android:textAppearance="?android:textAppearance"
+            android:textAllCaps="true"
             android:textStyle="bold"
             android:textColor="@color/text_black"
             android:gravity="center"
             android:padding="@dimen/element_padding"
-            android:layout_marginBottom="@dimen/element_padding"
             />
 
     <TextView
@@ -28,9 +27,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
             android:textColor="@color/text_black"
-            android:textStyle="normal"
             android:text="@string/add_new_bookmark_string"
 
             android:gravity="center_vertical"
@@ -47,9 +45,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
 
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
             android:textColor="@color/text_black"
-            android:textStyle="normal"
             android:text="@string/add_new_download_string"
 
             android:gravity="center_vertical"

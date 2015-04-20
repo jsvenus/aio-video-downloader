@@ -13,7 +13,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
-import android.text.InputType;
 import android.text.TextWatcher;
 import android.view.Menu;
 import android.view.View;
@@ -59,9 +58,10 @@ import static view_holder.Views.dialog_fillParent;
  * @author shibaprasad
  * @version 2.2
  */
-public class AHome extends ABase {
+public class AHome extends ABase implements View.OnClickListener {
 
-    private static final int MUSIC_ADAPTER = 5443, VIDEO_ADAPTER = 4434, HOT_ADAPTER = 57443;
+    public static final int MUSIC_ADAPTER = 5443, VIDEO_ADAPTER = 4434, HOT_ADAPTER = 57443;
+
     //constant field for search edit text.
     private static final int WEBSITE = 0, SEARCH = 1;
 
@@ -69,11 +69,13 @@ public class AHome extends ABase {
     private TextView activity_title, shareWithFriend,
             checkNewUpdate, openWebsite, setting, report, like_facebook,
             twitterFollow, about_us, legal, slider_title, youtubeDownloader,
-            downloadManager, videoSite, musicSite, hotSite;
+            downloadManager,
+    //website / bookmark catalog list buttons
+    videoSite, musicSite, hotSite;
 
 
     //list view.
-    private ListView list_view;
+    private ListView listView;
     //search edit text.
     private EditText searchInput;
     //image buttons.
@@ -82,7 +84,7 @@ public class AHome extends ABase {
     //application & activity context.
     private Context context;
     private App application;
-    private int DEFAULT_ADAPTER = VIDEO_ADAPTER;
+    private int defaultListAdapter = VIDEO_ADAPTER;
     private WebsiteAdapter videoListAdapter, musicListAdapter, hotListAdapter;
     private Dialog passwordDialog;
 
@@ -95,6 +97,8 @@ public class AHome extends ABase {
 
     private boolean download_running = false;
     private SearchPopupMenu searchPopupMenu;
+    private AHomeListOnClick aHomeListOnClick;
+    private HotBookmarkOnClick hotBookmarkOnClick;
 
     @Override
     public void onCreate(Bundle bundle) {
@@ -106,10 +110,13 @@ public class AHome extends ABase {
         setContentView(R.layout.home_activity);
 
         initViews();
+        setUpOnClickListener();
+
         initBookmarkArray();
         initListAdapter();
-        updateListAdapter(DEFAULT_ADAPTER);
-        init_make_up_views();
+
+        //update list adpter to its default video adpter.
+        updateListAdapter(defaultListAdapter);
         init_click_call_back();
         checkActivityIntent();
         init_rate_check();
@@ -142,7 +149,17 @@ public class AHome extends ABase {
         about_us = (TextView) findViewById(R.id.about_us);
         legal = (TextView) findViewById(R.id.legal_info);
 
-        list_view = (ListView) findViewById(R.id.listView_siteList);
+        listView = (ListView) findViewById(R.id.listView_siteList);
+    }
+
+    //Set the onclick listener to all clickable views.
+    private void setUpOnClickListener() {
+        videoSite.setOnClickListener(this);
+        musicSite.setOnClickListener(this);
+        hotSite.setOnClickListener(this);
+
+        initListItemOnclick();
+
     }
 
     private void initBookmarkArray() {
@@ -157,126 +174,54 @@ public class AHome extends ABase {
         hotListAdapter = new WebsiteAdapter(context, hotSiteArray);
     }
 
+    //update list adapter with either muic or video or hot bookmark list adapter.
     private void updateListAdapter(final int id) {
         if (id == VIDEO_ADAPTER) {
-            list_view.setAdapter(videoListAdapter);
-            DEFAULT_ADAPTER = VIDEO_ADAPTER;
+            listView.setAdapter(videoListAdapter);
+            defaultListAdapter = VIDEO_ADAPTER;
         } else if (id == MUSIC_ADAPTER) {
-            list_view.setAdapter(musicListAdapter);
-            DEFAULT_ADAPTER = MUSIC_ADAPTER;
+            listView.setAdapter(musicListAdapter);
+            defaultListAdapter = MUSIC_ADAPTER;
         } else if (id == HOT_ADAPTER) {
-            list_view.setAdapter(hotListAdapter);
-            DEFAULT_ADAPTER = HOT_ADAPTER;
+            listView.setAdapter(hotListAdapter);
+            defaultListAdapter = HOT_ADAPTER;
         } else {
-            list_view.setAdapter(videoListAdapter);
-            DEFAULT_ADAPTER = VIDEO_ADAPTER;
+            listView.setAdapter(videoListAdapter);
+            defaultListAdapter = VIDEO_ADAPTER;
         }
     }
 
-    private void init_make_up_views() {
-        Views.setTextView(activity_title, "AIO Manager", TITLE_SIZE);
-
-        Views.setTextView(searchInput, "", INPUT_SIZE);
-        searchInput.setHint(" Search keywords");
-
-    }
-
+    //check activity intent.
     private void checkActivityIntent() {
         Intent intent = getIntent();
-        if (intent.getAction().equals(Intent.ACTION_VIEW)
-                || intent.getAction().equals(Intent.ACTION_SEND)) {
+        if (intent.getAction().equals(Intent.ACTION_VIEW) || intent.getAction().equals(Intent.ACTION_SEND)) {
             String url = intent.getDataString();
             DownloadStructure download_model = new DownloadStructure();
             download_model.url = url;
-            show_download_maker_dialog(download_model);
+            showDownloadMakerDialog(download_model);
         }
     }
 
+    //Initial List Item onclick event.
     private void initListItemOnclick() {
-        list_view.setOnItemClickListener(new ListView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapter, View view, int index, long id) {
-                String url = ((WebsiteAdapter) list_view.getAdapter()).getUrl(index);
-                if (url.equals("open")) {
-                    makeToast(true, "Feature is coming soon.");
-                } else {
-                    openWebsite(url);
+        if (aHomeListOnClick == null) {
+            aHomeListOnClick = new AHomeListOnClick(context, listView, searchInput) {
+                @Override
+                protected void openWebsite(String url) {
+                    AHome.this.openWebsite(url);
                 }
-            }
-        });
 
-        list_view.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
-                final WebsiteAdapter websiteAdapter = (WebsiteAdapter) list_view.getAdapter();
-                final String name = ((Website) websiteAdapter.getItem(position)).getName();
-
-                String message = "Do you want to delete this bookmark ( " + name + " ) ? ";
-                YesNoDialog yesNoDialog = new YesNoDialog(context, message, new YesNoDialog.OnClick() {
-                    @Override
-                    public void onYesClick(final Dialog dialog, TextView view) {
-                        String message = "The new bookmark list will be updated automatically after you restart the app by " +
-                                "launching the app again.";
-                        MessageDialog messageDialog = new MessageDialog(context, null, message);
-                        messageDialog.hideTitle(true);
-                        messageDialog.setListener(new OnClickButtonListener() {
-                            @Override
-                            public void onClick(Dialog dialog1, View v) {
-                                dialog1.dismiss();
-                                finish();
-                                System.exit(1);
-                            }
-                        });
-
-                        if (DEFAULT_ADAPTER == VIDEO_ADAPTER) {
-                            app.videoBookmark.bookmark.remove(position);
-                            app.videoBookmark.update();
-                            messageDialog.show();
-                        } else if (DEFAULT_ADAPTER == MUSIC_ADAPTER) {
-                            app.musicBookmark.bookmark.remove(position);
-                            app.musicBookmark.update();
-                            messageDialog.show();
-                        } else if (DEFAULT_ADAPTER == HOT_ADAPTER) {
-                            app.hotBookmark.bookmark.remove(position);
-                            app.hotBookmark.update();
-                            messageDialog.show();
-                        }
-                        dialog.dismiss();
-                    }
-
-                    @Override
-                    public void onNoClick(Dialog dialog, TextView view) {
-                        dialog.dismiss();
-                    }
-                });
-                yesNoDialog.dialog.show();
-                return true;
-            }
-        });
-
-        list_view.setOnScrollListener(new ListView.OnScrollListener() {
-            @Override
-            public void onScroll(AbsListView view, int first_visible_item,
-                                 int visible_item, int total_item_count) {
-
-            }
-
-            @Override
-            public void onScrollStateChanged(AbsListView view, int scrolling_state) {
-                if (scrolling_state != 0) {
-                    ((WebsiteAdapter) list_view.getAdapter()).isScrolling = true;
-                    ((WebsiteAdapter) list_view.getAdapter()).isStarting = true;
-                    ((WebsiteAdapter) list_view.getAdapter()).notifyDataSetChanged();
-                    InputMethodManager input_method_manager = (InputMethodManager)
-                            getSystemService(Context.INPUT_METHOD_SERVICE);
-                    input_method_manager.hideSoftInputFromWindow(searchInput.getWindowToken(), 0);
-                } else {
-                    ((WebsiteAdapter) list_view.getAdapter()).isStarting = false;
-                    ((WebsiteAdapter) list_view.getAdapter()).isScrolling = false;
-                    ((WebsiteAdapter) list_view.getAdapter()).notifyDataSetChanged();
+                @Override
+                protected void makeToast(boolean willVibrate, String message) {
+                    AHome.this.makeToast(willVibrate, message);
                 }
-            }
-        });
+
+                @Override
+                protected int getDefaultListAdapter() {
+                    return defaultListAdapter;
+                }
+            };
+        }
     }
 
     private void init_search_input_onclick() {
@@ -548,86 +493,6 @@ public class AHome extends ABase {
             }
         });
 
-        //music on-click listener.
-        musicSite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (DEFAULT_ADAPTER != MUSIC_ADAPTER) {
-                    updateListAdapter(MUSIC_ADAPTER);
-                    if (slidingView.isOpening()) slidingView.toggleSidebar();
-                } else {
-                    vibrator.vibrate(20);
-                }
-            }
-        });
-
-        //hot on-click listener.
-        hotSite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (passwordDialog == null)
-                    passwordDialog = new Dialog(context);
-
-                passwordDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-                passwordDialog.setContentView(R.layout.abs_create_new_file);
-                passwordDialog.setCancelable(true);
-                Views.dialog_fillParent(passwordDialog);
-
-                ((TextView) passwordDialog.findViewById(R.id.title)).setText("Give the password");
-                ((TextView) passwordDialog.findViewById(R.id.n0)).setText("Password".toUpperCase());
-                (passwordDialog.findViewById(R.id.title)).setClickable(true);
-                (passwordDialog.findViewById(R.id.title)).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        String message = "This feature is password protected. " +
-                                "To unlock the feature email us at shiba.spj@hotmail.com" +
-                                " & ask for the password. We will send you the secret key.";
-                        MessageDialog messageDialog = new MessageDialog(context, null, message);
-                        messageDialog.hideTitle(true);
-                        messageDialog.show();
-                    }
-                });
-
-                final EditText editText = (EditText) passwordDialog.findViewById(R.id.name_edit);
-                editText.setInputType(InputType.TYPE_NUMBER_VARIATION_PASSWORD);
-                TextView submit = (TextView) passwordDialog.findViewById(R.id.download);
-                submit.setText("Submit");
-
-                submit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        if (editText.getText().toString().equals("8967")) {
-                            if (DEFAULT_ADAPTER != HOT_ADAPTER) {
-                                updateListAdapter(HOT_ADAPTER);
-                                if (slidingView.isOpening()) slidingView.toggleSidebar();
-                            } else {
-                                vibrator.vibrate(20);
-                            }
-                            passwordDialog.dismiss();
-                        } else {
-                            makeToast(true, "Password is wrong.");
-                        }
-                    }
-                });
-
-                passwordDialog.show();
-            }
-        });
-
-
-        //video on-click listener.
-        videoSite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (DEFAULT_ADAPTER != VIDEO_ADAPTER) {
-                    updateListAdapter(VIDEO_ADAPTER);
-                    if (slidingView.isOpening()) slidingView.toggleSidebar();
-                } else {
-                    vibrator.vibrate(20);
-                }
-            }
-        });
-
     }
 
     @SuppressLint("InflateParams")
@@ -697,7 +562,7 @@ public class AHome extends ABase {
                     @Override
                     public void onClick(View view) {
                         dialog.dismiss();
-                        show_download_maker_dialog(null);
+                        showDownloadMakerDialog(null);
                     }
                 }
         );
@@ -1027,7 +892,7 @@ public class AHome extends ABase {
     public void onResume() {
         super.onResume();
         //reset list adapter.
-        updateListAdapter(DEFAULT_ADAPTER);
+        updateListAdapter(defaultListAdapter);
 
     }
 
@@ -1091,7 +956,7 @@ public class AHome extends ABase {
      *
      * @param download_structure the download model which hold the data information.
      */
-    private void show_download_maker_dialog(final DownloadStructure download_structure) {
+    private void showDownloadMakerDialog(final DownloadStructure download_structure) {
         final Dialog dialog = new Dialog(context);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.setContentView(R.layout.abs_create_new_download);
@@ -1306,6 +1171,65 @@ public class AHome extends ABase {
                 }
             }
         });
+    }
+
+    //vibate for 20 mil sec.
+    public void vibrate() {
+        vibrator.vibrate(20);
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if (id == hotSite.getId()) {
+            onHotSiteClick(view);
+        }
+        if (id == musicSite.getId()) {
+            onMusicClick(view);
+        }
+        if (id == videoSite.getId()) {
+            onVideoClick(view);
+        }
+    }
+
+    //reset adapter to video list adapter.
+    private void onVideoClick(View view) {
+        if (defaultListAdapter != VIDEO_ADAPTER) {
+            updateListAdapter(VIDEO_ADAPTER);
+            if (slidingView.isOpening())
+                slidingView.toggleSidebar();
+        } else vibrate();
+    }
+
+    //reset adapter to music list adapter.
+    private void onMusicClick(View view) {
+        if (defaultListAdapter != MUSIC_ADAPTER) {
+            updateListAdapter(MUSIC_ADAPTER);
+            if (slidingView.isOpening()) slidingView.toggleSidebar();
+        } else vibrate();
+    }
+
+    //show password input dialog.
+    private void onHotSiteClick(View view) {
+        if (hotBookmarkOnClick == null)
+            hotBookmarkOnClick = new HotBookmarkOnClick(context, view) {
+                @Override
+                protected void makeToast(boolean willVibrate, String message) {
+                    AHome.this.makeToast(willVibrate, message);
+                }
+
+                @Override
+                protected void onPassThePassword() {
+                    if (defaultListAdapter != HOT_ADAPTER) {
+                        updateListAdapter(HOT_ADAPTER);
+                        if (slidingView.isOpening())
+                            slidingView.toggleSidebar();
+                    } else
+                        vibrate();
+                }
+            };
+
+        hotBookmarkOnClick.show();
     }
 
     @SuppressWarnings("UnusedDeclaration")

@@ -65,7 +65,7 @@
     <string name="download">Download</string>
     <string name="sdcard_string">/sdcard/aio</string>
     <string name="share_with_app_string">Share with other application</string>
-    <string name="pic_a_choice_string">Pick a choice</string>
+    <string name="pic_a_choice">Pick a choice</string>
     <string name="add_new_bookmark_string">New bookmark</string>
     <string name="add_new_download_string">New download</string>
     <string name="message_body_string">Message body</string>
@@ -186,4 +186,11 @@
     <string name="be_friend_facebook">Be friend @Facebook</string>
     <string name="legal_information">Legal Information</string>
     <string name="video_search">Video search</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="password">Password</string>
+    <string name="let_me_in">Let me in</string>
+    <string name="new_bookmark">Import bookmark</string>
+    <string name="url">URL</string>
+    <string name="name">Name</string>
+    <string name="search_keyword">Search keywords</string>
 </resources>

@@ -7,7 +7,7 @@
         android:orientation="vertical"
         android:layout_margin="@dimen/element_padding_small"
         android:padding="@dimen/element_padding"
-        android:background="@drawable/ic_popup_background"
+        android:background="@drawable/ic_dialog_bg"
         >
 
     <TextView
@@ -19,7 +19,7 @@
             android:textAppearance="?android:textAppearance"
             android:textColor="@color/text_black"
             android:textStyle="bold"
-
+            android:textAllCaps="true"
             android:gravity="center"
             android:padding="@dimen/element_padding"
             />
@@ -41,7 +41,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearance"
                     android:text="@string/default_message_body_string"
                     android:padding="@dimen/element_padding"
                     />
