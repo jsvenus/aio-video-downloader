@@ -4,7 +4,7 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:orientation="vertical"
-        android:background="@color/activity_bg_theme"
+        android:background="#ffffff"
         android:id="@+id/content_bar_list_activity">
 
 
@@ -12,28 +12,27 @@
             android:id="@+id/titleLayout"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:background="@color/title_bg"
             android:orientation="horizontal">
 
         <TextView
                 android:id="@+id/title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/download_manager_title"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:text="@string/download_manager"
                 android:textStyle="bold"
-                android:padding="@dimen/element_padding"
-                android:textColor="@color/text_black"
+                android:textColor="@color/text_white"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center"
+                android:singleLine="true"
                 android:layout_centerInParent="true"/>
 
         <ImageButton
                 android:id="@+id/option"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:padding="5dp"
-                android:paddingRight="8dp"
-                android:paddingLeft="8dp"
-                android:src="@drawable/ic_arrow_back"
+                android:padding="@dimen/element_padding"
+                android:src="@drawable/ic_navigation_arrow_back"
                 android:background="@drawable/all_image_button_press"
                 android:layout_alignParentLeft="true"/>
 
@@ -42,7 +41,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/element_padding"
-                android:src="@drawable/ic_option_overflow"
+                android:src="@drawable/ic_navigation_menu"
                 android:background="@drawable/all_image_button_press"
                 android:layout_alignParentRight="true"/>
 
@@ -64,7 +63,7 @@
                 android:gravity="center"
                 android:clickable="true"
                 android:onClick="onClickRunningButton"
-                android:textStyle="bold"
+                android:textAllCaps="true"
                 android:text="@string/running_task"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:textColor="@color/text_black"
@@ -79,9 +78,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:textAllCaps="true"
                 android:clickable="true"
                 android:onClick="onClickCompletedButton"
-                android:textStyle="bold"
                 android:textAppearance="?android:textAppearanceMedium"
                 android:text="@string/complete_task"
                 android:textColor="@color/text_black"

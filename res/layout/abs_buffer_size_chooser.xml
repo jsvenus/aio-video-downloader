@@ -11,7 +11,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/element_padding_small"
             android:padding="@dimen/element_padding"
-            android:background="@drawable/ic_popup_background"
+            android:background="@drawable/ic_dialog_bg"
             >
 
         <TextView
@@ -19,12 +19,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
                 android:drawableLeft="@drawable/ic_download_buffer"
                 android:drawablePadding="@dimen/element_padding"
                 android:padding="@dimen/element_padding"
                 android:textStyle="bold"
+                android:textAllCaps="true"
                 />
 
 
@@ -35,7 +36,7 @@
                 android:text="@string/buffer_size_2"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -48,7 +49,7 @@
                 android:text="@string/buffer_size_4"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -60,7 +61,7 @@
                 android:text="@string/buffer_size_8"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -73,7 +74,7 @@
                 android:text="@string/buffer_size_16"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -86,7 +87,7 @@
                 android:text="@string/buffer_size_32"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -99,7 +100,7 @@
                 android:text="@string/buffer_size_64"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -111,7 +112,7 @@
                 android:text="@string/buffer_size_128"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -123,7 +124,7 @@
                 android:text="@string/buffer_size_256"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -135,7 +136,7 @@
                 android:text="@string/buffer_size_512"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />
@@ -147,7 +148,7 @@
                 android:text="@string/buffer_max"
                 android:clickable="true"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:padding="@dimen/element_padding_large"
                 android:background="@drawable/all_image_button_press"
                 />

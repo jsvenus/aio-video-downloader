@@ -13,10 +13,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.WindowManager;
+import android.view.*;
 import android.widget.*;
 import application.App;
 import com.softcsoftware.aio.R;
@@ -681,6 +678,7 @@ public class ADownloadManager extends ABase {
                 popupWindow.setTouchable(true);
                 popupWindow.setFocusable(true);
                 popupWindow.setOutsideTouchable(true);
+                popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.transparent));
                 popupWindow.setTouchInterceptor(new View.OnTouchListener() {
                     public boolean onTouch(View view, MotionEvent _event) {
                         if (_event.getAction() == MotionEvent.ACTION_OUTSIDE) {
@@ -695,7 +693,8 @@ public class ADownloadManager extends ABase {
                 popupWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
                 popupWindow.setOutsideTouchable(false);
                 popupWindow.setContentView(popupView);
-                popupWindow.showAsDropDown(view, 2, 3);
+                popupWindow.showAtLocation(view,
+                        (Gravity.TOP | Gravity.RIGHT), 0, view.getHeight() / 2);
             }
         };
     }

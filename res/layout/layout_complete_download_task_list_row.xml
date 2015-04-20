@@ -24,12 +24,12 @@
             android:id="@+id/title"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:padding="@dimen/element_padding"
+            android:padding="@dimen/element_padding_large"
             android:gravity="left"
             android:layout_toRightOf="@id/thump_photo"
             android:layout_centerVertical="true"
 
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
             android:textColor="@color/text_black"
 
             android:singleLine="true"

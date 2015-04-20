@@ -663,7 +663,7 @@ public class AWeb extends ABase {
     private void initDropDownMenu() {
         menuBnt.setOnClickListener(new View.OnClickListener() {
 
-            @SuppressLint("InflateParams")
+            @SuppressLint({"InflateParams", "RtlHardcoded"})
             @Override
             public void onClick(View view) {
                 LayoutInflater lnflator = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
@@ -870,6 +870,7 @@ public class AWeb extends ABase {
                 popupWindow.setTouchable(true);
                 popupWindow.setFocusable(true);
                 popupWindow.setOutsideTouchable(true);
+                popupWindow.setBackgroundDrawable(getResources().getDrawable(R.drawable.transparent));
                 popupWindow.setTouchInterceptor(new View.OnTouchListener() {
 
                     @Override
@@ -886,7 +887,8 @@ public class AWeb extends ABase {
                 popupWindow.setHeight(WindowManager.LayoutParams.WRAP_CONTENT);
                 popupWindow.setOutsideTouchable(false);
                 popupWindow.setContentView(popupView);
-                popupWindow.showAsDropDown(view, 3, 2);
+                popupWindow.showAtLocation(view,
+                        (Gravity.TOP | Gravity.LEFT), 0, view.getHeight() / 2);
             }
         });
 

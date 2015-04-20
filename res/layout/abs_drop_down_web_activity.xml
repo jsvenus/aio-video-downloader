@@ -30,7 +30,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/element_padding"
                     android:background="@drawable/all_image_button_press"
-                    android:src="@drawable/ic_load"/>
+                    android:src="@drawable/ic_restart"/>
 
             <ImageButton
                     android:id="@+id/stop"
@@ -39,7 +39,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/element_padding"
                     android:background="@drawable/all_image_button_press"
-                    android:src="@drawable/ic_stop_loading"/>
+                    android:src="@drawable/ic_remove"/>
         </LinearLayout>
 
         <LinearLayout
@@ -54,7 +54,7 @@
                     android:layout_height="wrap_content"
                     android:padding="@dimen/element_padding"
                     android:background="@drawable/all_image_button_press"
-                    android:src="@drawable/ic_arrow_back"/>
+                    android:src="@drawable/ic_back"/>
 
             <ImageButton
                     android:id="@+id/forward"
@@ -78,8 +78,8 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
-                    android:textAppearance="?android:textAppearanceMedium"
-                    android:text="@string/download_manager_string"
+                    android:textAppearance="?android:textAppearance"
+                    android:text="@string/download_manager"
                     android:gravity="center_vertical"
                     android:minHeight="20dp"
                     android:drawableLeft="@drawable/ic_download_manager"
@@ -103,11 +103,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearance"
                     android:text="@string/manual_download"
                     android:gravity="center_vertical"
                     android:minHeight="20dp"
-                    android:drawableLeft="@drawable/ic_manual_download"
+                    android:drawableLeft="@drawable/ic_add_download"
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"
                     />
@@ -128,7 +128,7 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearance"
                     android:text="@string/copy_url"
                     android:gravity="center_vertical"
                     android:minHeight="20dp"
@@ -152,11 +152,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearance"
                     android:text="@string/open_browser"
                     android:gravity="center_vertical"
                     android:minHeight="20dp"
-                    android:drawableLeft="@drawable/ic_open_browser"
+                    android:drawableLeft="@drawable/ic_open_file"
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"
                     />
@@ -177,11 +177,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearance"
                     android:text="@string/download_youtube_video"
                     android:gravity="center_vertical"
                     android:minHeight="20dp"
-                    android:drawableLeft="@drawable/ic_video_download"
+                    android:drawableLeft="@drawable/ic_youtube_video_download"
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"
                     />
@@ -202,11 +202,11 @@
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
                     android:textColor="@color/text_black"
-                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textAppearance="?android:textAppearance"
                     android:text="@string/more_setting"
                     android:gravity="center_vertical"
                     android:minHeight="20dp"
-                    android:drawableLeft="@drawable/ic_setting_web"
+                    android:drawableLeft="@drawable/ic_setting"
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"
                     />

@@ -4,112 +4,113 @@ import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.softcsoftware.aio.R;
+import tools.LicenseGenerator;
 
 /**
- * This activity holds the legal information.
- *
- * @author shibaprasad
- * @version 1.0
+ * Legal notice Activity is responsible for showing the legal information
+ * about the app.
+ * Created by shibaprasad on 3/15/2015.
  */
-@SuppressWarnings("FieldCanBeLocal")
 public class ALegal extends ABase {
 
-    @SuppressWarnings("FieldCanBeLocal")
-    private final String copyrightHoldingNotice = "AIO Downloader App is licenced under " +
-            "<b><a href=\"http://opensource.org/licenses/MIT\">The MIT License (MIT)</a></b><br>" +
-            "<b>Copyright (c) 2015 - SoftC Software Ptv.</b><br>" +
-            "<br>" +
-            "Permission is hereby granted, free of charge, to any person obtaining a copy of " +
-            "this software and associated documentation files (the \"Software\"), to deal in the " +
-            "Software without restriction, including without limitation the rights to use, copy, " +
-            "modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, " +
-            "and to permit persons to whom the Software is furnished to do so, subject to the following conditions:<br> " +
-            "<br>" +
-            "The above copyright notice and this permission notice shall be included in all copies " +
-            "or substantial portions of the Software.<br>" +
-            "<br>" +
-            "<i>THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED," +
-            "INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR " +
-            "PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE " +
-            "FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT " +
-            "OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR " +
-            "OTHER DEALINGS IN THE SOFTWARE.</i>" +
-            "<br>";
-    private TextView title, copyrightHolder;
-    private ImageButton backButton;
-    private String androidAssetStudio = "AIO is built with some graphical assets that were created by " +
-            "the <b>Android Asset Studio</b>." +
-            "<br>" +
-            "<a href=\"http://romannurik.github.io/AndroidAssetStudio/\">Android Asset Studio</a> " +
-            "is licensed under <a href=\"http://creativecommons.org/licenses/by/3.0/\">CC BY 3.0</a>" +
-            "<br>";
-    private String universal_image_load =
-            "<h><a href=\"https://github.com/nostra13/Android-Universal-Image-Loader\">Universal Image Loader.</a></h>"
-                    + "<br>" +
-                    "Copyright 2011-2015 Sergey Tarasevich<br>" +
-                    "<br>" +
-                    "Licensed under the Apache License, Version 2.0 (the \"License\");<br>" +
-                    "you may not use this file except in compliance with the License.<br>" +
-                    "You may obtain a copy of the License at<br>" +
-                    "<br>" +
-                    "   http://www.apache.org/licenses/LICENSE-2.0<br>" +
-                    "<br>" +
-                    "Unless required by applicable law or agreed to in writing, software<br>" +
-                    "distributed under the License is distributed on an \"AS IS\" BASIS,<br>" +
-                    "WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.<br>" +
-                    "See the License for the specific language governing permissions and<br>" +
-                    "limitations under the License.";
+    private LinearLayout licenseListLayout;
 
-    /**
-     * System call back this method when the activity first open.
-     *
-     * @param bundle system gives the bundle to save the primitive data throughout the life cycle.
-     */
+
+    @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-
+        //set the activity screen.
         setContentView(R.layout.activity_legal);
 
-        initViews();
-        initCopyrightHolder();
-        initBackOnClick();
+        //get the license list layout.
+        licenseListLayout = (LinearLayout) findViewById(R.id.licenseList);
+
+        addProjectLicense();
+        //android asset studio.
+        addAndroidAssetStudio();
+        //So license
+        addSOLicense();
+        addMaterialLicense();
+        
     }
 
-    private void initViews() {
-        this.title = (TextView) findViewById(R.id.title);
-        this.copyrightHolder = (TextView) findViewById(R.id.copyright_holder);
-        this.backButton = (ImageButton) findViewById(R.id.back_button);
+    /**
+     * Back Pressed Call back method.
+     */
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
-    private void initBackOnClick() {
-        this.backButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-                overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
-            }
-        });
-        this.backButton.setOnLongClickListener(new View.OnLongClickListener() {
-            @Override
-            public boolean onLongClick(View v) {
-                makeToast(true, "Back to home.");
-                return true;
-            }
-        });
+    private void addProjectLicense() {
+        String projectLicense = "<b>AIO Video Downloader is a open source application.</B><br/>" +
+                "-----------------------------------------<br/>" +
+                "Copyright (C) <b>2015 Shiba Prasad Jana</b><br/>" +
+                "<br/><br/>" +
+                "This program is free software; you can redistribute it and/or" +
+                "modify it under the terms of the GNU General Public License" +
+                "as published by the Free Software Foundation; either version 2" +
+                "of the License, or any later version." +
+                "<br/><br/>" +
+                "This program is distributed in the hope that it will be useful," +
+                "but WITHOUT ANY WARRANTY; without even the implied warranty of" +
+                "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the" +
+                "GNU General Public License for more details.<br/><br/>" +
+                "" +
+                "You should have received a copy of the GNU General Public License" +
+                "along with this program; if not, write to the Free Software" +
+                "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.";
+        addLicense(projectLicense);
     }
 
-    private void initCopyrightHolder() {
-        this.copyrightHolder.setText(Html.fromHtml(copyrightHoldingNotice));
-        copyrightHolder.setMovementMethod(LinkMovementMethod.getInstance());
+    /**
+     * Android asset studio license.
+     */
+    private void addAndroidAssetStudio() {
+        String license = LicenseGenerator.getCCLicense(true,
+                "http://creativecommons.org/licenses/by/3.0/", "Android Asset Studio",
+                "Android Asset Studio", "http://romannurik.github.io/AndroidAssetStudio/");
+        addLicense(license);
+    }
 
-        ((TextView) findViewById(R.id.android_asset_studio)).setText(Html.fromHtml(androidAssetStudio));
-        ((TextView) findViewById(R.id.android_asset_studio)).setMovementMethod(LinkMovementMethod.getInstance());
+    /**
+     * Android asset studio license.
+     */
+    private void addSOLicense() {
+        String license =
+                "Some portions of this product may be from <b>Stack Overflow or the Stack Exchange network's contributed content</B>.\n" +
+                        "All the content contributed to Stack Overflow or other Stack Exchange sites is " +
+                        "<a href=\"http://creativecommons.org/licenses/by-sa/3.0/\"> cc-wiki (aka cc-by-sa)</a> licensed.";
+        addLicense(license);
+    }
 
-        ((TextView) findViewById(R.id.android_image_loader)).setText(Html.fromHtml(universal_image_load));
-        ((TextView) findViewById(R.id.android_image_loader)).setMovementMethod(LinkMovementMethod.getInstance());
+    /**
+     * Material license.
+     */
+    private void addMaterialLicense() {
+        String license = LicenseGenerator.getApacheLicense("MaterialDesignLibrary", "2014", " Ivan Navas.");
+        addLicense(license);
+    }
 
+    /**
+     * Add a new view to list.
+     *
+     * @param license the license text.
+     */
+    private void addLicense(String license) {
+        View view = View.inflate(this, R.layout.layout_license_list_row, null);
+        TextView textView = (TextView) view;
+        textView.setText(Html.fromHtml(license));
+        textView.setMovementMethod(LinkMovementMethod.getInstance());
+        licenseListLayout.addView(textView);
+    }
+
+    public void onBack(View view) {
+        finish();
+        overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 }

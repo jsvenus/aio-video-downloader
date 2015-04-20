@@ -3,7 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.softcsoftware.aio"
           android:versionCode="6"
-          android:versionName="2.4.32"
+          android:versionName="2.4.34"
           android:installLocation="preferExternal">
 
     <uses-sdk

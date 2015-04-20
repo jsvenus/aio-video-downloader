@@ -6,7 +6,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/element_padding_small"
         android:padding="@dimen/element_padding"
-        android:background="@drawable/ic_popup_background"
+        android:background="@drawable/ic_dialog_bg"
         >
 
     <LinearLayout
@@ -23,7 +23,7 @@
 
                 android:text="@string/default_text_string"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center"
                 android:textStyle="bold"
 
@@ -42,7 +42,7 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/open_file_string"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
                 android:drawableLeft="@drawable/ic_open_file"
@@ -59,10 +59,10 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/rename_file_string"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
-                android:drawableLeft="@drawable/ic_rename_file"
+                android:drawableLeft="@drawable/ic_rename"
                 android:background="@drawable/all_image_button_press"
                 />
 
@@ -76,7 +76,7 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/remove_file_string"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
                 android:drawableLeft="@drawable/ic_remove"
@@ -93,7 +93,7 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/clear_all_string"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
                 android:drawableLeft="@drawable/ic_clear_all"
@@ -110,7 +110,7 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/delete_string"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
                 android:drawableLeft="@drawable/ic_delete"
@@ -127,10 +127,10 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/property_string"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
-                android:drawableLeft="@drawable/ic_property"
+                android:drawableLeft="@drawable/ic_about_us"
                 android:background="@drawable/all_image_button_press"
                 />
 

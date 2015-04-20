@@ -5,7 +5,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@color/activity_bg_theme"
+        android:background="#ffffff"
         android:id="@+id/mainLayout"
         >
 
@@ -13,6 +13,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@color/title_bg"
             >
 
         <ImageButton
@@ -21,7 +22,7 @@
                 android:layout_height="wrap_content"
 
                 android:padding="@dimen/element_padding"
-                android:src="@drawable/ic_option_overflow"
+                android:src="@drawable/ic_action_navigation_menu"
 
                 android:background="@drawable/all_image_button_press"
                 android:layout_alignParentLeft="true"
@@ -33,7 +34,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:singleLine="true"
-                android:textColor="@color/text_black"
+                android:textColor="@color/text_white"
                 android:background="@drawable/ic_edit_background"
                 android:hint="@string/http_hint"
                 android:textColorHint="@color/text_black_light"
@@ -50,7 +51,7 @@
                 android:background="@drawable/all_image_button_press"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_go"
+                android:src="@drawable/ic_web_load"
                 android:padding="@dimen/element_padding"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"

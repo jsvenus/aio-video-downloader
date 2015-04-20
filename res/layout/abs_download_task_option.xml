@@ -6,7 +6,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/element_padding_small"
         android:padding="@dimen/element_padding"
-        android:background="@drawable/ic_popup_background"
+        android:background="@drawable/ic_dialog_bg"
         >
 
     <LinearLayout
@@ -23,7 +23,7 @@
 
                 android:text="@string/default_text_string"
                 android:textColor="@color/text_black"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center"
                 android:textStyle="bold"
 
@@ -43,10 +43,10 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/pause"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
-                android:drawableLeft="@drawable/ic_pause"
+                android:drawableLeft="@drawable/ic_run"
                 android:background="@drawable/all_image_button_press"
                 />
 
@@ -60,10 +60,10 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/resume"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
-                android:drawableLeft="@drawable/ic_running"
+                android:drawableLeft="@drawable/ic_resume"
                 android:background="@drawable/all_image_button_press"
                 />
 
@@ -77,10 +77,10 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/edit"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
-                android:drawableLeft="@drawable/ic_edit_download_task"
+                android:drawableLeft="@drawable/ic_force_resume"
                 android:background="@drawable/all_image_button_press"
                 />
 
@@ -94,7 +94,7 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/restart"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
                 android:drawableLeft="@drawable/ic_restart"
@@ -112,7 +112,7 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/remove_task"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
                 android:drawableLeft="@drawable/ic_remove"
@@ -129,7 +129,7 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/delete_task"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
                 android:drawableLeft="@drawable/ic_delete"
@@ -146,10 +146,10 @@
 
                 android:textColor="@color/text_black"
                 android:text="@string/property_string"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:gravity="center_vertical"
 
-                android:drawableLeft="@drawable/ic_property"
+                android:drawableLeft="@drawable/ic_about_us"
                 android:background="@drawable/all_image_button_press"
                 />
 

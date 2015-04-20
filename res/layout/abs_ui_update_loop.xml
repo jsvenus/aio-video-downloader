@@ -5,7 +5,7 @@
               android:orientation="vertical"
               android:layout_margin="@dimen/element_padding_small"
               android:padding="@dimen/element_padding"
-              android:background="@drawable/ic_popup_background"
+              android:background="@drawable/ic_dialog_bg"
         >
 
     <TextView
@@ -13,10 +13,10 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:text="@string/default_text_string"
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
             android:textStyle="bold"
             android:textColor="@color/text_black"
-
+            android:textAllCaps="true"
             android:gravity="center"
             android:padding="@dimen/element_padding"
             />
@@ -30,7 +30,6 @@
 
             android:textColor="@color/text_black"
             android:text="@string/ui_update_string"
-            android:textStyle="bold"
             />
 
     <EditText
@@ -39,7 +38,7 @@
             android:layout_height="wrap_content"
 
             android:singleLine="true"
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
             android:textColor="@color/text_black"
             android:hint="@string/type_loop_number_string"
             android:background="@drawable/ic_edit_background"
@@ -57,7 +56,7 @@
             android:gravity="center"
             android:textColor="@color/text_black"
             android:textStyle="bold"
-            android:textAppearance="?android:textAppearanceMedium"
+            android:textAppearance="?android:textAppearance"
 
             android:background="@drawable/all_image_button_press"
             android:layout_margin="@dimen/element_padding"

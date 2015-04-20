@@ -14,7 +14,7 @@
             android:orientation="horizontal"
             android:layout_margin="@dimen/element_padding"
             android:padding="@dimen/element_padding"
-            android:background="@drawable/ic_tab_background"
+            android:background="@drawable/ic_popup_background"
             >
 
         <TextView
@@ -26,8 +26,9 @@
                 android:padding="@dimen/element_padding"
 
                 android:text="@string/default_file_string"
-                android:textAppearance="?android:textAppearanceMedium"
+                android:textAppearance="?android:textAppearance"
                 android:textStyle="bold"
+                android:typeface="sans"
                 android:textColor="@color/text_black"
                 android:singleLine="true"
 

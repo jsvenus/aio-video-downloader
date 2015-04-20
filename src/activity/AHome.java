@@ -68,7 +68,7 @@ public class AHome extends ABase implements View.OnClickListener {
 
     private TextView activity_title, shareWithFriend,
             checkNewUpdate, openWebsite, setting, report, like_facebook,
-            twitterFollow, about_us, legal, slider_title, youtubeDownloader,
+            twitterFollow, about_us, privacyPolicy, legal, slider_title, youtubeDownloader,
             downloadManager,
     //website / bookmark catalog list buttons
     videoSite, musicSite, hotSite;
@@ -147,6 +147,7 @@ public class AHome extends ABase implements View.OnClickListener {
         like_facebook = (TextView) findViewById(R.id.facebook_like);
         twitterFollow = (TextView) findViewById(R.id.twitter_follow);
         about_us = (TextView) findViewById(R.id.about_us);
+        privacyPolicy = (TextView) findViewById(R.id.privacy_policy);
         legal = (TextView) findViewById(R.id.legal_info);
 
         listView = (ListView) findViewById(R.id.listView_siteList);
@@ -159,6 +160,8 @@ public class AHome extends ABase implements View.OnClickListener {
         hotSite.setOnClickListener(this);
 
         initListItemOnclick();
+        privacyPolicy.setOnClickListener(this);
+        openWebsite.setOnClickListener(this);
 
     }
 
@@ -1190,6 +1193,35 @@ public class AHome extends ABase implements View.OnClickListener {
         if (id == videoSite.getId()) {
             onVideoClick(view);
         }
+        if (id == privacyPolicy.getId()) {
+            onPrivacyClick(view);
+        }
+        if (id == openWebsite.getId()) {
+            onOpenProjectWebsite(view);
+        }
+
+    }
+
+    private void onOpenProjectWebsite(View view) {
+        if (NetworkUtils.isNetworkAvailable(context)) {
+            Intent intent = new Intent(context, AWeb.class);
+            intent.setAction(ACTION_OPEN_WEBVIEW);
+            intent.putExtra(ACTION_LOAD_URL,
+                    "https://sourceforge.net/projects/aio-video-download-manager/");
+            startActivity(intent);
+        } else
+            makeToast(true, "Network is not available.");
+    }
+
+    private void onPrivacyClick(View view) {
+        if (NetworkUtils.isNetworkAvailable(context)) {
+            Intent intent = new Intent(context, AWeb.class);
+            intent.setAction(ACTION_OPEN_WEBVIEW);
+            intent.putExtra(ACTION_LOAD_URL,
+                    "http://www.softcweb.com/p/blog-page_15.html");
+            startActivity(intent);
+        } else
+            makeToast(true, "Network is not available.");
     }
 
     //reset adapter to video list adapter.

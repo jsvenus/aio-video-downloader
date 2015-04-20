@@ -6,7 +6,7 @@
         android:orientation="vertical"
         android:id="@+id/main"
         android:padding="@dimen/element_padding"
-        android:background="@drawable/ic_slash_walpaper"
+        android:background="@drawable/ic_slash_bg"
         >
 
     <!-- title of application -->
@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
 
-            android:textColor="@color/text_black"
+            android:textColor="@color/text_white"
             android:text="@string/slash_title"
             android:textAppearance="?android:textAppearanceLarge"
             android:textStyle="bold"
@@ -31,7 +31,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
-            android:textColor="@color/text_black"
+            android:textColor="@color/text_white"
             android:padding="@dimen/element_padding"
             android:layout_margin="@dimen/element_padding"
             />

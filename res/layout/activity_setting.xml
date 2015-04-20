@@ -4,7 +4,7 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent"
               android:orientation="vertical"
-              android:background="@color/activity_bg_theme"
+              android:background="#ffffff"
               android:id="@+id/content_bar_list_activity"
         >
 
@@ -14,6 +14,7 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
+            android:background="@color/title_bg"
             >
 
         <!-- title bar. -->
@@ -24,7 +25,7 @@
                 android:textAppearance="?android:textAppearanceMedium"
                 android:text="@string/setting"
                 android:textStyle="bold"
-                android:textColor="@color/text_black"
+                android:textColor="@color/text_white"
                 android:padding="@dimen/element_padding"
                 android:gravity="center"
                 android:singleLine="true"
@@ -37,7 +38,7 @@
                 android:layout_height="wrap_content"
                 android:padding="@dimen/element_padding"
                 android:onClick="backPress"
-                android:src="@drawable/ic_arrow_back"
+                android:src="@drawable/ic_navigation_arrow_back"
                 android:background="@drawable/all_image_button_press"
                 android:layout_alignParentLeft="true"
                 tools:ignore="ContentDescription"

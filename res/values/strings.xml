@@ -78,7 +78,7 @@
     <string name="ok_string">OK</string>
     <string name="file_name_text">FILE NAME :</string>
     <string name="fast_access_room_string">FAST ACCESS ROOM</string>
-    <string name="legal_string">Legal Info</string>
+    <string name="legal_string">Open source licenses</string>
     <string name="copyright_holder_string">copyright_holder</string>
     <string name="open_source_string">AIO downloader is made with some open source projects.</string>
     <string name="download_manager_string"><u>Download Manager</u></string>
@@ -179,7 +179,7 @@
     <string name="hot_bookmarks">Hot bookmarks</string>
     <string name="share_with_friends">Share with friends</string>
     <string name="update">Check new update</string>
-    <string name="open_website">Open website</string>
+    <string name="open_website">Open project website</string>
     <string name="open_app_settings">Open app seting</string>
     <string name="report_bug">Report bugs </string>
     <string name="follow_me">Follow me @shiba_dev</string>
@@ -193,4 +193,5 @@
     <string name="url">URL</string>
     <string name="name">Name</string>
     <string name="search_keyword">Search keywords</string>
+    <string name="privacy">Privacy policy</string>
 </resources>
