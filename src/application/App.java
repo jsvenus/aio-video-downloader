@@ -133,9 +133,14 @@ public class App extends Application implements Serializable {
         account = new Account();
         account.deviceID = new DeviceUuidFactory(this).getDeviceUuid().toString();
         log('d', getClass(), "Account....... Device ID --> " + account.deviceID);
+        try {
+            account.emailID = "" + UserEmailFetcher.getEmail(this)[1];
+            log('d', getClass(), "Account...... Email ID --> " + account.emailID);
 
-        account.emailID = UserEmailFetcher.getEmail(this)[1];
-        log('d', getClass(), "Account...... Email ID --> " + account.emailID);
+        } catch (Exception e) {
+            e.printStackTrace();
+            account.emailID = "";
+        }
 
         account.name = getPreference().getString("NAME_USER", "Unknown");
         log('d', getClass(), "Account....... Name --> " + account.name);

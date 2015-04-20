@@ -28,6 +28,7 @@
                     android:textStyle="bold"
                     android:layout_centerHorizontal="true"
                     android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@+id/play_video_button"
                     android:text="@string/add_download_title"
                     android:textAllCaps="true"
                     android:textAppearance="?android:textAppearance"
