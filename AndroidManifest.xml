@@ -39,7 +39,6 @@
             android:name="com.softcsoftware.aio.C2D_MESSAGE"/>
     <uses-permission android:name="com.softcsoftware.aio.C2D_MESSAGE"/>
 
-
     <!-- applications & activities.  -->
     <application
             android:name="application.App"
