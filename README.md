@@ -3,6 +3,8 @@ The AIO App was originaly created for online video saving perpose. It was first 
 
 [![Download AIO Video Download Manager](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/aio-video-download-manager/files/latest/download)
 
+[![Download AIO Video Download Manager](https://img.shields.io/sourceforge/dm/aio-video-download-manager.svg)](https://sourceforge.net/projects/aio-video-download-manager/files/latest/download)
+
 # Why user will love this app ?
 The app was a commercial app and now its free ( ad free ). And it have all the standard features that any video downloader can offers but also has the capability of saving youtube videos too. 
 
