@@ -1,5 +1,5 @@
 # AIO-Video-Downloader
-The AIO App was originaly created for online video saving perpose. It was first available on google play but had been removed after 8 months from its first release. So I have turn the project to an open sourced project.
+The AIO App was originally created for online video saving purpose. It was first available on google play but had been removed after 8 months from its first release. So I have turn the project to an open sourced project.
 
 [![Download AIO Video Download Manager](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/aio-video-download-manager/files/latest/download)
 
