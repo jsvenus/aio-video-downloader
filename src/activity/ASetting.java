@@ -150,7 +150,7 @@ public class ASetting extends ABase {
                             messageDialog.hideTitle(true);
                             messageDialog.setListener(new OnClickButtonListener() {
                                 @Override
-                                public void onClick(Dialog d, View v) {
+                                public void onOKClick(Dialog d, View v) {
                                     d.dismiss();
                                     finish();
                                     System.exit(1);

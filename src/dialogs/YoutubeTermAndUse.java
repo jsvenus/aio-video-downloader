@@ -58,7 +58,7 @@ public class YoutubeTermAndUse {
                                          dialog.dismiss();
 
                                          if (listener != null) {
-                                             listener.onClick(getDialogWindow(), view);
+                                             listener.onOKClick(getDialogWindow(), view);
                                          }
                                      }
                                  }

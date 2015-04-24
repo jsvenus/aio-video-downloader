@@ -89,6 +89,29 @@
 
         </LinearLayout>
 
+        <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/all_image_button_press"
+                android:orientation="horizontal">
+
+            <TextView
+                    android:id="@+id/download_youtube_video"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/text_black"
+                    android:textAppearance="?android:textAppearance"
+                    android:text="@string/download_youtube_video"
+                    android:gravity="center_vertical"
+                    android:minHeight="20dp"
+                    android:drawableLeft="@drawable/ic_youtube_video_download"
+                    android:background="@drawable/all_image_button_press"
+                    android:padding="@dimen/element_padding"
+                    />
+
+        </LinearLayout>
+
 
         <!-- Download list -->
         <LinearLayout
@@ -165,28 +188,6 @@
 
 
         <!-- Open Browser. -->
-        <LinearLayout
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:background="@drawable/all_image_button_press"
-                android:orientation="horizontal">
-
-            <TextView
-                    android:id="@+id/download_youtube_video"
-                    android:layout_width="fill_parent"
-                    android:layout_height="wrap_content"
-                    android:textColor="@color/text_black"
-                    android:textAppearance="?android:textAppearance"
-                    android:text="@string/download_youtube_video"
-                    android:gravity="center_vertical"
-                    android:minHeight="20dp"
-                    android:drawableLeft="@drawable/ic_youtube_video_download"
-                    android:background="@drawable/all_image_button_press"
-                    android:padding="@dimen/element_padding"
-                    />
-
-        </LinearLayout>
 
 
         <!-- More settings. -->

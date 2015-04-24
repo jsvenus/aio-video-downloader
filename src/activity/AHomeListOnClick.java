@@ -78,7 +78,7 @@ public abstract class AHomeListOnClick implements ListView.OnItemClickListener, 
                 messageDialog.hideTitle(true);
                 messageDialog.setListener(new OnClickButtonListener() {
                     @Override
-                    public void onClick(Dialog d, View v) {
+                    public void onOKClick(Dialog d, View v) {
                         d.dismiss();
                         ((AHome) context).finish();
                         System.exit(1);

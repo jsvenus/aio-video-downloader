@@ -243,7 +243,7 @@ public class ABase extends Activity {
         messageDialog.hideTitle(true);
         messageDialog.setListener(new OnClickButtonListener() {
             @Override
-            public void onClick(Dialog d, View v) {
+            public void onOKClick(Dialog d, View v) {
                 try {
                     File file = app.updateFile;
                     String mimeType = getMimeType(Uri.fromFile(file).toString());

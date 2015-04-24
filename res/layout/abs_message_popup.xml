@@ -30,6 +30,7 @@
             >
 
         <LinearLayout
+                android:id="@+id/main_layout"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
@@ -46,6 +47,17 @@
                     android:padding="@dimen/element_padding"
                     />
 
+                <CheckBox
+                        android:id="@+id/do_not_show_again"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dont_show_again"
+                        android:textAppearance="?android:textAppearance"
+                        android:button="@drawable/ic_checkbox_selector"
+                        android:textColor="@color/text_black"
+                        android:gravity="center_vertical"
+                        />
             <TextView
                     android:id="@+id/ok"
                     android:clickable="true"

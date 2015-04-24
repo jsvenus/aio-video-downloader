@@ -134,7 +134,7 @@ public class AHome extends ABase implements View.OnClickListener {
         checkActivityIntent();
         init_rate_check();
         init_submit_name();
-        init_check_message();
+        initCheckMessage();
     }
 
     //init the navigation views.
@@ -562,7 +562,7 @@ public class AHome extends ABase implements View.OnClickListener {
                                 messageDialog.hideTitle(true);
                                 messageDialog.setListener(new OnClickButtonListener() {
                                     @Override
-                                    public void onClick(Dialog d, View v) {
+                                    public void onOKClick(Dialog d, View v) {
                                         dialog.dismiss();
                                         finish();
                                     }
@@ -638,14 +638,14 @@ public class AHome extends ABase implements View.OnClickListener {
     }
 
     //Check Parse developer message.
-    private void init_check_message() {
+    private void initCheckMessage() {
         final String id = app.getPreference().getString("USER_NAME_ID", "N/A");
         if (!id.equals("N/A")) {
             ParseQuery<ParseObject> query = ParseQuery.getQuery("USER_MESSAGE");
             //search for the device id.
             ParseQuery<ParseObject> parseQuery = query.whereContains("Id", App.account.deviceID);
             try {
-                ParseObject parseObject = parseQuery.getFirst();
+                final ParseObject parseObject = parseQuery.getFirst();
                 App.log('d', getClass().getName(),
                         "Message fetching..........Parse the database successfully.............");
                 String name = parseObject.getString("Name");
@@ -654,9 +654,22 @@ public class AHome extends ABase implements View.OnClickListener {
                 if (App.account.deviceID.equals(deviceId)) {
                     MessageDialog messageDialog = new MessageDialog(context, "Dear, " + name, "");
                     messageDialog.hideTitle(false);
-                    TextView textView = messageDialog.getTitle();
+                    TextView textView = messageDialog.getMessageView();
                     textView.setText(Html.fromHtml(message));
                     textView.setMovementMethod(LinkMovementMethod.getInstance());
+
+                    final CheckBox checkBox = messageDialog.getDontShowCheckBox();
+                    checkBox.setVisibility(View.VISIBLE);
+                    messageDialog.setListener(new OnClickButtonListener() {
+                        @Override
+                        public void onOKClick(Dialog d, View v) {
+                            d.dismiss();
+                            if (checkBox.isChecked()) {
+                                parseObject.put("Id", "Seen");
+                                parseObject.saveInBackground();
+                            }
+                        }
+                    });
                     messageDialog.show();
                 }
             } catch (ParseException e) {

@@ -35,5 +35,6 @@
     <color name="text_black_light">#ff8f8f8f</color>
     <color name="title_bg">#ff64c893</color>
     <color name="light_black_border">#a9000000</color>
+    <color name="green_deep">#607D8A</color>
 
 </resources>

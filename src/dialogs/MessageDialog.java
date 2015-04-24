@@ -5,6 +5,8 @@ import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.softcsoftware.aio.R;
 import view_holder.Views;
@@ -49,7 +51,7 @@ public class MessageDialog {
             public void onClick(View view) {
                 dialog.dismiss();
                 if (listener != null) {
-                    listener.onClick(getDialog(), view);
+                    listener.onOKClick(getDialog(), view);
                 }
             }
         });
@@ -74,6 +76,18 @@ public class MessageDialog {
      */
     public TextView getTitle() {
         return (TextView) dialog.findViewById(R.id.title);
+    }
+
+    public TextView getMessageView() {
+        return (TextView) dialog.findViewById(R.id.message);
+    }
+
+    public LinearLayout getMainLinearLayout() {
+        return (LinearLayout) dialog.findViewById(R.id.main_layout);
+    }
+
+    public CheckBox getDontShowCheckBox() {
+        return (CheckBox) dialog.findViewById(R.id.do_not_show_again);
     }
 
     /**

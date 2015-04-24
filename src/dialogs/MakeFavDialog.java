@@ -39,7 +39,7 @@ public class MakeFavDialog {
             @Override
             public void onClick(View v) {
                 if (lis != null) {
-                    lis.onClick(getDialog(), v);
+                    lis.onOKClick(getDialog(), v);
                 }
             }
         });
