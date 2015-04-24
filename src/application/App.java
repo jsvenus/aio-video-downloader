@@ -16,12 +16,13 @@ import data.object_holder.SettingsHolder;
 import data_handler_system.DataHandler;
 import tools.DeviceUuidFactory;
 import tools.StorageUtils;
-import tools.UserEmailFetcher;
 import update_system.UpdateReceiver;
 
 import java.io.File;
 import java.io.IOException;
 import java.io.Serializable;
+
+import static tools.UserEmailFetcher.getEmail;
 
 /**
  * <p><b>App</b> is the sub class of the {@link android.app.Application}. So it is the main
@@ -134,7 +135,8 @@ public class App extends Application implements Serializable {
         account.deviceID = new DeviceUuidFactory(this).getDeviceUuid().toString();
         log('d', getClass(), "Account....... Device ID --> " + account.deviceID);
         try {
-            account.emailID = "" + UserEmailFetcher.getEmail(this)[1];
+            //noinspection ConstantConditions
+            account.emailID = "" + getEmail(this)[1];
             log('d', getClass(), "Account...... Email ID --> " + account.emailID);
 
         } catch (Exception e) {

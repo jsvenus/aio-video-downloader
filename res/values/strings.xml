@@ -194,4 +194,5 @@
     <string name="name">Name</string>
     <string name="search_keyword">Search keywords</string>
     <string name="privacy">Privacy policy</string>
+    <string name="open_help">How to : Help</string>
 </resources>

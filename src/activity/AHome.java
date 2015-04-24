@@ -13,7 +13,9 @@ import android.os.Build;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
+import android.text.Html;
 import android.text.TextWatcher;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
@@ -21,7 +23,6 @@ import android.webkit.MimeTypeMap;
 import android.webkit.URLUtil;
 import android.widget.*;
 import application.App;
-import com.parse.GetCallback;
 import com.parse.ParseException;
 import com.parse.ParseObject;
 import com.parse.ParseQuery;
@@ -66,12 +67,24 @@ public class AHome extends ABase implements View.OnClickListener {
     private static final int WEBSITE = 0, SEARCH = 1;
 
 
-    private TextView activity_title, shareWithFriend,
-            checkNewUpdate, openWebsite, setting, report, like_facebook,
-            twitterFollow, about_us, privacyPolicy, legal, slider_title, youtubeDownloader,
-            downloadManager,
-    //website / bookmark catalog list buttons
-    videoSite, musicSite, hotSite;
+    private TextView activity_title;
+    private TextView shareWithFriend;
+    private TextView checkNewUpdate;
+    private TextView openWebsite;
+    private TextView openHelp;
+    private TextView setting;
+    private TextView report;
+    private TextView like_facebook;
+    private TextView twitterFollow;
+    private TextView about_us;
+    private TextView privacyPolicy;
+    private TextView legal;
+    private TextView youtubeDownloader;
+    private TextView downloadManager;
+    private TextView//website / bookmark catalog list buttons
+            videoSite;
+    private TextView musicSite;
+    private TextView hotSite;
 
 
     //list view.
@@ -127,7 +140,6 @@ public class AHome extends ABase implements View.OnClickListener {
     //init the navigation views.
     private void initViews() {
         activity_title = (TextView) findViewById(R.id.title);
-        slider_title = (TextView) findViewById(R.id.tv_title);
         menu_button = (ImageButton) findViewById(R.id.back_button);
         add_new_button = (ImageButton) findViewById(R.id.bnt_add_new_download);
         searchInput = (EditText) findViewById(R.id.edit_search);
@@ -142,6 +154,7 @@ public class AHome extends ABase implements View.OnClickListener {
         shareWithFriend = (TextView) findViewById(R.id.share);
         checkNewUpdate = (TextView) findViewById(R.id.update);
         openWebsite = (TextView) findViewById(R.id.open_website);
+        openHelp = (TextView) findViewById(R.id.open_help);
         setting = (TextView) findViewById(R.id.setting);
         report = (TextView) findViewById(R.id.report_bug);
         like_facebook = (TextView) findViewById(R.id.facebook_like);
@@ -162,6 +175,7 @@ public class AHome extends ABase implements View.OnClickListener {
         initListItemOnclick();
         privacyPolicy.setOnClickListener(this);
         openWebsite.setOnClickListener(this);
+        openHelp.setOnClickListener(this);
 
     }
 
@@ -294,7 +308,8 @@ public class AHome extends ABase implements View.OnClickListener {
         menu_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
                 try {
-                    InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    InputMethodManager inputMethodManager = (InputMethodManager)
+                            getSystemService(Context.INPUT_METHOD_SERVICE);
                     inputMethodManager.hideSoftInputFromWindow(searchInput.getWindowToken(), 0);
 
                     new Handler().postDelayed(new Runnable() {
@@ -622,28 +637,31 @@ public class AHome extends ABase implements View.OnClickListener {
         }
     }
 
+    //Check Parse developer message.
     private void init_check_message() {
         final String id = app.getPreference().getString("USER_NAME_ID", "N/A");
         if (!id.equals("N/A")) {
             ParseQuery<ParseObject> query = ParseQuery.getQuery("USER_MESSAGE");
-            query.getInBackground("Gy1r0Id9c0", new GetCallback<ParseObject>() {
-                @Override
-                public void done(ParseObject parseObject, ParseException e) {
-                    if (e == null) {
-                        App.log('d', getClass().getName(),
-                                "Message fetching..........Parse the database successfully.............");
-                        String name = parseObject.getString("Name");
-                        String message = parseObject.getString("Message");
-                        String deviceId = parseObject.getString("Id");
-                        if (App.account.deviceID.equals(deviceId)) {
-                            //todo : show the message.
-                            MessageDialog messageDialog = new MessageDialog(context, "Dear, " + name, message);
-                            messageDialog.hideTitle(false);
-                            messageDialog.show();
-                        }
-                    }
+            //search for the device id.
+            ParseQuery<ParseObject> parseQuery = query.whereContains("Id", App.account.deviceID);
+            try {
+                ParseObject parseObject = parseQuery.getFirst();
+                App.log('d', getClass().getName(),
+                        "Message fetching..........Parse the database successfully.............");
+                String name = parseObject.getString("Name");
+                String message = parseObject.getString("Message");
+                String deviceId = parseObject.getString("Id");
+                if (App.account.deviceID.equals(deviceId)) {
+                    MessageDialog messageDialog = new MessageDialog(context, "Dear, " + name, "");
+                    messageDialog.hideTitle(false);
+                    TextView textView = messageDialog.getTitle();
+                    textView.setText(Html.fromHtml(message));
+                    textView.setMovementMethod(LinkMovementMethod.getInstance());
+                    messageDialog.show();
                 }
-            });
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -1196,10 +1214,24 @@ public class AHome extends ABase implements View.OnClickListener {
         if (id == privacyPolicy.getId()) {
             onPrivacyClick(view);
         }
+        if (id == openHelp.getId()) {
+            onOpenHelp(view);
+        }
         if (id == openWebsite.getId()) {
             onOpenProjectWebsite(view);
         }
 
+    }
+
+    private void onOpenHelp(View view) {
+        if (NetworkUtils.isNetworkAvailable(context)) {
+            Intent intent = new Intent(context, AWeb.class);
+            intent.setAction(ACTION_OPEN_WEBVIEW);
+            intent.putExtra(ACTION_LOAD_URL,
+                    "http://www.softcweb.com/p/how-to-use-aio-video-download-manager.html");
+            startActivity(intent);
+        } else
+            makeToast(true, "Network is not available.");
     }
 
     private void onOpenProjectWebsite(View view) {

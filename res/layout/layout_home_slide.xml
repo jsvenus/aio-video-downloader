@@ -244,7 +244,7 @@
                     android:textAppearance="?android:textAppearance"
                     />
 
-                <!-- update application. -->
+                <!-- Open project website. -->
                 <TextView
                         android:id="@+id/open_website"
                         android:clickable="true"
@@ -259,6 +259,24 @@
                         android:singleLine="true"
                         android:textColor="@color/text_black"
                         android:text="@string/open_website"
+                        android:textAppearance="?android:textAppearance"
+                        />
+
+                <!-- Open help. -->
+                <TextView
+                        android:id="@+id/open_help"
+                        android:clickable="true"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+
+                        android:background="@drawable/all_image_button_press"
+                        android:padding="@dimen/element_padding"
+                        android:drawableLeft="@drawable/ic_website"
+
+                        android:gravity="center_vertical"
+                        android:singleLine="true"
+                        android:textColor="@color/text_black"
+                        android:text="@string/open_help"
                         android:textAppearance="?android:textAppearance"
                         />
 
