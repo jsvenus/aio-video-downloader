@@ -12,7 +12,7 @@
     <RelativeLayout
             android:id="@+id/title_bar"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/action_bar_height"
             android:background="@color/title_bg"
             android:orientation="horizontal">
 
@@ -32,9 +32,9 @@
 
         <!-- left button for options. -->
         <ImageButton
-                android:id="@+id/back_button"
+                android:id="@+id/option_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:padding="5dp"
                 android:src="@drawable/ic_action_navigation_menu"
                 android:background="@drawable/all_image_button_press"
@@ -45,9 +45,9 @@
 
         <!-- right button for add new download task. -->
         <ImageButton
-                android:id="@+id/bnt_add_new_download"
+                android:id="@+id/add_new_download_button"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:padding="5dp"
                 android:src="@drawable/ic_add_new_content"
                 android:background="@drawable/all_image_button_press"
@@ -55,6 +55,7 @@
                 android:layout_centerVertical="true"
                 tools:ignore="ContentDescription"/>
     </RelativeLayout>
+
 
     <RelativeLayout
             android:id="@+id/search_layout"
@@ -99,7 +100,7 @@
 
         <!-- list view -->
         <ListView
-                android:id="@+id/listView_siteList"
+                android:id="@+id/list_view"
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:divider="#593e3e3e"

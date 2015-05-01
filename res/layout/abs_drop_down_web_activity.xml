@@ -86,7 +86,6 @@
                     android:background="@drawable/all_image_button_press"
                     android:padding="@dimen/element_padding"
                     />
-
         </LinearLayout>
 
         <LinearLayout
@@ -212,7 +211,6 @@
                     android:padding="@dimen/element_padding"
                     />
         </LinearLayout>
-
 
     </LinearLayout>
 </ScrollView>

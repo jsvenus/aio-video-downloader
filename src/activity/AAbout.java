@@ -36,7 +36,7 @@ public class AAbout extends ABase {
     private void initViews() {
         title = (TextView) findViewById(R.id.title);
         aboutApp = (TextView) findViewById(R.id.about_app);
-        exitButton = (ImageButton) findViewById(R.id.back_button);
+        exitButton = (ImageButton) findViewById(R.id.option_button);
 
         aboutApp.setText(ABOUT_APP);
     }

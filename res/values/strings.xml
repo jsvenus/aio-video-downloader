@@ -147,7 +147,7 @@
     <string name="stop_service">Stop Download System</string>
     <string name="menu_button">Menu button</string>
     <string name="go_button">Go button</string>
-    <string name="manual_download">Download web page</string>
+    <string name="manual_download">Create new download</string>
     <string name="copy_url">Copy url</string>
     <string name="open_browser">Open browser</string>
     <string name="download_youtube_video">Download Youtube Video</string>

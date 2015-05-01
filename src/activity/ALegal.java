@@ -1,12 +1,14 @@
 package activity;
 
-import android.os.Bundle;
 import android.text.Html;
 import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.softcsoftware.aio.R;
+import org.androidannotations.annotations.AfterViews;
+import org.androidannotations.annotations.EActivity;
+import org.androidannotations.annotations.ViewById;
 import tools.LicenseGenerator;
 
 /**
@@ -14,73 +16,64 @@ import tools.LicenseGenerator;
  * about the app.
  * Created by shibaprasad on 3/15/2015.
  */
+@EActivity(R.layout.activity_legal)
 public class ALegal extends ABase {
 
-    private LinearLayout licenseListLayout;
+    @ViewById(R.id.licenseList)
+    LinearLayout licenseListLayout;
 
-
-    @Override
-    public void onCreate(Bundle bundle) {
-        super.onCreate(bundle);
-        //set the activity screen.
-        setContentView(R.layout.activity_legal);
-
-        //get the license list layout.
-        licenseListLayout = (LinearLayout) findViewById(R.id.licenseList);
-
-        addProjectLicense();
-        //android asset studio.
-        addAndroidAssetStudio();
-        //So license
-        addSOLicense();
-        addMaterialLicense();
-        
+    @AfterViews
+    void updateUI() {
+        add_product_license();
+        add_android_asset_studio();
+        add_so_credit();
+        add_material_design_lib();
+        add_android_annotation_license();
     }
 
-    /**
-     * Back Pressed Call back method.
-     */
     @Override
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.left_to_right, R.anim.right_to_left);
     }
 
-    private void addProjectLicense() {
+    void add_product_license() {
         String projectLicense = "<b>AIO Video Downloader is a open source application.</B><br/>" +
                 "-----------------------------------------<br/>" +
-                "Copyright (C) <b>2015 Shiba Prasad Jana</b><br/>" +
+                "The MIT License (MIT)" +
+                "<br/>" +
+                "Copyright (c) <b>2015 Shiba Prasad J.</b>" +
                 "<br/><br/>" +
-                "This program is free software; you can redistribute it and/or" +
-                "modify it under the terms of the GNU General Public License" +
-                "as published by the Free Software Foundation; either version 2" +
-                "of the License, or any later version." +
+                "Permission is hereby granted, free of charge, to any person obtaining a copy " +
+                "of this software and associated documentation files (the \"Software\"), to deal " +
+                "in the Software without restriction, including without limitation the rights " +
+                "to use, copy, modify, merge, publish, distribute, sublicense, and/or sell " +
+                "copies of the Software, and to permit persons to whom the Software is " +
+                "furnished to do so, subject to the following conditions: " +
                 "<br/><br/>" +
-                "This program is distributed in the hope that it will be useful," +
-                "but WITHOUT ANY WARRANTY; without even the implied warranty of" +
-                "MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the" +
-                "GNU General Public License for more details.<br/><br/>" +
-                "" +
-                "You should have received a copy of the GNU General Public License" +
-                "along with this program; if not, write to the Free Software" +
-                "Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.";
+                "The above copyright notice and this permission notice shall be included in all " +
+                "copies or substantial portions of the Software. " +
+                "<br/><br/>" +
+                "THE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR " +
+                "IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, " +
+                "FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE " +
+                "AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER " +
+                "LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, " +
+                "OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE " +
+                "SOFTWARE. ";
         addLicense(projectLicense);
     }
 
-    /**
-     * Android asset studio license.
-     */
-    private void addAndroidAssetStudio() {
-        String license = LicenseGenerator.getCCLicense(true,
-                "http://creativecommons.org/licenses/by/3.0/", "Android Asset Studio",
-                "Android Asset Studio", "http://romannurik.github.io/AndroidAssetStudio/");
+    void add_android_asset_studio() {
+        String license = "Some of the graphical assets of the product were created by " +
+                "the <b>Android Asset Studio</b>." +
+                "<br>" +
+                "<a href=\"http://romannurik.github.io/AndroidAssetStudio/\">Android Asset Studio</a> " +
+                "is licensed under <a href=\"http://creativecommons.org/licenses/by/3.0/\">CC BY 3.0</a>";
         addLicense(license);
     }
 
-    /**
-     * Android asset studio license.
-     */
-    private void addSOLicense() {
+    void add_so_credit() {
         String license =
                 "Some portions of this product may be from <b>Stack Overflow or the Stack Exchange network's contributed content</B>.\n" +
                         "All the content contributed to Stack Overflow or other Stack Exchange sites is " +
@@ -88,11 +81,13 @@ public class ALegal extends ABase {
         addLicense(license);
     }
 
-    /**
-     * Material license.
-     */
-    private void addMaterialLicense() {
+    void add_material_design_lib() {
         String license = LicenseGenerator.getApacheLicense("MaterialDesignLibrary", "2014", " Ivan Navas.");
+        addLicense(license);
+    }
+
+    void add_android_annotation_license() {
+        String license = LicenseGenerator.getApacheLicense("AndroidAnnotations", "2012-2015", "eBusiness Information");
         addLicense(license);
     }
 
@@ -101,7 +96,7 @@ public class ALegal extends ABase {
      *
      * @param license the license text.
      */
-    private void addLicense(String license) {
+    void addLicense(String license) {
         View view = View.inflate(this, R.layout.layout_license_list_row, null);
         TextView textView = (TextView) view;
         textView.setText(Html.fromHtml(license));

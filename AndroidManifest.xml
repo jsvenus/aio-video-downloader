@@ -3,7 +3,7 @@
           xmlns:tools="http://schemas.android.com/tools"
           package="com.softcsoftware.aio"
           android:versionCode="6"
-          android:versionName="2.4.34"
+          android:versionName="2.4.36"
           android:installLocation="preferExternal">
 
     <uses-sdk
@@ -41,7 +41,7 @@
 
     <!-- applications & activities.  -->
     <application
-            android:name="application.App"
+            android:name="application.App_"
             android:icon="@drawable/ic_launcher"
             android:configChanges=
                     "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
@@ -55,7 +55,7 @@
 
         <!-- SlashActivity -->
         <activity
-                android:name="activity.ASlash"
+                android:name="activity.ASlash_"
                 android:configChanges=
                         "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
                 android:noHistory="false"
@@ -71,27 +71,11 @@
                 android:label="AIO Editor"
                 android:launchMode="standard"
                 android:theme="@android:style/Theme.NoTitleBar"
-                android:name="activity.AHome"
+                android:name="activity.AHome_"
                 android:configChanges=
                         "keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize">
             <intent-filter>
                 <action android:name="ACTION_OPEN_HOME"/>
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-
-                <category android:name="android.intent.category.BROWSABLE"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-
-                <data android:scheme="http"/>
-                <data android:host="*"/>
-            </intent-filter>
-
-            <intent-filter>
-                <action android:name="android.intent.action.SEND"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <data android:mimeType="text/plain"/>
             </intent-filter>
         </activity>
 
@@ -101,7 +85,7 @@
                 android:launchMode="standard"
                 android:name="activity.AWeb"
                 android:largeHeap="true"
-                android:label="AIO Browser"
+                android:label="AIO Browser/Editor"
                 android:theme="@android:style/Theme.NoTitleBar"
                 android:allowTaskReparenting="true"
                 android:alwaysRetainTaskState="true"
@@ -156,7 +140,7 @@
                 android:finishOnTaskLaunch="true"
                 android:stateNotNeeded="true"
                 android:theme="@android:style/Theme.NoTitleBar"
-                android:name="activity.ALegal"
+                android:name="activity.ALegal_"
                 android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize">
         </activity>
 

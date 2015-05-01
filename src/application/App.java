@@ -14,6 +14,8 @@ import com.parse.*;
 import connectivity_system.DownloadFunctions;
 import data.object_holder.SettingsHolder;
 import data_handler_system.DataHandler;
+import org.androidannotations.annotations.Background;
+import org.androidannotations.annotations.EApplication;
 import tools.DeviceUuidFactory;
 import tools.StorageUtils;
 import update_system.UpdateReceiver;
@@ -30,7 +32,7 @@ import static tools.UserEmailFetcher.getEmail;
  * </p>
  * <p>So it is very useful class for our project code structure.</p>
  */
-@SuppressWarnings({"UnusedDeclaration", "FieldCanBeLocal"})
+@EApplication
 public class App extends Application implements Serializable {
 
     public static final boolean IS_DEBUGGING = true;
@@ -130,7 +132,8 @@ public class App extends Application implements Serializable {
         setUpdateReceiver();
     }
 
-    private void initGetAccountDetail() {
+    @Background(id = "update_user_info")
+    void initGetAccountDetail() {
         account = new Account();
         account.deviceID = new DeviceUuidFactory(this).getDeviceUuid().toString();
         log('d', getClass(), "Account....... Device ID --> " + account.deviceID);
@@ -152,26 +155,56 @@ public class App extends Application implements Serializable {
 
         boolean has_sent = getPreference().getBoolean("IS_SEND_DATA", false);
         if (!has_sent) {
-            final ParseObject parseObject = new ParseObject("USERS");
-            parseObject.put("Name", account.name);
-            parseObject.put("Device_ID", account.deviceID);
-            parseObject.put("Email_ID", account.emailID);
-            parseObject.put("Device_Name", account.deviceName);
-            parseObject.saveInBackground(new SaveCallback() {
-                @Override
-                public void done(ParseException e) {
-                    if (e == null) {
-                        getPreference().edit().putString("USER_NAME_ID", parseObject.getObjectId()).commit();
+            ParseQuery<ParseObject> query = ParseQuery.getQuery("USERS");
+            ParseQuery<ParseObject> parseQuery = query.whereContains("Device_ID", App.account.deviceID);
 
-                        getPreference().edit().putBoolean("IS_SEND_DATA", true).commit();
-                        log('d', getClass(), "Parse......Save In Background() --> " + account.deviceName);
-                    } else {
-                        e.printStackTrace();
+            try {
+                final ParseObject searchObject = parseQuery.getFirst();
+                String device_id = (String) searchObject.get("Device_ID");
+                if (device_id != null) {
+                    if (account.deviceID.equals(device_id)) {
+                        searchObject.put("Name", account.name);
+                        searchObject.put("Device_ID", account.deviceID);
+                        searchObject.put("Email_ID", account.emailID);
+                        searchObject.put("Device_Name", account.deviceName);
+                        searchObject.saveInBackground(new SaveCallback() {
+                            @Override
+                            public void done(ParseException e) {
+                                if (e == null) {
+                                    getPreference().edit().putString("USER_NAME_ID", searchObject.getObjectId()).commit();
+
+                                    //getPreference().edit().putBoolean("IS_SEND_DATA", true).commit();
+                                    log('d', getClass(), "Parse......Save In Background() --> " + account.deviceName);
+                                } else {
+                                    e.printStackTrace();
+                                }
+                            }
+                        });
                     }
-                }
-            });
-        }
+                } else {
+                    final ParseObject user = new ParseObject("USERS");
+                    user.put("Name", account.name);
+                    user.put("Device_ID", account.deviceID);
+                    user.put("Email_ID", account.emailID);
+                    user.put("Device_Name", account.deviceName);
+                    user.saveInBackground(new SaveCallback() {
+                        @Override
+                        public void done(ParseException e) {
+                            if (e == null) {
+                                getPreference().edit().putString("USER_NAME_ID", user.getObjectId()).commit();
 
+                                //getPreference().edit().putBoolean("IS_SEND_DATA", true).commit();
+                                log('d', getClass(), "Parse......Save In Background() --> " + account.deviceName);
+                            } else {
+                                e.printStackTrace();
+                            }
+                        }
+                    });
+                }
+            } catch (Exception error) {
+                error.printStackTrace();
+            }
+        }
     }
 
     public void initSetting() {
@@ -281,8 +314,10 @@ public class App extends Application implements Serializable {
      * cloud database. After saving the data object to the cloud storage get the <b>ObjectId</b> of the
      * data, and save the id to this class.</p>
      */
+    @Background
     public void setUpdateReceiver() {
         this.updateReceiver = new UpdateReceiver(this);
+        this.updateReceiver.check_new_update(this);
     }
 
     /**

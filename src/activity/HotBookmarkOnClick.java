@@ -46,7 +46,7 @@ public abstract class HotBookmarkOnClick implements View.OnClickListener {
     //Show user how he/she can get the password.
     private void onTitleClick() {
         String message =
-                "This feature is password protected and required a secret key to unlock. You can obtain the key " +
+                "This feature is password protected and requires a secret key to unlock. You can obtain the key " +
                         "by asking me @ shiba.spj@hotmail.com";
         MessageDialog messageDialog = new MessageDialog(context, null, message);
         messageDialog.hideTitle(true);

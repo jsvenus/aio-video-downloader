@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -43,6 +45,36 @@ public class MessageDialog {
         TextView message = (TextView) dialog.findViewById(R.id.message);
         message.setLineSpacing(1.0f, 1.1f);
         message.setText(messageText);
+
+        TextView okButton = (TextView) dialog.findViewById(R.id.ok);
+
+        okButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+                if (listener != null) {
+                    listener.onOKClick(getDialog(), view);
+                }
+            }
+        });
+    }
+
+    public MessageDialog(final Context context, String titleText, boolean isHtml, String messageText) {
+        dialog = new Dialog(context);
+        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        dialog.setContentView(R.layout.abs_message_popup);
+        dialog.setCancelable(false);
+        Views.dialog_fillParent(dialog);
+
+        TextView title = (TextView) dialog.findViewById(R.id.title);
+        title.setText(titleText);
+
+        TextView message = (TextView) dialog.findViewById(R.id.message);
+        message.setLineSpacing(1.0f, 1.1f);
+        if (isHtml) {
+            message.setText(Html.fromHtml(messageText));
+            message.setMovementMethod(LinkMovementMethod.getInstance());
+        }
 
         TextView okButton = (TextView) dialog.findViewById(R.id.ok);
 

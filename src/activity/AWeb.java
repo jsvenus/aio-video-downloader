@@ -666,8 +666,8 @@ public class AWeb extends ABase {
             @SuppressLint({"InflateParams", "RtlHardcoded"})
             @Override
             public void onClick(View view) {
-                LayoutInflater lnflator = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                popupView = lnflator.inflate(R.layout.abs_drop_down_web_activity, null, false);
+                LayoutInflater lnflater = (LayoutInflater) getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                popupView = lnflater.inflate(R.layout.abs_drop_down_web_activity, null, false);
 
                 download_manager = (TextView) popupView.findViewById(R.id.download_manager);
                 manual_download = (TextView) popupView.findViewById(R.id.manual_download);
@@ -771,7 +771,7 @@ public class AWeb extends ABase {
                         saveUriResources();
 
                         //open a new download notice.
-                        showDownloadEditor(getDownloadModel(web.getUrl(), null));
+                        showDownloadEditor(null);
                     }
                 });
 

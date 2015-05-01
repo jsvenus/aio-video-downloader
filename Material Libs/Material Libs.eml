@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component LANGUAGE_LEVEL="JDK_1_7" inherit-compiler-output="true" jdk="Android API 19 Platform" jdk_type="Android SDK">
+	<output-test url="file://$MODULE_DIR$/../out/test/Material Libs"/>
+	<exclude-output/>
+	<contentEntry url="file://$MODULE_DIR$">
+		<excludeFolder url="file://$MODULE_DIR$/out"/>
+	</contentEntry>
+	<lib name="libs" scope="COMPILE">
+		<relative-module-cls project-related="file://$PROJECT_DIR$/libs"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/android-support-v4.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/nineoldandroids-2.4.0.jar!/"/>
+		<relative-module-cls project-related="jar://$PROJECT_DIR$/libs/android-support-v7-appcompat.jar!/"/>
+	</lib>
+</component>

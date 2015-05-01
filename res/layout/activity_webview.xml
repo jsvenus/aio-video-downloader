@@ -11,7 +11,7 @@
 
     <RelativeLayout
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/action_bar_height"
             android:orientation="horizontal"
             android:background="@color/title_bg"
             >
@@ -19,7 +19,7 @@
         <ImageButton
                 android:id="@+id/menu"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
 
                 android:padding="@dimen/element_padding"
                 android:src="@drawable/ic_action_navigation_menu"
@@ -32,7 +32,7 @@
         <EditText
                 android:id="@+id/input_url"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:singleLine="true"
                 android:textColor="@color/text_white"
                 android:background="@drawable/ic_edit_background"
@@ -50,7 +50,7 @@
                 android:id="@+id/go"
                 android:background="@drawable/all_image_button_press"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:src="@drawable/ic_web_load"
                 android:padding="@dimen/element_padding"
                 android:layout_centerVertical="true"
