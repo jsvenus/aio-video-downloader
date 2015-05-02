@@ -222,6 +222,7 @@ public class ADownloadManager extends ABase {
 
         registerReceiver(uiUpdateReceiver, new IntentFilter(ACTION_UPDATE));
         registerReceiver(messageReceiver, new IntentFilter(ACTION_MESSAGE));
+
     }
 
     /**

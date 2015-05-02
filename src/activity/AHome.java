@@ -352,6 +352,7 @@ public class AHome extends ABase {
 
     //====================================================================================================//
 
+
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
@@ -383,6 +384,7 @@ public class AHome extends ABase {
         }
         return false;
     }
+
 
     @Override
     public void onPause() {

@@ -166,7 +166,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:background="@drawable/all_drop_down_menu_button_press"
+                android:background="@drawable/all_image_button_press"
                 android:orientation="horizontal">
 
             <TextView
@@ -194,7 +194,7 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:clickable="true"
-                android:background="@drawable/all_drop_down_menu_button_press"
+                android:background="@drawable/all_image_button_press"
                 android:orientation="horizontal">
 
             <TextView

@@ -90,21 +90,9 @@ public final class AHome_
     @Override
     public void onViewChanged(HasViews hasViews) {
         slidingView = ((SlidingView) hasViews.findViewById(id.sliding_layout));
-        listView = ((ListView) hasViews.findViewById(id.list_view));
-        searchInput = ((EditText) hasViews.findViewById(id.edit_search));
         searchButton = ((ImageButton) hasViews.findViewById(id.bnt_search));
-        if (searchButton != null) {
-            searchButton.setOnClickListener(new OnClickListener() {
-
-
-                                                @Override
-                                                public void onClick(View view) {
-                                                    AHome_.this.search_popup();
-                                                }
-
-                                            }
-            );
-        }
+        searchInput = ((EditText) hasViews.findViewById(id.edit_search));
+        listView = ((ListView) hasViews.findViewById(id.list_view));
         {
             View view = hasViews.findViewById(id.setting);
             if (view != null) {
@@ -114,231 +102,6 @@ public final class AHome_
                                             @Override
                                             public void onClick(View view) {
                                                 AHome_.this.ope_app_settings();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.privacy_policy);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.open_privacy_policy();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.youtube_video_downloader);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.open_youtube_site();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.share);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.share_with_friend();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.option_button);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.navigation_option_button_press();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.about_us);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.open_about_us();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.music_websites);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.update_music_adapter();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.open_help);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.open_help_page();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.report_bug);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.report_bug();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.add_new_download_button);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.show_add_new_dialog();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.open_website);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.open_project_website();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.video_websites);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.update_video_adapter();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.hot_websites);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.update_hot_adapter();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.download_manager);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.open_download_manager();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.facebook_like);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.open_facebook_app();
-                                            }
-
-                                        }
-                );
-            }
-        }
-        {
-            View view = hasViews.findViewById(id.twitter_follow);
-            if (view != null) {
-                view.setOnClickListener(new OnClickListener() {
-
-
-                                            @Override
-                                            public void onClick(View view) {
-                                                AHome_.this.open_twitter_app();
                                             }
 
                                         }
@@ -361,6 +124,66 @@ public final class AHome_
             }
         }
         {
+            View view = hasViews.findViewById(id.share);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.share_with_friend();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.twitter_follow);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.open_twitter_app();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.music_websites);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.update_music_adapter();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.open_website);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.open_project_website();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
             View view = hasViews.findViewById(id.legal_info);
             if (view != null) {
                 view.setOnClickListener(new OnClickListener() {
@@ -369,6 +192,183 @@ public final class AHome_
                                             @Override
                                             public void onClick(View view) {
                                                 AHome_.this.open_legal_info();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.report_bug);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.report_bug();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        if (searchButton != null) {
+            searchButton.setOnClickListener(new OnClickListener() {
+
+
+                                                @Override
+                                                public void onClick(View view) {
+                                                    AHome_.this.search_popup();
+                                                }
+
+                                            }
+            );
+        }
+        {
+            View view = hasViews.findViewById(id.open_help);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.open_help_page();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.facebook_like);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.open_facebook_app();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.option_button);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.navigation_option_button_press();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.download_manager);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.open_download_manager();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.hot_websites);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.update_hot_adapter();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.youtube_video_downloader);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.open_youtube_site();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.about_us);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.open_about_us();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.video_websites);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.update_video_adapter();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.privacy_policy);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.open_privacy_policy();
+                                            }
+
+                                        }
+                );
+            }
+        }
+        {
+            View view = hasViews.findViewById(id.add_new_download_button);
+            if (view != null) {
+                view.setOnClickListener(new OnClickListener() {
+
+
+                                            @Override
+                                            public void onClick(View view) {
+                                                AHome_.this.show_add_new_dialog();
                                             }
 
                                         }

@@ -18,6 +18,7 @@ public final class App_
 
     /**
      * Visible for testing purposes
+     * 
      */
     public static void setForTesting(App application) {
         INSTANCE_ = application;
@@ -34,14 +35,14 @@ public final class App_
     }
 
     @Override
-    public void setUpdateReceiver() {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
+    public void initGetAccountDetail() {
+        BackgroundExecutor.execute(new BackgroundExecutor.Task("update_user_info", 0, "") {
 
 
                                        @Override
                                        public void execute() {
                                            try {
-                                               App_.super.setUpdateReceiver();
+                                               App_.super.initGetAccountDetail();
                                            } catch (Throwable e) {
                                                Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
                                            }
@@ -52,14 +53,14 @@ public final class App_
     }
 
     @Override
-    public void initGetAccountDetail() {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("update_user_info", 0, "") {
+    public void setUpdateReceiver() {
+        BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
 
 
                                        @Override
                                        public void execute() {
                                            try {
-                                               App_.super.initGetAccountDetail();
+                                               App_.super.setUpdateReceiver();
                                            } catch (Throwable e) {
                                                Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
                                            }

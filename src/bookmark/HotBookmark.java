@@ -46,14 +46,12 @@ public class HotBookmark extends BaseObjectHolder {
 
         siteList.add(new Website().
                 setUrl("open")
-                .setName("Today\'s best videos")
-                .setImageUri(R.drawable.ic_p_site));
+                .setName("Today\'s best videos"));
 
 
         siteList.add(new Website().
                 setUrl("http://beeg.com")
-                .setName("Beeg")
-                .setImageUri(R.drawable.ic_p_site));
+                .setName("Beeg"));
 
 
         siteList.add(new Website().

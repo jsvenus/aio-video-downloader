@@ -78,8 +78,8 @@ public final class ASlash_
 
     @Override
     public void onViewChanged(HasViews hasViews) {
-        title = ((TextView) hasViews.findViewById(id.title));
         companyInfo = ((TextView) hasViews.findViewById(id.version));
+        title = ((TextView) hasViews.findViewById(id.title));
         update_ui();
     }
 

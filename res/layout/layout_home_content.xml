@@ -95,22 +95,23 @@
     <RelativeLayout
             android:id="@+id/relativeLayout_list_view"
             android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:orientation="vertical">
 
         <!-- list view -->
         <ListView
                 android:id="@+id/list_view"
                 android:layout_width="fill_parent"
-                android:layout_height="fill_parent"
+                android:layout_height="match_parent"
                 android:divider="#593e3e3e"
                 android:listSelector="@drawable/all_image_button_press"
                 android:dividerHeight="1dp"
                 android:fastScrollEnabled="true"
                 android:smoothScrollbar="true">
         </ListView>
-    </RelativeLayout>
 
+
+    </RelativeLayout>
 
 </LinearLayout>
 

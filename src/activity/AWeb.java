@@ -174,6 +174,7 @@ public class AWeb extends ABase {
             //Load up url.
             loadUrl(URL);
             App.log('i', getClass().getName(), "Successfully load the url....");
+
         } catch (Exception error) {
             error.printStackTrace();
             web.freeMemory();
@@ -1252,7 +1253,7 @@ public class AWeb extends ABase {
         TextView download = (TextView) dialog.findViewById(R.id.download);
 
         input_path.setClickable(true);
-        input_path.setBackgroundResource(R.drawable.text_button_press);
+        input_path.setBackgroundResource(R.drawable.all_image_button_press);
 
         Views.setTextView(input_name, "", 17.44f);
         Views.setTextView(input_url, "", 17.44f);

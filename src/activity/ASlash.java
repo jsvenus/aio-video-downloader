@@ -41,6 +41,7 @@ public class ASlash extends ABase {
         companyInfo.setLineSpacing(1.3f, 1.3f);
 
         open_home_activity();
+
     }
 
     void open_home_activity() {
