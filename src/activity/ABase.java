@@ -67,6 +67,8 @@ public class ABase extends Activity {
     protected String versionName, versionCode; //Version name and code of the application.
     protected Resources resources; //resource object for getting the res resource file.
     protected int LifeCycle;
+    YesNoDialog updateYesNoDialog;
+    MessageDialog messageDialog;
     /**
      * <p>{@link update_system.UpdateBroadcastReceiver} for receiving the update information.</p>
      */
@@ -199,36 +201,37 @@ public class ABase extends Activity {
                         "\n\n" +
                         "WHAT\'S NEW\n" +
                         remark;
+                if (updateYesNoDialog == null)
+                    updateYesNoDialog = new YesNoDialog(context, message, new YesNoDialog.OnClick() {
+                        @Override
+                        public void onYesClick(Dialog dialog, TextView view) {
+                            dialog.dismiss();
+                            App.log('i', getClass().getName(), "User click the yes button.");
 
-                YesNoDialog yesNoDialog = new YesNoDialog(context, message, new YesNoDialog.OnClick() {
-                    @Override
-                    public void onYesClick(Dialog dialog, TextView view) {
-                        dialog.dismiss();
-                        App.log('i', getClass().getName(), "User click the yes button.");
-
-                        try {
-                            StorageUtils.mkdirs(StorageUtils.FILE_ROOT + "/Update APK");
-                            Intent intent = new Intent(ABase.this, DownloadService.class);
-                            intent.setAction(SystemIntent.INTENT_ACTION_START_SERVICE);
-                            intent.putExtra(SystemIntent.TYPE, SystemIntent.Types.ADD);
-                            intent.putExtra(SystemIntent.FILE_URL, fileUrl);
-                            intent.putExtra(SystemIntent.FILE_NAME, "AIO " + versionName + ".apk");
-                            intent.putExtra(SystemIntent.FILE_PATH, StorageUtils.FILE_ROOT + "/Update APK");
-                            intent.putExtra(SystemIntent.WEB_PAGE, "N/A");
-                            vibrator.vibrate(20);
-                            startService(intent);
-                        } catch (IOException e) {
-                            e.printStackTrace();
+                            try {
+                                StorageUtils.mkdirs(StorageUtils.FILE_ROOT + "/Update APK");
+                                Intent intent = new Intent(ABase.this, DownloadService.class);
+                                intent.setAction(SystemIntent.INTENT_ACTION_START_SERVICE);
+                                intent.putExtra(SystemIntent.TYPE, SystemIntent.Types.ADD);
+                                intent.putExtra(SystemIntent.FILE_URL, fileUrl);
+                                intent.putExtra(SystemIntent.FILE_NAME, "AIO " + versionName + ".apk");
+                                intent.putExtra(SystemIntent.FILE_PATH, StorageUtils.FILE_ROOT + "/Update APK");
+                                intent.putExtra(SystemIntent.WEB_PAGE, "N/A");
+                                vibrator.vibrate(20);
+                                startService(intent);
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
                         }
-                    }
 
-                    @Override
-                    public void onNoClick(Dialog dialog, TextView view) {
-                        dialog.dismiss();
-                    }
-                });
+                        @Override
+                        public void onNoClick(Dialog dialog, TextView view) {
+                            dialog.dismiss();
+                        }
+                    });
                 //show the dialog.
-                yesNoDialog.dialog.show();
+                if (!updateYesNoDialog.dialog.isShowing())
+                    updateYesNoDialog.dialog.show();
 
             }
         };
@@ -239,7 +242,7 @@ public class ABase extends Activity {
     public void onUpdateInstallCallback() {
         String message = "There is an new update available, please install this update" +
                 " for further use of this app.";
-        MessageDialog messageDialog = new MessageDialog(context, null, message);
+        messageDialog = new MessageDialog(context, null, message);
         messageDialog.hideTitle(true);
         messageDialog.setListener(new OnClickButtonListener() {
             @Override
@@ -260,7 +263,8 @@ public class ABase extends Activity {
                 }
             }
         });
-        messageDialog.show();
+        if (!messageDialog.getDialog().isShowing())
+            messageDialog.show();
     }
 
     /**

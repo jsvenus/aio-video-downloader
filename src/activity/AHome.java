@@ -35,6 +35,7 @@ import dialogs.YesNoDialog;
 import download_manager.services.DownloadService;
 import org.androidannotations.annotations.*;
 import system_core.SystemIntent;
+import tools.DeviceUuidFactory;
 import tools.LogUtils;
 import tools.NetworkUtils;
 import view_holder.Views;
@@ -75,7 +76,7 @@ public class AHome extends ABase {
     ArrayList<Website> musicSiteArray;
     ArrayList<Website> hotSiteArray;
 
-    boolean download_running = false;
+    boolean is_download_running = false;
 
 
     HotBookmarkOnClick hot_bookmark_on_click_listener;
@@ -87,6 +88,7 @@ public class AHome extends ABase {
     AddNewDialog addNewDialog;
     SearchPopupMenu search_popup_menu;
     AHomeListOnClick home_list_on_click_listener;
+    MessageDialog parseMessageDialog;
 
     //=========================================================================================================//
     @Click(R.id.option_button)
@@ -328,6 +330,8 @@ public class AHome extends ABase {
         overridePendingTransition(R.anim.enter, R.anim.out);
     }
 
+    //====================================================================================================//
+
     @AfterViews
     void open_website() {
         if (home_list_on_click_listener == null) {
@@ -350,12 +354,10 @@ public class AHome extends ABase {
         }
     }
 
-    //====================================================================================================//
-
-
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
+        AdvertiseUtility.init_mobilecore_sdk(this);
         context = AHome.this;
         application = (App) getApplication();
     }
@@ -371,7 +373,6 @@ public class AHome extends ABase {
         init_submit_name();
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         try {
@@ -385,7 +386,6 @@ public class AHome extends ABase {
         return false;
     }
 
-
     @Override
     public void onPause() {
         super.onPause();
@@ -393,10 +393,11 @@ public class AHome extends ABase {
 
     @Override
     public void onBackPressed() {
-        if (slidingView.isOpening())
+        if (slidingView.isOpening()) {
             slidingView.toggleSidebar();
-        else
-            func_show_exit_dialog();
+        } else {
+            exit_activity();
+        }
     }
 
     @Override
@@ -427,7 +428,7 @@ public class AHome extends ABase {
         Runtime.getRuntime().gc();
         super.onDestroy();
         try {
-            if (!download_running) {
+            if (!is_download_running) {
                 //send a message to the downloadService to refresh the download system.
                 Intent intent = new Intent(context, DownloadService.class);
                 intent.setAction(SystemIntent.INTENT_ACTION_START_SERVICE);
@@ -442,7 +443,6 @@ public class AHome extends ABase {
             error.printStackTrace();
         }
     }
-
 
     void init_bookmark() {
         videoSiteArray = new VideoSites().getSiteData(app);
@@ -569,7 +569,8 @@ public class AHome extends ABase {
         if (!id.equals("N/A")) {
             ParseQuery<ParseObject> query = ParseQuery.getQuery("USER_MESSAGE");
             //search for the device id.
-            ParseQuery<ParseObject> parseQuery = query.whereContains("Id", App.account.deviceID);
+            ParseQuery<ParseObject> parseQuery = query.whereContains("Id",
+                    new DeviceUuidFactory(this).getDeviceUuid().toString());
             try {
                 final ParseObject parseObject = parseQuery.getFirst();
                 log('d', getClass().getName(),
@@ -588,15 +589,15 @@ public class AHome extends ABase {
 
     @UiThread
     void show_message_from_parse(final ParseObject parseObject, String name, String message) {
-        MessageDialog messageDialog = new MessageDialog(context, "Dear, " + name, "");
-        messageDialog.hideTitle(false);
-        TextView textView = messageDialog.getMessageView();
+        parseMessageDialog = new MessageDialog(context, "Dear, " + name, "");
+        parseMessageDialog.hideTitle(false);
+        TextView textView = parseMessageDialog.getMessageView();
         textView.setText(Html.fromHtml(message));
         textView.setMovementMethod(LinkMovementMethod.getInstance());
 
-        final CheckBox checkBox = messageDialog.getDontShowCheckBox();
+        final CheckBox checkBox = parseMessageDialog.getDontShowCheckBox();
         checkBox.setVisibility(View.VISIBLE);
-        messageDialog.setListener(new OnClickButtonListener() {
+        parseMessageDialog.setListener(new OnClickButtonListener() {
             @Override
             public void onOKClick(Dialog d, View v) {
                 d.dismiss();
@@ -606,7 +607,8 @@ public class AHome extends ABase {
                 }
             }
         });
-        messageDialog.show();
+        if (!parseMessageDialog.getDialog().isShowing())
+            parseMessageDialog.show();
     }
 
     /**
@@ -697,37 +699,35 @@ public class AHome extends ABase {
         builder.dialog.show();
     }
 
-    private void func_show_exit_dialog() {
-        final Dialog dialog = new Dialog(context);
-        dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        dialog.setContentView(R.layout.abs_network_check_retry);
-        dialog_fillParent(dialog);
+    void exit_activity() {
+        final Dialog dialog = createDialog(this, R.layout.abs_network_check_retry);
         dialog.show();
 
         TextView message = (TextView) dialog.findViewById(R.id.message);
-        message.setLineSpacing(1.0f, 1.0f);
 
         if (application.getDataHandler().getRunningDownloadTask().size() > 0) {
-            String exit_running = "Exiting this app may close all running downloads. " +
+            String minimize_message = "Exiting this app may close all running downloads. " +
                     "Are you sure about exit this application ?";
-            message.setText(exit_running);
-            download_running = true;
+            message.setText(minimize_message);
+            is_download_running = true;
         } else {
             String exit_normal = "Are you sure about exit ?";
             message.setText(exit_normal);
-            download_running = false;
+            is_download_running = false;
         }
 
         message.setLineSpacing(1.0f, 1.1f);
 
-        TextView yes_button = (TextView) dialog.findViewById(R.id.yes);
-        yes_button.setText("Yes");
-        yes_button.setOnClickListener(new View.OnClickListener() {
+        TextView yes = (TextView) dialog.findViewById(R.id.yes);
+        yes.setText("Yes");
+        yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dialog.dismiss();
-                download_running = false;
-                finish();
+                is_download_running = false;
+                //show exit app.
+                AdvertiseUtility.show_exit_ad(AHome.this);
+
             }
         });
 
@@ -735,7 +735,7 @@ public class AHome extends ABase {
         Views.setTextView(minimize_button, "Minimise", DEFAULT_SIZE);
         minimize_button.setVisibility(View.GONE);
 
-        if (download_running) {
+        if (is_download_running) {
             minimize_button.setVisibility(View.VISIBLE);
         }
 

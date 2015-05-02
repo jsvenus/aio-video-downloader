@@ -1,11 +1,13 @@
 package activity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.Gravity;
 import android.widget.TextView;
+import application.App;
 import com.parse.ParseAnalytics;
 import com.softcsoftware.aio.R;
 import org.androidannotations.annotations.AfterViews;
@@ -14,7 +16,7 @@ import org.androidannotations.annotations.ViewById;
 import view_holder.Views;
 
 @EActivity(R.layout.slash_activity)
-public class ASlash extends ABase {
+public class ASlash extends Activity {
 
     Context context;
 
@@ -24,10 +26,13 @@ public class ASlash extends ABase {
     @ViewById(R.id.version)
     TextView companyInfo;
 
+    App app;
+
     @Override
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         context = getApplicationContext();
+        app = (App) getApplication();
         ParseAnalytics.trackAppOpened(getIntent());
     }
 

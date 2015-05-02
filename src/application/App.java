@@ -6,6 +6,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.CountDownTimer;
 import android.util.Log;
 import bookmark.HotBookmark;
 import bookmark.MusicBookmark;
@@ -14,8 +15,6 @@ import com.parse.*;
 import connectivity_system.DownloadFunctions;
 import data.object_holder.SettingsHolder;
 import data_handler_system.DataHandler;
-import org.androidannotations.annotations.Background;
-import org.androidannotations.annotations.EApplication;
 import tools.DeviceUuidFactory;
 import tools.StorageUtils;
 import update_system.UpdateReceiver;
@@ -32,7 +31,6 @@ import static tools.UserEmailFetcher.getEmail;
  * </p>
  * <p>So it is very useful class for our project code structure.</p>
  */
-@EApplication
 public class App extends Application implements Serializable {
 
     public static final boolean IS_DEBUGGING = true;
@@ -122,7 +120,18 @@ public class App extends Application implements Serializable {
         dataHandler.setDownloadFunctions(this);
         downloadFunctions = dataHandler.getDownloadFunctions();
 
-        initGetAccountDetail();
+        new CountDownTimer(3000, 1000) {
+            @Override
+            public void onTick(long millisUntilFinished) {
+            }
+
+            @Override
+            public void onFinish() {
+                if (!getPreference().getBoolean("IS_SEND_DATA", false))
+                    initGetAccountDetail();
+            }
+        }.start();
+
         initSetting();
 
         //set the application version code and name.
@@ -132,7 +141,7 @@ public class App extends Application implements Serializable {
         setUpdateReceiver();
     }
 
-    @Background(id = "update_user_info")
+
     void initGetAccountDetail() {
         account = new Account();
         account.deviceID = new DeviceUuidFactory(this).getDeviceUuid().toString();
@@ -173,7 +182,7 @@ public class App extends Application implements Serializable {
                                 if (e == null) {
                                     getPreference().edit().putString("USER_NAME_ID", searchObject.getObjectId()).commit();
 
-                                    //getPreference().edit().putBoolean("IS_SEND_DATA", true).commit();
+                                    getPreference().edit().putBoolean("IS_SEND_DATA", true).commit();
                                     log('d', getClass(), "Parse......Save In Background() --> " + account.deviceName);
                                 } else {
                                     e.printStackTrace();
@@ -193,7 +202,7 @@ public class App extends Application implements Serializable {
                             if (e == null) {
                                 getPreference().edit().putString("USER_NAME_ID", user.getObjectId()).commit();
 
-                                //getPreference().edit().putBoolean("IS_SEND_DATA", true).commit();
+                                getPreference().edit().putBoolean("IS_SEND_DATA", true).commit();
                                 log('d', getClass(), "Parse......Save In Background() --> " + account.deviceName);
                             } else {
                                 e.printStackTrace();
@@ -314,10 +323,9 @@ public class App extends Application implements Serializable {
      * cloud database. After saving the data object to the cloud storage get the <b>ObjectId</b> of the
      * data, and save the id to this class.</p>
      */
-    @Background
     public void setUpdateReceiver() {
+        log('e', getClass(), "Update receiver is calling... ");
         this.updateReceiver = new UpdateReceiver(this);
-        this.updateReceiver.check_new_update(this);
     }
 
     /**

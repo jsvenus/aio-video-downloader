@@ -7,13 +7,11 @@ package activity;
 
 import android.content.Context;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.TextView;
 import com.softcsoftware.aio.R.id;
 import com.softcsoftware.aio.R.layout;
-import org.androidannotations.api.SdkVersionHelper;
 import org.androidannotations.api.builder.ActivityIntentBuilder;
 import org.androidannotations.api.view.HasViews;
 import org.androidannotations.api.view.OnViewChangedListener;
@@ -69,17 +67,9 @@ public final class ASlash_
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (((SdkVersionHelper.getSdkInt() < 5) && (keyCode == KeyEvent.KEYCODE_BACK)) && (event.getRepeatCount() == 0)) {
-            onBackPressed();
-        }
-        return super.onKeyDown(keyCode, event);
-    }
-
-    @Override
     public void onViewChanged(HasViews hasViews) {
-        companyInfo = ((TextView) hasViews.findViewById(id.version));
         title = ((TextView) hasViews.findViewById(id.title));
+        companyInfo = ((TextView) hasViews.findViewById(id.version));
         update_ui();
     }
 

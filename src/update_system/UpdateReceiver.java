@@ -32,22 +32,6 @@ public class UpdateReceiver {
      */
     public UpdateReceiver(final App app) {
         application = app;
-    }
-
-    public static String stripNonDigits(
-            final CharSequence input /* inspired by seh's comment */) {
-        final StringBuilder sb = new StringBuilder(
-                input.length() /* also inspired by seh's comment */);
-        for (int i = 0; i < input.length(); i++) {
-            final char c = input.charAt(i);
-            if (c > 47 && c < 58) {
-                sb.append(c);
-            }
-        }
-        return sb.toString();
-    }
-
-    public void check_new_update(final App app) {
 
         File updateDir = new File(StorageUtils.FILE_ROOT + "/Update APK");
         if (updateDir.exists()) {
@@ -119,5 +103,18 @@ public class UpdateReceiver {
                 }
             }
         });
+    }
+
+    public static String stripNonDigits(
+            final CharSequence input /* inspired by seh's comment */) {
+        final StringBuilder sb = new StringBuilder(
+                input.length() /* also inspired by seh's comment */);
+        for (int i = 0; i < input.length(); i++) {
+            final char c = input.charAt(i);
+            if (c > 47 && c < 58) {
+                sb.append(c);
+            }
+        }
+        return sb.toString();
     }
 }

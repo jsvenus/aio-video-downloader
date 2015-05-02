@@ -109,6 +109,19 @@ public class AWeb extends ABase {
     //Last file url.
     String lastUri = null;
     int custom_download = 0;
+    //======================== WEB CLIENT CODE ===============================//
+    CountDownTimer adTimer = new CountDownTimer((60_000 * 5), 60_000) {
+        @Override
+        public void onTick(long millisUntilFinished) {
+        }
+
+        @Override
+        public void onFinish() {
+            AdvertiseUtility.show_stickeez(AWeb.this);
+            AdvertiseUtility.setAdUnitsEventListener(AWeb.this);
+            this.start();
+        }
+    };
     private ArrayList<String> arrayURLList;
     private int isClick = 2, clicked = 1, notClicked = 2;
     /**
@@ -139,13 +152,13 @@ public class AWeb extends ABase {
     private PopupWindow popupWindow;
     private View popupView;
 
-
-//======================== WEB CLIENT CODE ===============================//
-
     @SuppressLint({"SetJavaScriptEnabled", "NewApi"})
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        AdvertiseUtility.show_stickeez(AWeb.this);
+        AdvertiseUtility.setAdUnitsEventListener(AWeb.this);
+        adTimer.start();
 
         context = AWeb.this;
         setContentView(R.layout.activity_webview);
@@ -200,7 +213,6 @@ public class AWeb extends ABase {
     @Override
     public void onResume() {
         super.onResume();
-
         web.onResume();
     }
 
@@ -219,6 +231,7 @@ public class AWeb extends ABase {
 
         super.onDestroy();
     }
+
 
     /**
      * Callback for touching the menu button.

@@ -35,24 +35,6 @@ public final class App_
     }
 
     @Override
-    public void initGetAccountDetail() {
-        BackgroundExecutor.execute(new BackgroundExecutor.Task("update_user_info", 0, "") {
-
-
-                                       @Override
-                                       public void execute() {
-                                           try {
-                                               App_.super.initGetAccountDetail();
-                                           } catch (Throwable e) {
-                                               Thread.getDefaultUncaughtExceptionHandler().uncaughtException(Thread.currentThread(), e);
-                                           }
-                                       }
-
-                                   }
-        );
-    }
-
-    @Override
     public void setUpdateReceiver() {
         BackgroundExecutor.execute(new BackgroundExecutor.Task("", 0, "") {
 
